@@ -1,0 +1,678 @@
+
+@font-face {
+  font-family: "Course";
+  src: url(fonts/cs-course.eot);
+  src: url(fonts/cs-course.eot?#iefix) format("embedded-opentype"), url(fonts/cs-course.woff) format("woff"), url(fonts/cs-course.ttf) format("truetype"), url(fonts/fonts/cs-course.svg#cs-course) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* YWFT Processing - http://www.youworkforthem.com/product.php?sku=T0024 */
+@font-face {
+  font-family: "YWFTProcessing";
+  src: url(fonts/ywft-processing-bold.eot);
+  src: url(fonts/ywft-processing-bold.eot?#iefix) format("embedded-opentype"), url(fonts/ywft-processing-bold.woff) format("woff"), url(fonts/ywft-processing-bold.ttf) format("truetype"), url(//d2rwobdpv93es3.cloudfront.net/assets/ywft-processing-bold.svg#SilkscreenNormal) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* PTSans - From Font Squirrel (http://www.fontsquirrel.com) */
+@font-face {
+  font-family: "PTSansRegular";
+  src: url(fonts/PTS55F-webfont.eot);
+  src: url(fonts/PTS55F-webfont.eot?#iefix) format("embedded-opentype"), url(fonts/PTS55F-webfont.woff) format("woff"), url(fonts/PTS55F-webfont.ttf) format("truetype"), url(fonts/PTS55F-webfont.svg#PTSansRegular) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Silkscreen - From Font Squirrel (http://www.fontsquirrel.com) */
+@font-face {
+  font-family: "SilkscreenNormal";
+  src: url(fonts/slkscr-webfont.eot);
+  src: url(fonts/slkscr-webfont.eot?#iefix) format("embedded-opentype"), url(fonts/slkscr-webfont.woff) format("woff"), url(fonts/slkscr-webfont.ttf) format("truetype"), url(fonts/slkscr-webfont.svg#SilkscreenNormal) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 7, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.exercise-tab, .overview-row-header h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 12, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.exercise--singleline_editor .exercise-content:after,
+.exercise--console .exercise-content:after,
+.exercise--editor .exercise-content:after, .feed-item:after, .intro-cell:after, .wrapup-cell:after, .wrapup-grid:after, .wrapup--course .wrapup-share:after, .wrapup--course .wrapup-continue:after, .badges:after, .overview-grid:after, .overview-header:after, .overview-description:after, .progress:after, .success-controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+ol { list-style: none;}
+
+/* line 63, ../../app/assets/stylesheets/core/_base.css.sass */
+code {
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+}
+
+/* line 66, ../../app/assets/stylesheets/core/_base.css.sass */
+strong {
+  font-weight: bold;
+}
+
+.exercise-objective-fileHeader {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+
+/* BASICS */
+/* line 4, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror {
+  /* Set height, width, borders, and global font properties here */
+  font-family: monospace;
+  height: 300px;
+}
+
+/* line 9, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-scroll {
+  /* Set scrolling behaviour here */
+  overflow: auto;
+}
+
+/* PADDING */
+/* line 16, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-lines {
+  padding: 4px 0;
+  /* Vertical padding around content */
+}
+
+/* line 19, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror pre {
+  padding: 0 4px;
+  /* Horizontal padding of content */
+}
+
+/* line 23, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-scrollbar-filler {
+  background-color: white;
+  /* The little square between H and V scrollbars */
+}
+
+/* GUTTER */
+/* line 29, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-gutters {
+  border-right: 1px solid #dddddd;
+  background-color: #f7f7f7;
+}
+
+/* line 34, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-linenumber {
+  padding: 0 3px 0 5px;
+  min-width: 20px;
+  text-align: right;
+  color: #999;
+}
+
+/* CURSOR */
+/* line 43, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror div.CodeMirror-cursor {
+  border-left: 1px solid black;
+  z-index: 3;
+}
+
+/* Shown when moving in bi-directional text */
+/* line 48, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror div.CodeMirror-secondarycursor {
+  border-left: 1px solid silver;
+}
+
+/* line 51, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror.cm-keymap-fat-cursor div.CodeMirror-cursor {
+  width: auto;
+  border: 0;
+  background: #7e7;
+  z-index: 1;
+}
+
+/* Can style cursor different in overwrite (non-insert) mode */
+/* line 60, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-tab {
+  display: inline-block;
+}
+
+/* DEFAULT THEME */
+/* line 64, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-keyword {
+  color: #708;
+}
+
+/* line 65, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-atom {
+  color: #219;
+}
+
+/* line 66, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-number {
+  color: #164;
+}
+
+/* line 67, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-def {
+  color: #00f;
+}
+
+/* line 68, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-variable {
+  color: black;
+}
+
+/* line 69, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-variable-2 {
+  color: #05a;
+}
+
+/* line 70, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-variable-3 {
+  color: #085;
+}
+
+/* line 71, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-property {
+  color: black;
+}
+
+/* line 72, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-operator {
+  color: black;
+}
+
+/* line 73, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-comment {
+  color: #a50;
+}
+
+/* line 74, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-string {
+  color: #a11;
+}
+
+/* line 75, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-string-2 {
+  color: #f50;
+}
+
+/* line 76, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-meta {
+  color: #555;
+}
+
+/* line 77, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-error {
+  color: #f00;
+}
+
+/* line 78, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-qualifier {
+  color: #555;
+}
+
+/* line 79, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-builtin {
+  color: #30a;
+}
+
+/* line 80, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-bracket {
+  color: #997;
+}
+
+/* line 81, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-tag {
+  color: #170;
+}
+
+/* line 82, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-attribute {
+  color: #00c;
+}
+
+/* line 83, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-header {
+  color: blue;
+}
+
+/* line 84, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-quote {
+  color: #090;
+}
+
+/* line 85, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-hr {
+  color: #999;
+}
+
+/* line 86, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-link {
+  color: #00c;
+}
+
+/* line 88, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-negative {
+  color: #d44;
+}
+
+/* line 89, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-positive {
+  color: #292;
+}
+
+/* line 90, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-header, .cm-strong {
+  font-weight: bold;
+}
+
+/* line 91, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-em {
+  font-style: italic;
+}
+
+/* line 92, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-link {
+  text-decoration: underline;
+}
+
+/* line 94, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-invalidchar {
+  color: #f00;
+}
+
+/* line 96, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+div.CodeMirror span.CodeMirror-matchingbracket {
+  color: #0f0;
+}
+
+/* line 97, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+div.CodeMirror span.CodeMirror-nonmatchingbracket {
+  color: #f22;
+}
+
+/* STOP */
+/* The rest of this file contains styles related to the mechanics of
+   the editor. You probably shouldn't touch them. */
+/* line 104, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror {
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  color: black;
+}
+
+/* line 112, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-scroll {
+  /* 30px is the magic margin used to hide the element's real scrollbars */
+  /* See overflow: hidden in .CodeMirror, and the paddings in .CodeMirror-sizer */
+  margin-bottom: -30px;
+  margin-right: -30px;
+  padding-bottom: 30px;
+  padding-right: 30px;
+  height: 100%;
+  outline: none;
+  /* Prevent dragging from highlighting the element */
+  position: relative;
+}
+
+/* line 121, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-sizer {
+  position: relative;
+}
+
+/* The fake, visible scrollbars. Used to force redraw during scrolling
+   before actuall scrolling happens, thus preventing shaking and
+   flickering artifacts. */
+/* line 128, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler {
+  position: absolute;
+  z-index: 6;
+  display: none;
+}
+
+/* line 133, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-vscrollbar {
+  right: 0;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* line 138, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-hscrollbar {
+  bottom: 0;
+  left: 0;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+/* line 143, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-scrollbar-filler {
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+}
+
+/* line 148, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-gutters {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding-bottom: 30px;
+  z-index: 3;
+}
+
+/* line 154, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-gutter {
+  height: 100%;
+  padding-bottom: 30px;
+  margin-bottom: -32px;
+  display: inline-block;
+  /* Hack to make IE7 behave */
+  *zoom: 1;
+  *display: inline;
+}
+
+/* line 163, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-gutter-elt {
+  position: absolute;
+  cursor: default;
+  z-index: 4;
+}
+
+/* line 169, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-lines {
+  cursor: text;
+}
+
+/* line 172, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror pre {
+  /* Reset some styles that the rest of the page might have set */
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border-width: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  white-space: pre;
+  word-wrap: normal;
+  line-height: inherit;
+  color: inherit;
+  z-index: 2;
+  position: relative;
+  overflow: visible;
+}
+
+/* line 188, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-wrap pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: normal;
+}
+
+/* line 193, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-linebackground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+/* line 199, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-linewidget {
+  position: relative;
+  z-index: 2;
+  overflow: auto;
+}
+
+/* line 205, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-widget {
+  display: inline-block;
+}
+
+/* line 209, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-wrap .CodeMirror-scroll {
+  overflow-x: hidden;
+}
+
+/* line 213, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-measure {
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/* line 219, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-measure pre {
+  position: static;
+}
+
+/* line 221, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror div.CodeMirror-cursor {
+  position: absolute;
+  visibility: hidden;
+  border-right: none;
+  width: 0;
+}
+
+/* line 227, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-focused div.CodeMirror-cursor {
+  visibility: visible;
+}
+
+/* line 231, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-selected {
+  background: #d9d9d9;
+}
+
+/* line 232, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-focused .CodeMirror-selected {
+  background: #d7d4f0;
+}
+
+/* line 234, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-searching {
+  background: #ffa;
+  background: rgba(255, 255, 0, 0.4);
+}
+
+/* IE7 hack to prevent it from returning funny offsetTops on the spans */
+/* line 240, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror span {
+  *vertical-align: text-bottom;
+}
+
+@media print {
+  /* Hide the cursor when printing */
+  /* line 244, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+  .CodeMirror div.CodeMirror-cursor {
+    visibility: hidden;
+  }
+}
+
+
+/* line 5, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror {
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+  line-height: 24px;
+  height: auto;
+  position: relative;
+}
+/* line 10, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror pre {
+  padding: 0 0.5em;
+}
+/* line 15, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-activeline {
+  background: #404040;
+}
+/* line 17, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-cursor {
+  border-left: 1px solid black !important;
+}
+/* line 19, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-gutters {
+  background: #404040;
+  border-right: 0;
+}
+/* line 22, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-linenumber {
+  color: #bbbdc0;
+}
+/* line 24, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-lines {
+  padding: 0;
+}
+/* line 26, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-pre {
+  padding: 0 0.5em;
+}
+/* line 28, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-scroll {
+  background: transparent;
+}
+/* line 30, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-selected {
+  background: #737373 !important;
+}
+/* line 35, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios {
+  background: transparent;
+  color: black;
+  height: 100%;
+}
+/* line 39, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-keyword,
+.CodeMirror.cm-s-ios .cm-atom {
+  color: #b07dc4;
+}
+/* line 42, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-number {
+  color: #e1c76a;
+}
+/* line 44, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-def {
+  color: blue;
+}
+/* line 46, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-variable {
+  color: black;
+}
+/* line 48, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-variable-2 {
+  color: blue;
+}
+/* line 50, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-variable-3 {
+  color: blue;
+}
+/* line 52, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-property {
+  color: blue;
+}
+/* line 54, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-operator,
+.CodeMirror.cm-s-ios .cm-comment,
+.CodeMirror.cm-s-ios .cm-meta {
+  color: #bbbdc0;
+}
+/* line 58, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-string {
+  color: #1ebcef;
+}
+/* line 60, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-string-2 {
+  color: blue;
+}
+/* line 62, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-error {
+  color: blue;
+}
+/* line 64, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-qualifier {
+  color: blue;
+}
+/* line 66, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-builtin {
+  color: blue;
+}
+/* line 68, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-bracket {
+  color: blue;
+}
+/* line 70, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-tag {
+  color: blue;
+}
+/* line 72, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-attribute {
+  color: blue;
+}
+/* line 74, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-header {
+  color: blue;
+}
+/* line 76, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-quote {
+  color: blue;
+}
+/* line 78, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-hr {
+  color: blue;
+}
+/* line 80, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-link {
+  color: blue;
+}
+/* line 85, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .build-error {
+  background: #a51e22;
+  color: black;
+}
+/* line 89, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .burned {
+  opacity: 0.5;
+}
+
+/* line 92, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror-widget {
+  background: #d5d7d9;
+  border-radius: 20px;
+  color: black;
+}
+
+/* line 86, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.higgie--exercise {
+  background: url(images/higgie-speech.svg) 10px bottom no-repeat;
+  border: 2px solid #333333;
+  margin: 1.25em 0;
+  padding: 0.9375em 1.25em;
+}
+/* line 91, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.higgie--exercise p, .higgie--exercise pre {
+  font-size: 1.125em;
+  margin-left: 5.55556em;
+}
+/* line 95, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.higgie--exercise p {
+  font-family: "SilkscreenNormal";
+}
+
+

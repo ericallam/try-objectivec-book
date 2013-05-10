@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>
+      Code School - Try Objective-C Book
+    </title>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href="application.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="codemirror/lib/codemirror.js" type="text/javascript" ></script>
+    <script src="codemirror/mode/clike/clike.js" type="text/javascript" ></script>
+    <script src="codemirror/addon/runMode/runMode.js" type="text/javascript" ></script>
+    <script src="javascripts/objc.js" type="text/javascript" ></script>
+    <script src="javascripts/jquery.js" type="text/javascript" ></script>
+    <script src="javascripts/underscore.js" type="text/javascript" ></script>
+    <script src="application.js" type="text/javascript" ></script>
+  </head>
+  <body>
+
+  <div class="user-enrolled level--5 exercise--text">
+  
+    
+
+    <ol class="exercises">
+      <li class="exercise exercise--text">
+          <div class="exercise-content">
+              <div class="exercise-objective">
+                <h2>Level 5 Table of Contents</h2>
+
+                <ul style="margin-top:15px">
+                  
+                    <li><a href="#exercise-59">Let's make mistakes</a></li>
+                  
+                    <li><a href="#exercise-60">Responds to message</a></li>
+                  
+                    <li><a href="#exercise-61">Adopt NSCopying</a></li>
+                  
+                    <li><a href="#exercise-62">Implement copyWithZone</a></li>
+                  
+                    <li><a href="#exercise-63">What is nil?</a></li>
+                  
+                    <li><a href="#exercise-64">New Initializer</a></li>
+                  
+                    <li><a href="#exercise-65">Object class</a></li>
+                  
+                    <li><a href="#exercise-66">id type</a></li>
+                  
+                    <li><a href="#exercise-67">Pointers</a></li>
+                  
+                </ul>
+              </div>
+          </div>
+      </li>
+    </ol>
+      
+    <section id="course" class="course">
+        <ol id="exercises" class="exercises">
+            
+              <li id="exercise-59" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>5.1</strong> Let's make mistakes
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p><em>To err is human</em>. To err is also to code. Creating an error-free program is impossible because try as hard as we might, there will always be bugs.</p>
+
+<div class="higgie--exercise">
+  <p>My parents always told me I was perfect and bug-free</p>
+</div>
+
+<p>Fortunately, there are strategies and techniques for writing Objective-C apps with as few bugs as humanly possible. In this level we’ll be digging a little
+deeper into Objective-C so we can explore common errors and learn how to stop them from happening.</p>
+
+<p>We will be doing a lot of break-things-first-and-then-fix-it style challenges in this level.  It may be counter-intuitive to try and build a bug-free program by first breaking it, but you must first see how things can go wrong before you can learn how to make things right.</p>
+
+<div class="higgie--exercise">
+  <p>I love breaking things. Especially previously stagnated markets.</p>
+</div>
+
+<p class="exercise-objective-action">
+  Let's break something now. There is a message on <code>NSObject</code> called _copy_ that should make and return a copy of an already existing object. Go ahead and send <code>copy</code> to our already existing <code>TalkingPhone</code> object and keep an eye on the output to see what happens.
+</p>
+
+                        
+                          <a name="exercise-59-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">Challenge:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+[talkingiPhone decreaseBatteryLife:@5];
+
+TalkingPhone *copy = /*//Create a copy of talkingiPhone//*/
+[copy reportBatteryLife];</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject {
+  NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-59-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-60" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>5.2</strong> Responds to message
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>There are two distinct times when there is the opportunity for errors to happen in your program:</p>
+
+<h3>Compile time</h3>
+
+<p>Before a program can run, it must first be compiled, and it’s the job of the <em>compiler</em> to combine all your code into an executable program.  If the <em>compiler</em> finds any errors, it will not compile your code into an executable, and instead report the errors so you can fix them. So far in this course, you’ve only had to fix these kinds of errors.</p>
+
+<h3>Run time</h3>
+
+<p>Just because your code successfully compiles and runs, it doesn’t mean you are in the clear because the compiler can’t catch everything (nor would we want it to, it would end up taking forever to compile anything). When an error happens at “runtime” it’s called an exception. This is exactly what happened in the last challenge: your code compiled but when we ran the compiled program, we got this runtime exception:</p>
+
+<p class="exercise-objective-error">
+  Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[TalkingPhone copyWithZone:]: unrecognized selector sent to instance 0x7fdf014010d0'
+</p>
+
+<p>The <code>NSInvalidArgumentException</code> means that we sent a message to an object and the object did not recognize the message because its class does not implement it. In this case, the <code>copy</code> message caused the <code>copyWithZone:</code> message to be sent to <code>talkingiPhone</code>, which it doesn’t respond to. Since the compiler didn’t check if <code>talkingiPhone</code> could respond to <code>copyWithZone:</code>, when the program ran, the <code>copyWithZone:</code> message was sent to the object and the object didn’t know what to do and so the program crashed.</p>
+
+<div class="higgie--exercise">
+  <p>All hope is lost. Anyone here down for some putt-putt?</p>
+</div>
+
+<p>All hope is not lost! We can always ask an object if it can respond to a message before we send it.  For example, we can ask the <code>talkingiPhone</code> object if it responds to the <code>decreaseBatteryLife:</code> message like this:</p>
+
+<pre data-syntax="objc">if([talkingiPhone respondsToSelector:@selector(decreaseBatteryLife:)]){
+  NSLog(@"Yup, talkingiPhone responds to the decreaseBatteryLife: message");
+}
+</pre>
+
+<p>A <em>selector</em> is the object used to identify a message, and here we are passing the <code>decreaseBatteryLife:</code> selector to the <code>respondsToSelector:</code> message. <code>respondsToSelector:</code> figures out if the object it was sent to responds to the message corresponding to the name of the selector. In the case above, <code>respondsToSelector:</code> would return YES because the <code>talkingiPhone</code> object does respond to the <code>decreaseBatteryLife:</code> message.</p>
+
+<p>If we wanted to check if the <code>talkingiPhone</code> object responds to a message with the name <code>thisMessageDoesNotExist</code>, we could do that like so:</p>
+
+<pre data-syntax="objc">if([talkingiPhone respondsToSelector:@selector(thisMessageDoesNotExist)]){
+  NSLog(@"Yup, talkingiPhone responds to the thisMessageDoesNotExist message");
+}else{
+  NSLog(@"Nope, talkingiPhone DOES NOT respond to the thisMessageDoesNotExist message");
+}
+</pre>
+
+<p>We’ve essentially added error-checking to the <em>runtime</em> of our application, because we could not rely on errors from <em>compile time</em> to catch the problem.</p>
+
+<p class="exercise-objective-action">
+  Fix the runtime exception by finishing the <code>if</code> statement so that <code>copy</code> is only called if <code>talkingiPhone</code> responds to the <code>copyWithZone:</code> message.
+</p>
+
+                        
+                          <a name="exercise-60-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">Challenge:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+[talkingiPhone decreaseBatteryLife:@5];
+
+if(/*//responds to copyWithZone://*/){
+  TalkingPhone *copy = [talkingiPhone copy];
+  [copy reportBatteryLife];
+}</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject {
+  NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-60-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-61" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>5.3</strong> Adopt NSCopying
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p><code>copyWithZone:</code> is a special method: It isn’t declared in any class, and yet the <code>copy</code> method expects objects to respond to it. The <code>copy</code> method has an implicit contract with the receiving object: implement <code>copyWithZone:</code> or there is going to be trouble.</p>
+
+<div class="higgie--exercise">
+  <p>It's unwise to mess with <code>copy</code>. Don't believe me? Ask Samsung, they know what I'm talking about.</p>
+</div>
+
+<p>Objective-C has a feature for enforcing this kind of contract: <em>protocols</em>.  Protocols declare a set of messages that it expects an object to respond to. <code>copyWithZone:</code> is a part of the <code>NSCopying</code> protocol.  If you check out the <a href="http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Protocols/NSCopying_Protocol/Reference/Reference.html#//apple_ref/doc/uid/TP40003777" target="_blank">NSCopying Reference</a>, you’ll see that <code>copyWithZone:</code> is the only requirement of the protocol.</p>
+
+<p>You can “tag” an object with the expectation that it responds to all the required messages in a protocol. For example, when creating a new <code>Person</code> object:</p>
+
+<pre data-syntax="objc">Person &lt;NSCopying&gt; *person = [[Person alloc] init];
+Person *copy = [person copy];
+</pre>
+
+<p>Now if the <code>Person</code> class does not adopt the <code>NSCopying</code> protocol, the compiler will complain about this code and not allow you to continue. Now the only way to fix the compiler error would be to have the <code>Person</code> class adopt the <code>NSCopying</code> protocol, like so:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.h</span></p>
+
+<pre data-syntax="objc">@interface Person : NSObject &lt;NSCopying&gt;
+@end
+</pre>
+
+<p>By adopting the <code>NSCopying</code> protocol, the <code>Person</code> class must implement the <code>copyWithZone:</code> method or the compiler will complain.</p>
+
+<p class="exercise-objective-action">
+  Go ahead and have the <code>TalkingPhone</code> class adopt the NSCopying protocol so we can see the resulting compiler error. (The error will appear in <code>TalkingPhone.m</code>)
+</p>
+
+                        
+                          <a name="exercise-61-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject {
+  NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+[talkingiPhone decreaseBatteryLife:@5];
+
+TalkingPhone *copy = [talkingiPhone copy];
+[copy reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-61-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-62" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>5.4</strong> Implement copyWithZone
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <div class="higgie--exercise">
+  <p>Can we just implement copyWithZone: already? How hard can it be?</p>
+</div>
+
+<p>Copying an object isn’t complicated at all: it starts with just creating a brand new object. The one difference within the <code>copyWithZone:</code> method is to make sure to allocate our new object in the zone of memory provided by the <code>NSZone</code> argument. To see how we can accomplish this, let’s see how we would implement a <code>copyWithZone:</code> method on a <code>Person</code> class:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">@implementation Person
+- (Person *) copyWithZone:(NSZone *)zone;
+{
+    Person *personCopy = [[Person allocWithZone:zone] init];
+    return personCopy;
+}
+@end
+</pre>
+
+<p>Notice the <code>allocWithZone:</code> message, it’s replaced the normal <code>alloc</code> message that we usually send when creating new objects. <code>allocWithZone:</code> does that same thing as alloc, but it will allocate memory for the object in a certain zone of memory. This is done for performance reasons: allocating similar objects in the same zone of memory ensures accessing those objects in memory is as fast as possible.</p>
+
+<p class="exercise-objective-action">
+  Go ahead and implement <code>copyWithZone:</code> on the <code>TalkingPhone</code> class, creating a new <code>TalkingPhone</code> object using <code>allocWithZone:</code> and returning it from the method.
+</p>
+
+                        
+                          <a name="exercise-62-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject <NSCopying> {
+  NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+[talkingiPhone decreaseBatteryLife:@5];
+
+TalkingPhone *copy = [talkingiPhone copy];
+[copy reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-62-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-63" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>5.5</strong> What is nil?
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Did you notice that when you called <code>reportBatteryLife</code> on the TalkingPhone copy returned from <code>copyWithZone:</code> that it output something strange and unexpected:</p>
+
+<pre data-syntax="">TalkingPhone.m[21]: (null)'s battery life is 100
+</pre>
+
+<p>Wait, weren’t we supposed to be logging the <code>phoneName</code> property of the object, what the heck is <code>(null)</code>?</p>
+
+<div class="higgie--exercise">
+  <p>You never set the <code>phoneName</code> on the copy. Even I realized that and I'm a fictional character.</p>
+</div>
+
+<p>Logging a property that hasn’t been set yet results in the property being represented by <code>(null)</code>, but does that mean that the <code>phoneName</code> property is set to the string <code>@"(null)"</code> by default? </p>
+
+<p>Nope, a property or variable that hasn’t been set to anything has a value of <code>nil</code>.  <code>nil</code> is like the number 0: it represents the absense of value. You can check if a property or variable is <code>nil</code> using an <code>if</code> statement, like so:</p>
+
+<pre data-syntax="objc">TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+
+if(talkingiPhone.phoneName){
+  NSLog(@"phoneName is set to %@", talkingiPhone.phoneName);
+}else{
+  NSLog(@"phoneName is nil");
+}
+</pre>
+
+<p><code>nil</code> has a special and useful feature: you can send messages to it and instead of causing an error, it will respond to the message and simply return <code>nil</code>.  So you could do something like this:</p>
+
+<pre data-syntax="objc">TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+
+if([talkingiPhone.phoneName isEqualToString:@"Mr. Higgie"]){
+  NSLog(@"phoneName is equal to Mr. Higgie");
+}else{
+  NSLog(@"phoneName is not equal to Mr. Higgie");
+}
+</pre>
+
+<p>So even if <code>talkingiPhone.phoneName</code> is <code>nil</code>, the code above will still work.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> If you aren't expecting an object to be nil, then having a message just return nil instead of performing the expected method can sometimes lead to subtle errors. Consider this when debugging.
+</p>
+
+<p class="exercise-objective-action">
+  Fix <code>reportBatteryLife</code> by checking if <code>phoneName</code> is nil.  If it is nil, then output <code>self</code> in place of <code>self.phoneName</code>
+</p>
+
+                        
+                          <a name="exercise-63-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject <NSCopying> {
+  NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (TalkingPhone *) copyWithZone:(NSZone *)zone;
+{
+   TalkingPhone *copy = [[TalkingPhone allocWithZone:zone] init];
+   return copy;
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+[talkingiPhone decreaseBatteryLife:@5];
+
+TalkingPhone *copy = [talkingiPhone copy];
+[copy reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-63-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-64" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>5.6</strong> New Initializer
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>The object returned by <code>copy</code> should have all the same data as the original object. In this case, the copy should have both its <code>phoneName</code> and <code>_batteryLife</code> set to match that of the original object.</p>
+
+<p>We’ve gone ahead and set the copy’s phoneName to <code>@"Copy of X"</code> where X is the original object’s phoneName.
+But we’ve run into a problem: how do we set the copy’s <code>_batteryLife</code> instance variable?
+We’ve intentionally hidden <code>_batteryLife</code> from outside code, but now we have a situation we’re outside code needs to be able to set it.</p>
+
+<p>We have two options: </p>
+
+<ol>
+  <li>Change <code>_batteryLife</code> back to a writable property.</li>
+  <li>Add a method to TalkingPhone that sets the <code>_batteryLife</code> variable.</li>
+</ol>
+
+<p>The first option is ruled out because it’s our goal to keep <code>_batteryLife</code> as hidden as possible. So we are left with adding a method to <code>TalkingPhone</code>. But we don’t want a method that can be called at any time because that would defeat the purpose of hiding the variable. Imagine we add a method called <code>setBatteryLife:</code> and then use it inside the <code>copyWithZone:</code> method:</p>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">- (TalkingPhone *) copyWithZone:(NSZone *)zone;
+{
+   TalkingPhone *copy = [[TalkingPhone allocWithZone:zone] init];
+   copy.phoneName = [NSString stringWithFormat:@"Copy of %@", self.phoneName];
+   [copy setBatteryLife:_batteryLife];
+   return copy;
+}
+</pre>
+
+<p>Now there is nothing stopping outside code from mucking around with <code>_batteryLife</code> once the copy has been made:</p>
+
+<pre data-syntax="objc">TalkingPhone *copy = [talkingiPhone copy];
+[copy setBatteryLife:@10000];
+</pre>
+
+<p>Instead of adding a method that can be called at any time, we can add a custom <em>initializer</em> method that can only be called when a TalkingPhone object is created. A custom initializer method is defined just like the <code>init</code> method, and its name should start with <code>init</code>. For example, we could add a custom initializer to <code>Person</code> that accepts arguments for the first and last name:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.h</span></p>
+
+<pre data-syntax="objc">@interface Person : NSOBject
+- (Person *) initWithFirstName:(NSString *)firstName 
+                      lastName:(NSString *)lastName;
+                      
+@property NSString *firstName;
+@property NSString *lastName;
+@end
+</pre>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">@implementation Person
+- (Person *) initWithFirstName:(NSString *)firstName 
+                      lastName:(NSString *)lastName;
+{
+   _firstName = firstName;
+   _lastName = lastName;
+   return [super init];
+}
+@end
+</pre>
+
+<p>Now you can initialize a <code>Person</code> and set their first and last name at the same time:</p>
+
+<pre data-syntax="objc">Person *person = [[Person alloc] initWithFirstName:@"Tim" 
+                                          lastName:@"Cook"];
+</pre>
+
+<p class="exercise-objective-action">
+  Implement the <code>initWithBatteryLife:</code> method (we've already declared the method in the header) to set the <code>_batteryLife</code>. Then update copyWithZone: to use this new initializer.
+</p>
+
+                        
+                          <a name="exercise-64-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject <NSCopying> {
+  NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (TalkingPhone *) copyWithZone:(NSZone *)zone;
+{
+   TalkingPhone *copy = [[TalkingPhone allocWithZone:zone] init];
+   copy.phoneName = [NSString stringWithFormat:@"Copy of %@", self.phoneName];
+   return copy;
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+  if(self.phoneName){
+    NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);  
+  }else{
+    NSLog(@"%@'s battery life is %@", self, _batteryLife);
+  }
+    
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+[talkingiPhone decreaseBatteryLife:@5];
+
+TalkingPhone *copy = [talkingiPhone copy];
+[copy reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-64-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-65" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>5.7</strong> Object class
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>We now have a working <code>copyWithZone:</code> method that will create and return a new <code>TalkingPhone</code> instance with data copied from the object that is sent the <code>copy</code> message.</p>
+
+<p>And that is great, it really is. We’ve taken advantage of the power of Objective-C with features like protocols and inheritence. With a protocol we have the compiler make sure the <code>TalkingPhone</code> class implements the correct method to support the <code>copy</code> message. With inheritence, we use the <code>NSObject</code> implementation of <code>copy</code> to save us from writing extra code.</p>
+
+<p>But, with great power comes great responsibility. The classes we define do not exist in a vacuum. They are open for extension, but closed for modification. In Object-Oriented programming, this is known as the <a href="http://en.wikipedia.org/wiki/Open/closed_principle" target="_blank">open/closed principle</a>.</p>
+
+<p>This means that you need to design a class that can be inherited from and it should <em>just work</em>, without the author of a subclass having access to the source of the superclass.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> A <em>subclass</em> is a class that inherits from another class, and a <em>superclass</em> is a class that has 1 or more <em>subclasses</em>. These terms are usually used relative to a class. So for example, you could say "TalkingPhone is a subclass of NSObject", or "NSObject is TalkingPhone's superclass."
+</p>
+
+<p>It’s easier to understand this principle by identifying a violation and learning how to fix it. Fortunately, we accidentally committed a violation of this principle when we implemented <code>copyWithZone:</code>.  Can you spot it?</p>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">- (TalkingPhone *) copyWithZone:(NSZone *)zone;
+{
+   TalkingPhone *copy = [[TalkingPhone allocWithZone:zone] initWithBatteryLife:_batteryLife];
+   copy.phoneName = [NSString stringWithFormat:@"Copy of %@", self.phoneName];
+   return copy;
+}
+</pre>
+
+<p>We hardcoded the class of the returned object to always be <code>TalkingPhone</code>. That means that if we create a new class that inherits from <code>TalkingPhone</code>, calling <code>copyWithZone:</code> on an instance of the subclass will <em>not</em> return an instance of that subclass, but will return an instance of <code>TalkingPhone</code>. This can lead to you creating objects of the wrong class, which will cause unexpected bugs in your program. </p>
+
+<p>To see what can happen, we’ve added a new class <code>ChargableTalkingPhone</code> that inherits from <code>TalkingPhone</code>. We’ve added a new method to <code>ChargableTalkingPhone</code> that will allow it to increase its battery life, but we’ve left the <code>TalkingPhone</code> class unchanged. In the “Example Use” tab we’ve tried copying a <code>ChargableTalkingPhone</code> object and then increasing the copy’s battery life.</p>
+
+<p class="exercise-objective-action">
+  Submit the code as-is and then view the output to see the runtime exception
+</p>
+
+<p>When we tried to send the <code>increaseBatteryLife:</code> message to the object returned by <code>copy</code>, it resulted in a runtime exception because the copied object was a <code>TalkingPhone</code> instance, not a <code>ChargableTalkingPhone</code> instance.</p>
+
+<h3>The fix</h3>
+
+<p>So how do we fix this? Looking again at the <code>copyWithZone:</code> code, we can see that we’ve hardcoded <code>TalkingPhone</code> three times:</p>
+
+<pre data-syntax="objc">- (TalkingPhone *) copyWithZone:(NSZone *)zone;
+{
+   TalkingPhone *copy = [[TalkingPhone allocWithZone:zone] initWithBatteryLife:_batteryLife];
+   copy.phoneName = [NSString stringWithFormat:@"Copy of %@", self.phoneName];
+   return copy;
+}
+</pre>
+
+<p>The type specifiers (<code>TalkingPhone *</code>) are actually fine at this point, and we don’t need to change them to get this to work. The code that is really responsible for the kind of object created is this bit here:</p>
+
+<pre data-syntax="objc">[[TalkingPhone allocWithZone:zone] initWithBatteryLife:_batteryLife];
+</pre>
+
+<p>Here we are always only creating <code>TalkingPhone</code> objects. Instead, we should create a new object based on the class of the current <code>self</code> object (which makes sense for a copy operation). Luckily, classes aren’t only words you type into your code, they are also objects themselves. </p>
+
+<div class="higgie--exercise">
+  <p>A class is an object? So a class has a class? Well you just blew my flashdrive.</p>
+</div>
+
+<p>Yup, but for now all we need to know is that we can send the <code>class</code> message to an object to get its class at <em>runtime</em>.  So you can create new objects like this:</p>
+
+<pre data-syntax="objc">[[Person alloc] init];
+</pre>
+
+<p>And like this:</p>
+
+<pre data-syntax="objc">[[[someExistingObject class] alloc] init];
+</pre>
+
+<p class="exercise-objective-action">
+  Fix the <code>copyWithZone:</code> implementation to work with subclasses by sending <code>allocWithZone:</code> to the result of <code>[self class]</code>
+</p>
+
+                        
+                          <a name="exercise-65-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject <NSCopying> {
+  NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+{
+    _batteryLife = batteryLife;
+    return [super init];
+}
+
+- (TalkingPhone *) copyWithZone:(NSZone *)zone;
+{
+   TalkingPhone *copy = [[TalkingPhone allocWithZone:zone] initWithBatteryLife:_batteryLife];
+   copy.phoneName = [NSString stringWithFormat:@"Copy of %@", self.phoneName];
+   return copy;
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+  if(self.phoneName){
+    NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);  
+  }else{
+    NSLog(@"%@'s battery life is %@", self, _batteryLife);
+  }
+    
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">ChargableTalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface ChargableTalkingPhone : TalkingPhone
+- (void) increaseBatteryLife:(NSNumber *)num;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">ChargableTalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "ChargableTalkingPhone.h"
+
+@implementation ChargableTalkingPhone
+- (void) increaseBatteryLife:(NSNumber *)num;
+{
+    _batteryLife = @([_batteryLife intValue] + [num intValue]);
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "ChargableTalkingPhone.h"
+
+ChargableTalkingPhone *phone = [[ChargableTalkingPhone alloc] initWithBatteryLife:@50];
+
+phone.phoneName = @"Stove Jibs";
+
+[phone reportBatteryLife];
+
+ChargableTalkingPhone *copyPhone = [phone copy];
+[copyPhone increaseBatteryLife:@5];
+[copyPhone reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-65-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-66" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>5.8</strong> id type
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Our <code>copyWithZone:</code> method works as-is, but it’s a little confusing because we have defined the return type and type of the copy to be of <code>TalkingPhone *</code>, and we know now that isn’t always the case.</p>
+
+<p>To convey the functionality of this method, we can take advantage of a feature of the Objective-C language: An object that belongs to a subclass can be specified as the type of a superclass. That means we can do this:</p>
+
+<pre data-syntax="objc">TalkingPhone *talkingPhone = [[ChargableTalkingPhone alloc] init];
+</pre>
+
+<p>The type can be as generic as you want it to be, so you could even specify an object to be of type <code>NSObject *</code>:</p>
+
+<pre data-syntax="objc">NSObject *person = [[Person alloc] init];
+</pre>
+
+<p>There is a special type <code>id</code> that should be used instead of <code>NSObject *</code> for when you have a generic Objective-C object that you don’t know the type of at compile time:</p>
+
+<pre data-syntax="objc">id person = [[Person alloc] init];
+</pre>
+
+<p>By declaring an object as an <code>id</code> type, the compiler will allow you to send the object any message, but it won’t allow you to use the property <code>.</code> notation. So instead of this:</p>
+
+<pre data-syntax="objc">Person *person = [[Person alloc] init];
+person.firstName = @"Eric";
+NSLog(@"%@", person.firstName);
+</pre>
+
+<p>You could write this:</p>
+
+<pre data-syntax="objc">id person = [[Person alloc] init];
+[person setFirstName:@"Eric"];
+NSLog(@"%@", [person firstName]);
+</pre>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> When declaring an object with a type of <code>id</code>, you have to leave off the <code>*</code>.
+</p>
+
+<p class="exercise-objective-action">
+  Update the copyWithZone: method to replace occurrences of <code>TalkingPhone *</code> with the <code>id</code> type. Make sure and update setting the phoneName property to use the setPhoneName message
+</p>
+
+                        
+                          <a name="exercise-66-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject <NSCopying> {
+  NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+{
+    _batteryLife = batteryLife;
+    return [super init];
+}
+
+- (TalkingPhone *) copyWithZone:(NSZone *)zone;
+{
+   TalkingPhone *copy = [[[self class] allocWithZone:zone] initWithBatteryLife:_batteryLife];
+   copy.phoneName = [NSString stringWithFormat:@"Copy of %@", self.phoneName];
+   return copy;
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+  if(self.phoneName){
+    NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);  
+  }else{
+    NSLog(@"%@'s battery life is %@", self, _batteryLife);
+  }
+    
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+[talkingiPhone decreaseBatteryLife:@5];
+
+TalkingPhone *copy = [talkingiPhone copy];
+[copy reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-66-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-67" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>5.9</strong> Pointers
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Remember in Level 1 when we introduced variables and compared them to a labeled box that holds an object?  Well, that’s not exactly how it works.</p>
+
+<div class="higgie--exercise">
+  <p>I always knew there was something fishy with that box metaphor (I don't trust boxes)</p>
+</div>
+
+<p>When you create a variable for an Objective-C object, all you are storing in the “box” is the address of the actual object. It’d be like if you opened a box and instead of seeing a present, it was just a piece of paper with a P.O. Box address on it. You could use the address to go and fetch the present, or you could give the address to another person and have them fetch the present.</p>
+
+<p>How do you know if your variable is just a pointer and not an actual object?  You can tell by the presence of the asterisk <code>*</code>, which means “pointer to”. So the type <code>NSString *</code> can be read as “pointer to a NSString object”.</p>
+
+<p>When dealing with variables for Objective-C objects, you are always dealing with pointers to those objects. In the case of the <code>id</code> type, it’s already defined as a pointer to an object, so you don’t need to specify the <code>*</code> again.</p>
+
+<p>Variables that are used for basic <em>c</em> types like <code>int</code> and <code>char</code> don’t need the <code>*</code> because they hold the values directly, instead of a pointer to those objects:</p>
+
+<pre data-syntax="objc">int i = 25;
+char c = "f";
+</pre>
+
+<p>If you want to log the address that a variable holds instead of object the address points to, you can use the <code>%p</code> placeholder in NSLog, like so:</p>
+
+<pre data-syntax="objc">Person *person = [[Person alloc] init];
+NSLog(@"The person object is located at %p", person);
+</pre>
+
+<p class="exercise-objective-action">
+  Go ahead and log the addresses of both the <code>talkingiPhone</code> object and <code>copy</code> object. Notice how they point to different places.
+</p>
+
+                        
+                          <a name="exercise-67-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">Challenge:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+TalkingPhone *copy = [talkingiPhone copy];
+
+NSLog(@"The memory address for the original object is %p", talkingiPhone);
+NSLog(@"The memory address for the copied object is %p", copy);</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject <NSCopying> {
+  NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+{
+    _batteryLife = batteryLife;
+    return [super init];
+}
+
+- (id) copyWithZone:(NSZone *)zone;
+{
+   id copy = [[[self class] allocWithZone:zone] initWithBatteryLife:_batteryLife];
+   [copy setPhoneName:[NSString stringWithFormat:@"Copy of %@", self.phoneName]];
+   return copy;
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+  if(self.phoneName){
+    NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);  
+  }else{
+    NSLog(@"%@'s battery life is %@", self, _batteryLife);
+  }
+    
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-67-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+        </ol>
+
+
+
+        <ol class="exercises">
+          <li class="exercise exercise--text">
+              <div class="exercise-content">
+                  <div class="exercise-objective">
+                    <h2>Answers for Level 5</h2>
+                  </div>
+              </div>
+          </li>
+        </ol>
+        
+
+        <ol id="answers" class="exercises">
+            
+              
+                
+                  <li id="answer-59" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-59-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>5.1</strong> Let's make mistakes <a href="#exercise-59-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+TalkingPhone *copy = [talkingiPhone copy];
+[copy reportBatteryLife];
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-60" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-60-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>5.2</strong> Responds to message <a href="#exercise-60-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+if([talkingiPhone respondsToSelector:@selector(copyWithZone:)]){
+  TalkingPhone *copy = [talkingiPhone copy];
+  [copy reportBatteryLife];  
+}
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-61" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-61-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>5.3</strong> Adopt NSCopying <a href="#exercise-61-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject &lt;NSCopying&gt; {
+   NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-62" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-62-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>5.4</strong> Implement copyWithZone <a href="#exercise-62-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  self = [super init];
+  _batteryLife = @100;
+  return self;
+}
+
+- (TalkingPhone *)copyWithZone:(NSZone *)zone;
+{
+  TalkingPhone *copy = [[TalkingPhone allocWithZone:zone] init];
+  return copy;
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-63" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-63-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>5.5</strong> What is nil? <a href="#exercise-63-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  self = [super init];
+  _batteryLife = @100;
+  return self;
+}
+
+- (TalkingPhone *)copyWithZone:(NSZone *)zone;
+{
+  TalkingPhone *copy = [[TalkingPhone allocWithZone:zone] init];
+  return copy;
+}
+
+- (void) reportBatteryLife;
+{
+    if(self.phoneName){
+      NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);  
+    }else{
+      NSLog(@"%@'s battery life is %@", self, _batteryLife);
+    }
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-64" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-64-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>5.6</strong> New Initializer <a href="#exercise-64-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject &lt;NSCopying&gt; {
+   NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+@end
+</pre>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  self = [super init];
+  _batteryLife = @100;
+  return self;
+}
+
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+{
+   _batteryLife = batteryLife;
+   return [super init];
+}
+
+- (TalkingPhone *)copyWithZone:(NSZone *)zone;
+{
+  TalkingPhone *copy = [[TalkingPhone allocWithZone:zone] initWithBatteryLife:_batteryLife];
+  copy.phoneName = [NSString stringWithFormat:@"Copy of %@", self.phoneName];
+  return copy;
+}
+
+- (void) reportBatteryLife;
+{
+    if(self.phoneName){
+      NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);  
+    }else{
+      NSLog(@"%@'s battery life is %@", self, _batteryLife);
+    }
+    
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-65" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-65-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>5.7</strong> Object class <a href="#exercise-65-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  self = [super init];
+  _batteryLife = @100;
+  return self;
+}
+
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+{
+   _batteryLife = batteryLife;
+   return [super init];
+}
+
+- (TalkingPhone *)copyWithZone:(NSZone *)zone;
+{
+  TalkingPhone *copy = [[[self class] allocWithZone:zone] initWithBatteryLife:_batteryLife];
+  copy.phoneName = [NSString stringWithFormat:@"Copy of %@", self.phoneName];
+  return copy;
+}
+
+- (void) reportBatteryLife;
+{
+    if(self.phoneName){
+      NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);  
+    }else{
+      NSLog(@"%@'s battery life is %@", self, _batteryLife);
+    }
+    
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-66" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-66-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>5.8</strong> id type <a href="#exercise-66-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  self = [super init];
+  _batteryLife = @100;
+  return self;
+}
+
+- (TalkingPhone *)initWithBatteryLife:(NSNumber *)batteryLife;
+{
+   _batteryLife = batteryLife;
+   return [super init];
+}
+
+- (id)copyWithZone:(NSZone *)zone;
+{
+  id copy = [[[self class] allocWithZone:zone] initWithBatteryLife:_batteryLife];
+  [copy setPhoneName:[NSString stringWithFormat:@"Copy of %@", self.phoneName]];
+  return copy;
+}
+
+- (void) reportBatteryLife;
+{
+    if(self.phoneName){
+      NSLog(@"%@'s battery life is %@", self.phoneName, _batteryLife);  
+    }else{
+      NSLog(@"%@'s battery life is %@", self, _batteryLife);
+    }
+    
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-67" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-67-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>5.9</strong> Pointers <a href="#exercise-67-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+TalkingPhone *copy = [talkingiPhone copy];
+
+NSLog(@"The memory address for the original object is %p", talkingiPhone);
+NSLog(@"The memory address for the copied object is %p", copy);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+        </ol>
+    </section>
+  </div>
+  </body>
+</html>

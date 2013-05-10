@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>
+      Code School - Try Objective-C Book
+    </title>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href="application.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="codemirror/lib/codemirror.js" type="text/javascript" ></script>
+    <script src="codemirror/mode/clike/clike.js" type="text/javascript" ></script>
+    <script src="codemirror/addon/runMode/runMode.js" type="text/javascript" ></script>
+    <script src="javascripts/objc.js" type="text/javascript" ></script>
+    <script src="javascripts/jquery.js" type="text/javascript" ></script>
+    <script src="javascripts/underscore.js" type="text/javascript" ></script>
+    <script src="application.js" type="text/javascript" ></script>
+  </head>
+  <body>
+
+  <div class="user-enrolled level--2 exercise--text">
+  
+    
+
+    <ol class="exercises">
+      <li class="exercise exercise--text">
+          <div class="exercise-content">
+              <div class="exercise-objective">
+                <h2>Level 2 Table of Contents</h2>
+
+                <ul style="margin-top:15px">
+                  
+                    <li><a href="#exercise-15">Sending a message</a></li>
+                  
+                    <li><a href="#exercise-16">Sending the description message</a></li>
+                  
+                    <li><a href="#exercise-17">Storing the result of a message</a></li>
+                  
+                    <li><a href="#exercise-18">Trying to log an NSUInteger</a></li>
+                  
+                    <li><a href="#exercise-19">Operating on NSNumbers</a></li>
+                  
+                    <li><a href="#exercise-20">Appending 2 strings</a></li>
+                  
+                    <li><a href="#exercise-21">Nesting messages</a></li>
+                  
+                    <li><a href="#exercise-22">Working with long message names</a></li>
+                  
+                    <li><a href="#exercise-23">Creating an NSString with a message</a></li>
+                  
+                    <li><a href="#exercise-24">Creating an NSString with alloc/init</a></li>
+                  
+                    <li><a href="#exercise-25">Refactoring string combination</a></li>
+                  
+                </ul>
+              </div>
+          </div>
+      </li>
+    </ol>
+      
+    <section id="course" class="course">
+        <ol id="exercises" class="exercises">
+            
+              <li id="exercise-15" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.1</strong> Sending a message
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Playing with simple values is nice, but the fun really begins when you start “sending messages”. Sending a message
+will be the basic building block of your Objective-C apps because it is how you tell an object to perform some action
+or to give you some piece of information.</p>
+
+<p>To send a message, you need at least two things - an object and a message name:</p>
+
+<pre data-syntax="objc">[objectName messageName];
+</pre>
+
+<p>The object name goes on the left, followed by a space and then the message name, and then the whole thing is
+wrapped inside square-brackets.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> "Sending a message" is sometimes referred to as "calling a method". You'll find Objective-C programmers using both of these phrases
+  to mean basically the same thing.
+</p>
+
+<p>This is just the tip of the iceberg when it comes to message sending.</p>
+
+<p class="exercise-objective-action">
+  Let's start exploring by sending a simple message called completeThisChallenge to the tryobjc object, like this: <code>[tryobjc completeThisChallenge];</code>
+</p>
+
+                        
+                          <a name="exercise-15-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc"></pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-15-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-16" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.2</strong> Sending the description message
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <div class="higgie--exercise">
+  <p>Congrats on sending your first message!</p>
+</div>
+
+<p>The <code>tryobjc</code> object is something we made up, but the objects built-in to Objective-C, like
+<code>NSString</code>, <code>NSNumber</code>, and <code>NSArray</code>, are real and have a bunch of messages you can send to them.</p>
+
+<p>One of those messages is <code>description</code>, and there’s something extra cool about it - passing the message returns a result.  Not all messages return something, but the <code>description</code> message always returns an <code>NSString</code>  that represents the contents of the object that you passed the message to.</p>
+
+<p>If you send <code>description</code> to an NSString object, you’ll get the characters in that string, but if you send it to an NSArray you’ll get a string containing all of the values in that array.</p>
+
+<p>Let’s practice sending a message and doing something with the result. Luckily we’ve already got a cool <code>NSArray</code> from Level 1:</p>
+
+<pre data-syntax="objc">NSArray *foods = @[@"tacos", @"burgers"];
+</pre>
+
+<p class="exercise-objective-action">
+  Try sending the <code>description</code> message to the <code>foods</code> array inside of <code>NSLog()</code> to see what it returns.
+</p>
+
+                        
+                          <a name="exercise-16-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSArray *foods = @[@"tacos", @"burgers"];
+
+NSLog(@"%@", /*//Send description to foods//*/);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-16-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-17" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.3</strong> Storing the result of a message
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <div class="higgie--exercise">
+  <p>What if I want to store the result of passing a message in a variable?</p>
+</div>
+
+<p>Well, Mr. Higgie, we just used the result of the <code>description</code> message in an <code>NSLog()</code>.
+Instead, what if we wanted to store the result in a variable?  First, we need to think about what
+type of object <code>description</code> returns.</p>
+
+<p>With messages on built-in objects, the easiest way to find out the return type is to look at the documentation.</p>
+
+<p>If you take a look at the <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html#//apple_ref/occ/instm/NSArray/description" target="_blank">NSArray description</a>
+documentation, you’ll see something like this:</p>
+
+<pre data-syntax="objc">- (NSString *)description
+</pre>
+
+<p>This means that the return type is an <code>NSString *</code> object.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> Most objects in Objective-C have a <code>description</code> method that returns a string that represents the data in the object.
+</p>
+
+<p>So if you want to save the result of <code>description</code> in a variable, just set the value of an <code>NSString</code> object equal to the value returned by passing the <code>description</code> message, like this:</p>
+
+<pre data-syntax="objc">NSString *result = [myArrayObject description];
+</pre>
+<p class="exercise-objective-action">
+  Try storing result of sending the <code>description</code> message to the <code>foods</code> array in a variable named <code>result</code>, and then log out the contents of <code>result</code> with an <code>NSLog()</code> function.
+</p>
+
+                        
+                          <a name="exercise-17-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSArray *foods = @[@"tacos", @"burgers"];             
+NSString *result = /*//send description to foods//*/;
+
+NSLog(@"%@", /*//pass in result here//*/);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-17-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-18" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.4</strong> Trying to log an NSUInteger
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p><code>NSString</code> objects accept a message called <code>length</code> that returns the number of characters in the string.</p>
+
+<p>As you can see from the <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html#//apple_ref/occ/instm/NSString/length" target="_blank">length message documentation</a></p>
+
+<pre data-syntax="objc">  - (NSUInteger)length
+</pre>
+
+<p>the <code>length</code> message returns an <code>NSUInteger</code>. If we want to store the result of <code>length</code> in a variable, we can write the following code:</p>
+
+<pre data-syntax="objc">  NSUInteger cityLength = [city length];
+</pre>
+
+<div class="higgie--exercise">
+  <p>What happened to the asterisk? Shouldn't it be <code>NSUInteger *</code>?</p>
+</div>
+
+<p>Well, according to the <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html#//apple_ref/occ/instm/NSString/length" target="_blank">documentation</a>, it doesn’t
+seem so. Some variables need an asterisk <code>*</code> and some don’t, and we’ll be discussing why very soon.</p>
+
+<p>An <code>NSUInteger</code> is just the data type that Objective-C uses to store an integer, but you may have already guessed by the lack of asterisk that it’s a little
+bit <em>different</em> than the objects we’ve been using so far.</p>
+
+<p>This difference can be seen when you try to put a <code>NSUInteger</code> variable in <code>NSLog()</code>.</p>
+
+<p class="exercise-objective-action">
+  To see what will happen if you try, go ahead and submit the code as-is.
+</p>
+
+<div class="higgie--exercise">
+  <p>Hey, what's the deal?</p>
+</div>
+
+<p>The deal is that <code>NSUInteger</code> is different enough from the other objects we’ve been dealing with that it can’t work with the <code>%@</code> placeholder in <code>NSLog</code>.</p>
+
+<p>You see, <code>%@</code> is just one of many different <em>Format Specifiers</em> (or <em>placeholders</em> for short) that can be used in <code>NSLog()</code> for different data types.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> You can find the list of all format specifiers at <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html#//apple_ref/doc/uid/TP40004265-SW1" target="_blank">Apple's Documentation</a>
+</p>
+
+<p>If you want to log an <code>NSUInteger</code>, you can use the <code>%lu</code> placeholder instead of <code>%@</code>.</p>
+
+<p class="exercise-objective-action">
+  Try replacing the <code>%@</code> placeholder with <code>%lu</code> to fix the error and see the result of <code>[city length]</code>.
+</p>
+
+                        
+                          <a name="exercise-18-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSString *city = @"Ice World";
+NSUInteger cityLength = [city length];
+
+NSLog(@"City has %@ characters", cityLength);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-18-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-19" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.5</strong> Operating on NSNumbers
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Some objects in Objective-C have surprising behavior compared to most other programming languages.  For example, let’s say I handed you two <code>NSNumber</code> objects and asked you to multiply them together and log the result:</p>
+
+<pre data-syntax="objc">NSNumber *higgiesAge = @6;
+NSNumber *phoneLives = @3;
+</pre>
+
+<p>In many programming languages you could just do something like this:</p>
+
+<pre data-syntax="objc">NSNumber *sum = higgiesAge * phoneLives;
+NSLog(@"Higgie is actually %@ years old.", sum);
+</pre>
+
+<p class="exercise-objective-action">
+  This won't work, but go ahead and try running this code anyway to see what happens.  We'll wait here while you break it.
+</p>
+
+<p>This is where that <em>C</em> in <em>Objective-C</em> starts to rear its ugly head. Objective-C is
+built on the shoulders of the C giant, and so we must also stand alongside it, especially when
+dealing with <code>NS</code>-objects.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> A good rule of thumb for how to tell if an object is an Objective-C object or a C one: Objective-C objects are defined with the <code>*</code> in front of variable names, like this: <code>NSString *name</code>
+</p>
+
+<p>Multiplying with <code>*</code> is something done <em>in c</em>, and thus is expects <em>c</em> types to be on either side of the multiplication sign.</p>
+
+<p>Luckily there are messages we can send to <code>NSNumber</code> objects to return <code>NSUInteger</code> values that will work with multiplication. For example, you can get an <code>NSUInteger</code> value representing the <code>NSNumber</code> object by sending it the <code>unsignedIntegerValue</code> message, like so:</p>
+
+<pre data-syntax="objc">NSUInteger higgiesAgeInteger = [higgiesAge unsignedIntegerValue];
+</pre>
+
+<p>So we can get <code>NSUInteger</code> values out of <code>NSNumber</code> objects, and that means we
+can finally figure out how old Mr. Higgie really is by multiplying those two
+<code>NSUInteger</code> variables, like this:</p>
+
+<pre data-syntax="objc">NSNumber *higgiesAge = @6;
+NSNumber *phoneLives = @3;
+
+NSUInteger higgiesAgeInt = [higgiesAge unsignedIntegerValue];
+NSUInteger phoneLivesInt = [phoneLives unsignedIntegerValue];
+
+NSUInteger higgiesRealAge = higgiesAgeInt * phoneLivesInt;
+</pre>
+
+<div class="higgie--exercise">
+  <p>I'd just like to jump in here and let you all know I'm not happy about this</p>
+</div>
+
+<p class="exercise-objective-action">
+  Go ahead and log out the <code>NSUInteger</code> variable representing Mr. Higgie's real age.
+</p>
+
+                        
+                          <a name="exercise-19-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSNumber *higgiesAge = @6;                                                                   
+NSNumber *phoneLives = @3;
+
+NSNumber *product = higgiesAge * phoneLives;
+NSLog(@"Higgie is actually %@ years old.", product);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-19-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-20" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.6</strong> Appending 2 strings
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>One of the tricks to learning Objective-C is figuring out when you can use messages and when you have to use <em>c</em> operations and functions.</p>
+
+<p>In the case of adding or multiplying two <code>NSNumber</code> objects together, you need to work with some <em>c</em> functions, but other times you can stay
+in the comfortable world of Objective-C and message sending.</p>
+
+<p>For example, this is how you might logically try to to append two <code>NSString</code> objects together.</p>
+
+<pre data-syntax="objc">NSString *newString = @"Hello" + @"World";
+</pre>
+
+<p class="exercise-objective-action">
+  This will not work, but try it anyway so you can see what&nbsp;happens.
+</p>
+
+<p>Hey, that looks familiar. The same thing happened when we tried to multiply two <code>NSNumber</code> objects together.</p>
+
+<p>To solve that problem, we had to convert our <code>NSNumber</code> objects to a <em>c-type</em> and then we could proceed with the multiplication.</p>
+
+<p>At this point it would seem the only way to perform an operation on two objects is by abandoning messages, because an operation involves two objects and so far
+we’ve only been able to send a message to a single object.  If only we could send a message like this:</p>
+
+<pre data-syntax="objc">  [firstName + lastName]
+</pre>
+
+<p>Well, it turns out that we can.  There is a method on <code>NSString</code> called <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html#//apple_ref/occ/instm/NSString/stringByAppendingString:" target="_blank">stringByAppendingString:</a>
+that takes a single <code>NSString</code> argument and appends it to the <code>NSString</code> object that received the <code>stringByAppendingString:</code> message, returning the full string. So we can rewrite the above code like so:</p>
+
+<pre data-syntax="objc">  [firstName stringByAppendingString:lastName];
+</pre>
+
+<p>Notice how we include the colon <code>:</code> in the message name.  This is how you can tell a message takes an argument. If you see a colon, it means that the message expects an argument.</p>
+
+<p class="exercise-objective-action">
+  Go ahead and log out the full name by appending the <code>firstName</code> and <code>lastName</code> together using the <code>stringByAppendingString:</code> message.
+</p>
+
+                        
+                          <a name="exercise-20-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSString *firstName = @"Mr.";
+NSString *lastName = @"Higgie";
+
+NSString *fullName = firstName + lastName;
+NSLog(@"%@", fullName);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-20-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-21" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.7</strong> Nesting messages
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>As you may have seen in the output from the last challenge, there wasn’t a space
+between your first and last name.</p>
+
+<p>To solve that, we have to append <code>firstName</code> with a single space, like so:</p>
+
+<pre data-syntax="objc">NSString *firstNamePlusSpace = [firstName stringByAppendingString:@" "];
+</pre>
+
+<p>Then we can just append the <code>lastName</code> to that:</p>
+
+<pre data-syntax="objc">NSString *fullname = [firstNamePlusSpace stringByAppendingString:lastName];
+</pre>
+
+<p>It does seem a little silly to create that <code>firstNamePlusSpace</code> variable, since it’s only used temporarily.</p>
+
+<p>We can refactor the above code to do it all in one line, like so:</p>
+
+<p><img src="http://f.cl.ly/items/1o0f3M1G0X0Q3L0D3l28/NestingMessages.gif" style="width: 100%" /></p>
+
+<p>It’s possible to <em>nest</em> message sends within one another, and it’s a common technique in Objective-C to save
+the programmer a couple of keystrokes. So now we are left with this code:</p>
+
+<pre data-syntax="objc">NSString *fullName = [[firstName stringByAppendingString:@" "] stringByAppendingString:lastName];
+</pre>
+<p class="exercise-objective-action">
+  Fix the code to log the full name with a space between the <code>firstName</code> and <code>lastName</code>.
+</p>
+
+                        
+                          <a name="exercise-21-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSString *firstName = @"Mr.";
+NSString *lastName = @"Higgie";
+
+NSString *fullName = /*//Append firstName and lastName with a space between//*/;
+
+NSLog(@"%@", fullName);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-21-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-22" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.8</strong> Working with long message names
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>So as we’ve seen so far, it’s possible that a message can be sent with either 0 or 1 argument, but what about passing more
+than 1 argument?  Sure! Certain messages in Objective-C can take more than 1 argument. For example, <code>NSString</code> has a method
+called <code>stringByReplacingOccurrencesOfString:withString:</code> that takes 2 string arguments. Each word in the message name that is followed
+by a colon <code>:</code> corresponds to an argument.  You’d send this message like so:</p>
+
+<pre data-syntax="objc">[fullName stringByReplacingOccurrencesOfString:@"Eric" withString:@"Derrick"];
+</pre>
+
+<p>The objects you pass into the message directly follow the colon, just make sure there is a space between an argument and the next section of the message name.</p>
+
+<p class="exercise-objective-action">
+  Check out what the <code>stringByReplacingOccurrencesOfString:withString</code> message does by logging the string is returns.
+</p>
+<p class="exercise-objective-note">
+  <span>Note:</span> Notice how we formatted the code. Because of the <em>long</em> message names in Objective-C, you have to wrap lines to make them more readable.
+</p>
+
+                        
+                          <a name="exercise-22-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSString *firstName = @"Mr.";
+NSString *lastName = @"Higgie";
+
+NSString *fullName = [[firstName stringByAppendingString:@" "]
+                        stringByAppendingString:lastName];
+
+NSString *replaced = [fullName stringByReplacingOccurrencesOfString:firstName
+                                                         withString:lastName];
+
+NSLog(@"%@", /*//result of stringByReplacingOccurrencesOfString:withString://*/);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-22-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-23" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.9</strong> Creating an NSString with a message
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Up until this point, we’ve only created objects using <em>object literal</em> syntax, like this:</p>
+
+<pre data-syntax="objc">NSString *person = @"Derrick Spallam";
+</pre>
+
+<p>The <code>@""</code> syntax is just a shortcut for creating an object with the type <code>NSString</code>.  But <code>NSString</code> is more than just the type of the object, it’s also a factory for creating objects.
+In Objective-C and other Object-Oriented languages, factories like this are called a <em>class</em>.</p>
+
+<p>A <em>class</em> is itself able to respond to messages, and it’s results are usually of the type it represents. For example, you can send the message <code>string</code> to the <code>NSString</code> class to create an empty string object:</p>
+
+<pre data-syntax="objc">NSString *emptyString = [NSString string];
+</pre>
+
+<p>Or you could send it the <code>stringWithString:</code> message to create a copy of the string passed in:</p>
+
+<pre data-syntax="objc">NSString *copy = [NSString stringWithString:anotherString];
+</pre>
+<p class="exercise-objective-action">
+  Go ahead and make a copy of <code>firstName</code> by sending the <code>stringWithString:</code> message to the <code>NSString</code> class.
+</p>
+
+                        
+                          <a name="exercise-23-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSString *firstName = @"Mr.";
+
+NSString *copy = /*//make a copy of firstName//*/;
+
+NSLog(@"%@ is a copy of %@", copy, firstName);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-23-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-24" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.10</strong> Creating an NSString with alloc/init
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Most classes in Objective-C respond to similar factory messages. For example, creating an empty <code>NSArray</code> like this:</p>
+
+<pre data-syntax="objc">NSArray *emptyArray = [NSArray array];
+</pre>
+
+<p>The same goes for <code>NSDictionary</code>:</p>
+
+<pre data-syntax="objc">NSDictionary *emptyDict = [NSDictionary dictionary];
+</pre>
+
+<p>There is a common pattern for creating an <em>empty</em> object, no matter what class you are using:</p>
+
+<pre data-syntax="objc">NSString *emptyString = [[NSString alloc] init];
+NSArray *emptyArray = [[NSArray alloc] init];
+NSDictionary *emptyDictionary = [[NSDictionary alloc] init];
+</pre>
+
+<p>All classes respond to the <code>alloc</code> message, which allocates a place in memory to store the object. <code>alloc</code> returns a object that is unusable until <code>init</code> is sent to it.
+If you try to use the result of <code>alloc</code> before calling <code>init</code>, like the code below, you’ll see a this error:</p>
+
+<pre data-syntax="objc">NSString *string = [NSString alloc];
+NSLog(string);
+</pre>
+
+<p><span class="exercise-objective-errorFile">Error: Did you forget to nest alloc and init?</span></p>
+
+<p>But since creating an empty object isn’t that useful, most classes implement more specific <code>init</code> methods that you can send to the result of <code>alloc</code> to create objects with data, like the <code>initWithString:</code> message for creating a copy of a string:</p>
+
+<pre data-syntax="objc">NSString *copy = [[NSString alloc] initWithString:otherString];
+</pre>
+<p class="exercise-objective-action">
+  Refactor the challenge to use <code>alloc</code> and <code>initWithString:</code> instead of <code>stringWithString:</code> to make a copy of <code>firstName</code>.
+</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> Pairing <code>alloc</code> with an <code>init*</code> message is a very common pattern in Objective-C
+</p>
+
+                        
+                          <a name="exercise-24-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSString *firstName = @"Mr.";
+
+NSString *copy = [NSString stringWithString:firstName];
+
+NSLog(@"%@ is a copy of %@", copy, firstName);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-24-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-25" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>2.11</strong> Refactoring string combination
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Remember how fun it was when we created a string by nesting <code>stringByAppendingString:</code> messages:</p>
+
+<pre data-syntax="objc">NSString *fullname = [[firstName stringByAppendingString:@" "] stringByAppendingString:lastName];
+</pre>
+
+<p>There is actually a much shorter way to do this by sending the <code>stringWithFormat:</code> message to the <code>NSString</code> class:</p>
+
+<pre data-syntax="objc">NSString *fullname = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+</pre>
+
+<p>You should recognize that format string from working with <code>NSLog</code>.  We could log the full name in the same way:</p>
+
+<pre data-syntax="objc">NSLog(@"%@ %@", firstName, lastName);
+</pre>
+
+<p>Just like <code>NSLog</code>, <code>stringWithFormat:</code> expects arguments for each <em>placeholder</em> in the format string. If the number of arguments following the format string doesn’t equal the number of placeholders, then you will get a compiler error like this:</p>
+
+<p><span class="exercise-objective-error">More ‘%’ conversions than data arguments</span></p>
+
+<p class="exercise-objective-action">
+  Update the code to use <code>stringWithFormat:</code> instead of <code>stringByAppendingString:</code>.
+</p>
+
+                        
+                          <a name="exercise-25-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSString *firstName = @"Mr.";
+NSString *lastName = @"Higgie";
+
+NSString *fullName = [[firstName stringByAppendingString:@" "] stringByAppendingString:lastName];
+
+NSLog(@"%@", fullName);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-25-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+        </ol>
+
+
+
+        <ol class="exercises">
+          <li class="exercise exercise--text">
+              <div class="exercise-content">
+                  <div class="exercise-objective">
+                    <h2>Answers for Level 2</h2>
+                  </div>
+              </div>
+          </li>
+        </ol>
+        
+
+        <ol id="answers" class="exercises">
+            
+              
+                
+                  <li id="answer-15" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-15-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.1</strong> Sending a message <a href="#exercise-15-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">[tryobjc completeThisChallenge];
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-16" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-16-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.2</strong> Sending the description message <a href="#exercise-16-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSArray *foods = @[@"tacos", @"burgers"];
+
+NSLog(@"%@", [foods description]);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-17" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-17-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.3</strong> Storing the result of a message <a href="#exercise-17-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSArray *foods = @[@"tacos", @"burgers"];
+NSString *result = [foods description];
+
+NSLog(@"%@", result);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-18" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-18-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.4</strong> Trying to log an NSUInteger <a href="#exercise-18-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSString *city = @"Ice World";
+NSUInteger cityLength = [city length];
+
+NSLog(@"City has %lu characters", cityLength);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-19" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-19-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.5</strong> Operating on NSNumbers <a href="#exercise-19-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSNumber *higgiesAge = @6;
+NSNumber *phoneLives = @3;
+
+NSUInteger higgiesAgeInt = [higgiesAge unsignedIntegerValue];
+NSUInteger phoneLivesInt = [phoneLives unsignedIntegerValue];
+
+NSUInteger higgiesRealAge = higgiesAgeInt * phoneLivesInt;
+NSLog(@"Higgie is actually %lu years old.", higgiesRealAge);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-20" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-20-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.6</strong> Appending 2 strings <a href="#exercise-20-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSString *firstName = @"Mr.";
+NSString *lastName = @"Higgie";
+
+NSLog(@"%@",[firstName stringByAppendingString:lastName]);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-21" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-21-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.7</strong> Nesting messages <a href="#exercise-21-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSString *firstName = @"Mr.";
+NSString *lastName = @"Higgie";
+
+NSString *fullName = [[firstName stringByAppendingString:@" "] stringByAppendingString:lastName];
+
+NSLog(@"%@", fullName);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-22" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-22-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.8</strong> Working with long message names <a href="#exercise-22-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSString *firstName = @"Mr.";
+NSString *lastName = @"Higgie";
+
+NSString *fullName = [[firstName stringByAppendingString:@" "]
+                        stringByAppendingString:lastName];
+
+NSString *replaced = [fullName stringByReplacingOccurrencesOfString:firstName
+                                                         withString:lastName];
+
+NSLog(@"%@", replaced);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-23" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-23-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.9</strong> Creating an NSString with a message <a href="#exercise-23-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSString *firstName = @"Mr.";
+
+NSString *copy = [NSString stringWithString:firstName];
+
+NSLog(@"%@ is a copy of %@", copy, firstName);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-24" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-24-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.10</strong> Creating an NSString with alloc/init <a href="#exercise-24-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSString *firstName = @"Mr.";
+
+NSString *copy = [[NSString alloc] initWithString:firstName];
+
+NSLog(@"%@ is a copy of %@", copy, firstName);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-25" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-25-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>2.11</strong> Refactoring string combination <a href="#exercise-25-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSString *firstName = @"Mr.";
+NSString *lastName = @"Higgie";
+
+NSString *fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+
+NSLog(@"%@", fullName);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+        </ol>
+    </section>
+  </div>
+  </body>
+</html>

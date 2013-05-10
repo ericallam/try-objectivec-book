@@ -1,0 +1,4867 @@
+/* line 5, ../../app/assets/stylesheets/core/_reset.css.sass */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+/* line 7, ../../app/assets/stylesheets/core/_reset.css.sass */
+body, ol, ul {
+  margin: 0;
+}
+
+/* line 9, ../../app/assets/stylesheets/core/_reset.css.sass */
+ol, ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* line 12, ../../app/assets/stylesheets/core/_reset.css.sass */
+div, ol, ul, li {
+  border: 0;
+}
+
+/* line 14, ../../app/assets/stylesheets/core/_reset.css.sass */
+i {
+  font-style: normal;
+}
+
+/* line 16, ../../app/assets/stylesheets/core/_reset.css.sass */
+b {
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Course";
+  src: url(fonts/cs-course.eot);
+  src: url(fonts/cs-course.eot?#iefix) format("embedded-opentype"), url(fonts/cs-course.woff) format("woff"), url(fonts/cs-course.ttf) format("truetype"), url(fonts/fonts/cs-course.svg#cs-course) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* YWFT Processing - http://www.youworkforthem.com/product.php?sku=T0024 */
+@font-face {
+  font-family: "YWFTProcessing";
+  src: url(fonts/ywft-processing-bold.eot);
+  src: url(fonts/ywft-processing-bold.eot?#iefix) format("embedded-opentype"), url(fonts/ywft-processing-bold.woff) format("woff"), url(fonts/ywft-processing-bold.ttf) format("truetype"), url(//d2rwobdpv93es3.cloudfront.net/assets/ywft-processing-bold.svg#SilkscreenNormal) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* PTSans - From Font Squirrel (http://www.fontsquirrel.com) */
+@font-face {
+  font-family: "PTSansRegular";
+  src: url(fonts/PTS55F-webfont.eot);
+  src: url(fonts/PTS55F-webfont.eot?#iefix) format("embedded-opentype"), url(fonts/PTS55F-webfont.woff) format("woff"), url(fonts/PTS55F-webfont.ttf) format("truetype"), url(fonts/PTS55F-webfont.svg#PTSansRegular) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Silkscreen - From Font Squirrel (http://www.fontsquirrel.com) */
+@font-face {
+  font-family: "SilkscreenNormal";
+  src: url(fonts/slkscr-webfont.eot);
+  src: url(fonts/slkscr-webfont.eot?#iefix) format("embedded-opentype"), url(fonts/slkscr-webfont.woff) format("woff"), url(fonts/slkscr-webfont.ttf) format("truetype"), url(fonts/slkscr-webfont.svg#SilkscreenNormal) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 7, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.exercise-tab, .overview-row-header h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 12, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.exercise--singleline_editor .exercise-content:after,
+.exercise--console .exercise-content:after,
+.exercise--editor .exercise-content:after, .feed-item:after, .intro-cell:after, .wrapup-cell:after, .wrapup-grid:after, .wrapup--course .wrapup-share:after, .wrapup--course .wrapup-continue:after, .badges:after, .overview-grid:after, .overview-header:after, .overview-description:after, .progress:after, .success-controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/* line 17, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.progress {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+}
+/* line 21, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.progress:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
+}
+
+@-webkit-keyframes falling {
+  /* line 8, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  0% {
+    top: 0;
+  }
+
+  /* line 10, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  30% {
+    top: 150px;
+  }
+
+  /* line 12, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  31% {
+    opacity: 0;
+  }
+
+  /* line 14, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  32% {
+    top: -75px;
+  }
+
+  /* line 16, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  100% {
+    top: 44px;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes falling {
+  /* line 20, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  0% {
+    top: 0;
+  }
+
+  /* line 22, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  30% {
+    top: 150px;
+  }
+
+  /* line 24, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  31% {
+    opacity: 0;
+  }
+
+  /* line 26, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  32% {
+    top: -75px;
+  }
+
+  /* line 28, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  100% {
+    top: 44px;
+    opacity: 1;
+  }
+}
+
+@keyframes falling {
+  /* line 32, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  0% {
+    top: 0;
+  }
+
+  /* line 34, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  30% {
+    top: 150px;
+  }
+
+  /* line 36, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  31% {
+    opacity: 0;
+  }
+
+  /* line 38, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  32% {
+    top: -75px;
+  }
+
+  /* line 40, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  100% {
+    top: 44px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes falling-2 {
+  /* line 45, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  0% {
+    top: 0;
+  }
+
+  /* line 47, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  30% {
+    top: 150px;
+  }
+
+  /* line 49, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  31% {
+    opacity: 0;
+  }
+
+  /* line 51, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  32% {
+    top: -75px;
+  }
+
+  /* line 53, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  100% {
+    top: 43px;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes falling-2 {
+  /* line 57, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  0% {
+    top: 0;
+  }
+
+  /* line 59, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  30% {
+    top: 150px;
+  }
+
+  /* line 61, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  31% {
+    opacity: 0;
+  }
+
+  /* line 63, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  32% {
+    top: -75px;
+  }
+
+  /* line 65, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  100% {
+    top: 43px;
+    opacity: 1;
+  }
+}
+
+@keyframes falling-2 {
+  /* line 69, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  0% {
+    top: 0;
+  }
+
+  /* line 71, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  30% {
+    top: 150px;
+  }
+
+  /* line 73, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  31% {
+    opacity: 0;
+  }
+
+  /* line 75, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  32% {
+    top: -75px;
+  }
+
+  /* line 77, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  100% {
+    top: 43px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes falling-3 {
+  /* line 82, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  0% {
+    top: 0;
+  }
+
+  /* line 84, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  30% {
+    top: 150px;
+  }
+
+  /* line 86, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  31% {
+    opacity: 0;
+  }
+
+  /* line 88, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  32% {
+    top: -75px;
+  }
+
+  /* line 90, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  100% {
+    top: 34px;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes falling-3 {
+  /* line 94, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  0% {
+    top: 0;
+  }
+
+  /* line 96, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  30% {
+    top: 150px;
+  }
+
+  /* line 98, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  31% {
+    opacity: 0;
+  }
+
+  /* line 100, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  32% {
+    top: -75px;
+  }
+
+  /* line 102, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  100% {
+    top: 34px;
+    opacity: 1;
+  }
+}
+
+@keyframes falling-3 {
+  /* line 106, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  0% {
+    top: 0;
+  }
+
+  /* line 108, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  30% {
+    top: 150px;
+  }
+
+  /* line 110, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  31% {
+    opacity: 0;
+  }
+
+  /* line 112, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  32% {
+    top: -75px;
+  }
+
+  /* line 114, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  100% {
+    top: 34px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes feed {
+  /* line 121, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    -webkit-transform: rotateX(45deg);
+    transform: rotateX(45deg);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes feed {
+  /* line 126, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    -moz-transform: rotateX(45deg);
+    transform: rotateX(45deg);
+    opacity: 0;
+  }
+}
+
+@-o-keyframes feed {
+  /* line 131, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    -o-transform: rotateX(45deg);
+    transform: rotateX(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes feed {
+  /* line 136, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    transform: rotateX(45deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes flash {
+  /* line 143, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    opacity: 0;
+  }
+
+  /* line 145, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    opacity: 1;
+    visibility: visible;
+    z-index: 0;
+  }
+}
+
+@-moz-keyframes flash {
+  /* line 150, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    opacity: 0;
+  }
+
+  /* line 152, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    opacity: 1;
+    visibility: visible;
+    z-index: 0;
+  }
+}
+
+@keyframes flash {
+  /* line 157, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    opacity: 0;
+  }
+
+  /* line 159, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    opacity: 1;
+    visibility: visible;
+    z-index: 0;
+  }
+}
+
+@-webkit-keyframes highlight {
+  /* line 167, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    color: #bbbdc0;
+  }
+}
+
+@-moz-keyframes highlight {
+  /* line 170, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    color: #bbbdc0;
+  }
+}
+
+@-o-keyframes highlight {
+  /* line 173, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    color: #bbbdc0;
+  }
+}
+
+@keyframes highlight {
+  /* line 176, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    color: #bbbdc0;
+  }
+}
+
+@-webkit-keyframes jumping {
+  /* line 182, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -190px 50px;
+    bottom: 80px;
+  }
+}
+
+@-moz-keyframes jumping {
+  /* line 186, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -190px 50px;
+    bottom: 80px;
+  }
+}
+
+@keyframes jumping {
+  /* line 190, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -190px 50px;
+    bottom: 80px;
+  }
+}
+
+@-webkit-keyframes jumping-2 {
+  /* line 195, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -190px 60px;
+    bottom: 80px;
+  }
+}
+
+@-moz-keyframes jumping-2 {
+  /* line 199, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -190px 60px;
+    bottom: 80px;
+  }
+}
+
+@keyframes jumping-2 {
+  /* line 203, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -190px 60px;
+    bottom: 80px;
+  }
+}
+
+@-webkit-keyframes jumping-3 {
+  /* line 208, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -200px 60px;
+    bottom: 70px;
+  }
+}
+
+@-moz-keyframes jumping-3 {
+  /* line 212, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -200px 60px;
+    bottom: 70px;
+  }
+}
+
+@keyframes jumping-3 {
+  /* line 216, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -200px 60px;
+    bottom: 70px;
+  }
+}
+
+@-webkit-keyframes running {
+  /* line 223, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    background-position: 0 -3px;
+  }
+
+  /* line 225, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -155px -3px;
+  }
+}
+
+@-moz-keyframes running {
+  /* line 228, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    background-position: 0 -3px;
+  }
+
+  /* line 230, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -155px -3px;
+  }
+}
+
+@keyframes running {
+  /* line 233, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    background-position: 0 -3px;
+  }
+
+  /* line 235, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -155px -3px;
+  }
+}
+
+@-webkit-keyframes running-3 {
+  /* line 239, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    background-position: 0 8px;
+  }
+
+  /* line 241, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -155px 8px;
+  }
+}
+
+@-moz-keyframes running-3 {
+  /* line 244, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    background-position: 0 8px;
+  }
+
+  /* line 246, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -155px 8px;
+  }
+}
+
+@keyframes running-3 {
+  /* line 249, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  from {
+    background-position: 0 8px;
+  }
+
+  /* line 251, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -155px 8px;
+  }
+}
+
+@-webkit-keyframes snowman {
+  /* line 257, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -90px 0;
+  }
+}
+
+@-moz-keyframes snowman {
+  /* line 260, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -90px 0;
+  }
+}
+
+@keyframes snowman {
+  /* line 263, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -90px 0;
+  }
+}
+
+@-webkit-keyframes soon {
+  /* line 269, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    bottom: -80px;
+  }
+}
+
+@-moz-keyframes soon {
+  /* line 272, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    bottom: -80px;
+  }
+}
+
+@keyframes soon {
+  /* line 275, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    bottom: -80px;
+  }
+}
+
+@-webkit-keyframes standing {
+  /* line 281, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -97px -70px;
+  }
+}
+
+@-moz-keyframes standing {
+  /* line 284, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -97px -70px;
+  }
+}
+
+@keyframes standing {
+  /* line 287, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -97px -70px;
+  }
+}
+
+@-webkit-keyframes standing-3 {
+  /* line 291, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -100px -68px;
+  }
+}
+
+@-moz-keyframes standing-3 {
+  /* line 294, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -100px -68px;
+  }
+}
+
+@keyframes standing-3 {
+  /* line 297, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -100px -68px;
+  }
+}
+
+@-webkit-keyframes standing-4 {
+  /* line 301, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -100px -70px;
+  }
+}
+
+@-moz-keyframes standing-4 {
+  /* line 304, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -100px -70px;
+  }
+}
+
+@keyframes standing-4 {
+  /* line 307, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -100px -70px;
+  }
+}
+
+@-webkit-keyframes waving {
+  /* line 313, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -68px;
+  }
+}
+
+@-moz-keyframes waving {
+  /* line 316, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -68px;
+  }
+}
+
+@keyframes waving {
+  /* line 319, ../../app/assets/stylesheets/core/partials/_animations.sass */
+  to {
+    background-position: -68px;
+  }
+}
+
+/* line 5, ../../app/assets/stylesheets/core/_base.css.sass */
+html {
+  font-size: 16px;
+  height: 100%;
+  min-width: 700px;
+}
+@media screen and (min-width: 700px) {
+  /* line 5, ../../app/assets/stylesheets/core/_base.css.sass */
+  html {
+    overflow: hidden;
+  }
+}
+
+/* line 12, ../../app/assets/stylesheets/core/_base.css.sass */
+body {
+  background: black;
+  color: white;
+  font-size: 100%;
+  font-family: "YWFTProcessing", sans-serif;
+  height: 100%;
+  line-height: 1.3;
+}
+/* line 20, ../../app/assets/stylesheets/core/_base.css.sass */
+body.exercise--intro.level--1, body.exercise--wrapup.level--1 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/bg-6d94f18dac24e4d4cee14eeb63c4c6e5.svg) repeat;
+}
+/* line 20, ../../app/assets/stylesheets/core/_base.css.sass */
+body.exercise--intro.level--2, body.exercise--wrapup.level--2 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/2/bg-95e8b22d144aedc293a7c9b933ef158d.svg) repeat;
+}
+/* line 20, ../../app/assets/stylesheets/core/_base.css.sass */
+body.exercise--intro.level--3, body.exercise--wrapup.level--3 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/3/bg-e50c5f0f48e35f619401f884eca981dd.svg) repeat;
+}
+/* line 20, ../../app/assets/stylesheets/core/_base.css.sass */
+body.exercise--intro.level--4, body.exercise--wrapup.level--4 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/4/bg-3d8303e398cc4d51a0c501a0988ef345.svg) repeat;
+}
+/* line 20, ../../app/assets/stylesheets/core/_base.css.sass */
+body.exercise--intro.level--5, body.exercise--wrapup.level--5 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/5/bg-a96a8de2a8c72ab1b0bf05411fc617ba.svg) repeat;
+}
+@media screen and (min-width: 700px) {
+  /* line 12, ../../app/assets/stylesheets/core/_base.css.sass */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* line 26, ../../app/assets/stylesheets/core/_base.css.sass */
+.course {
+  height: 100%;
+}
+
+/* line 31, ../../app/assets/stylesheets/core/_base.css.sass */
+h1, h2, h3 {
+  font-weight: bold;
+  margin: 0;
+}
+
+/* line 35, ../../app/assets/stylesheets/core/_base.css.sass */
+h1, .h1, .overview-row-header h2 {
+  font-size: 3em;
+}
+
+/* line 38, ../../app/assets/stylesheets/core/_base.css.sass */
+h2, .h2, .wrapup--course h3, .overview-tagline, .overview-row-header h3 {
+  color: black;
+  font-size: 1.875em;
+}
+
+/* line 42, ../../app/assets/stylesheets/core/_base.css.sass */
+h3, .h3, .wrapup--course h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.3125em;
+}
+
+/* line 46, ../../app/assets/stylesheets/core/_base.css.sass */
+h4, .h4 {
+  margin: 0 0 0.625em;
+}
+
+/* line 49, ../../app/assets/stylesheets/core/_base.css.sass */
+pre {
+  overflow-x: auto;
+}
+
+/* line 54, ../../app/assets/stylesheets/core/_base.css.sass */
+a {
+  color: #4169b2;
+  text-decoration: none;
+}
+/* line 57, ../../app/assets/stylesheets/core/_base.css.sass */
+a:hover, a:focus {
+  color: #33538d;
+}
+/* line 60, ../../app/assets/stylesheets/core/_base.css.sass */
+a:hover i:before, a:focus i:before {
+  color: white;
+}
+
+/* line 63, ../../app/assets/stylesheets/core/_base.css.sass */
+code {
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+}
+
+/* line 66, ../../app/assets/stylesheets/core/_base.css.sass */
+strong {
+  font-weight: bold;
+}
+
+/* line 69, ../../app/assets/stylesheets/core/_base.css.sass */
+::selection {
+  background: rgba(134, 161, 211, 0.5);
+  color: white;
+}
+
+/* line 73, ../../app/assets/stylesheets/core/_base.css.sass */
+::-moz-selection {
+  background: rgba(134, 161, 211, 0.5);
+  color: white;
+}
+
+/* line 79, ../../app/assets/stylesheets/core/_base.css.sass */
+.borders {
+  border-color: black;
+  border-image: url(//d2rwobdpv93es3.cloudfront.net/assets/border-59dd06cca7cfb0ae256b28da8ead8b91.png) 24 repeat;
+  border-style: solid;
+  border-width: 24px;
+  position: relative;
+  padding: 0 2.5em;
+}
+/* line 40, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.borders:after {
+  background: black;
+  bottom: -6px;
+  content: "";
+  left: -6px;
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  z-index: -1;
+}
+
+/* line 82, ../../app/assets/stylesheets/core/_base.css.sass */
+.borders-inner {
+  margin: -24px;
+}
+
+/* BASICS */
+/* line 4, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror {
+  /* Set height, width, borders, and global font properties here */
+  font-family: monospace;
+  height: 300px;
+}
+
+/* line 9, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-scroll {
+  /* Set scrolling behaviour here */
+  overflow: auto;
+}
+
+/* PADDING */
+/* line 16, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-lines {
+  padding: 4px 0;
+  /* Vertical padding around content */
+}
+
+/* line 19, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror pre {
+  padding: 0 4px;
+  /* Horizontal padding of content */
+}
+
+/* line 23, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-scrollbar-filler {
+  background-color: white;
+  /* The little square between H and V scrollbars */
+}
+
+/* GUTTER */
+/* line 29, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-gutters {
+  border-right: 1px solid #dddddd;
+  background-color: #f7f7f7;
+}
+
+/* line 34, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-linenumber {
+  padding: 0 3px 0 5px;
+  min-width: 20px;
+  text-align: right;
+  color: #999;
+}
+
+/* CURSOR */
+/* line 43, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror div.CodeMirror-cursor {
+  border-left: 1px solid black;
+  z-index: 3;
+}
+
+/* Shown when moving in bi-directional text */
+/* line 48, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror div.CodeMirror-secondarycursor {
+  border-left: 1px solid silver;
+}
+
+/* line 51, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror.cm-keymap-fat-cursor div.CodeMirror-cursor {
+  width: auto;
+  border: 0;
+  background: #7e7;
+  z-index: 1;
+}
+
+/* Can style cursor different in overwrite (non-insert) mode */
+/* line 60, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-tab {
+  display: inline-block;
+}
+
+/* DEFAULT THEME */
+/* line 64, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-keyword {
+  color: #708;
+}
+
+/* line 65, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-atom {
+  color: #219;
+}
+
+/* line 66, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-number {
+  color: #164;
+}
+
+/* line 67, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-def {
+  color: #00f;
+}
+
+/* line 68, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-variable {
+  color: black;
+}
+
+/* line 69, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-variable-2 {
+  color: #05a;
+}
+
+/* line 70, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-variable-3 {
+  color: #085;
+}
+
+/* line 71, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-property {
+  color: black;
+}
+
+/* line 72, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-operator {
+  color: black;
+}
+
+/* line 73, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-comment {
+  color: #a50;
+}
+
+/* line 74, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-string {
+  color: #a11;
+}
+
+/* line 75, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-string-2 {
+  color: #f50;
+}
+
+/* line 76, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-meta {
+  color: #555;
+}
+
+/* line 77, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-error {
+  color: #f00;
+}
+
+/* line 78, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-qualifier {
+  color: #555;
+}
+
+/* line 79, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-builtin {
+  color: #30a;
+}
+
+/* line 80, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-bracket {
+  color: #997;
+}
+
+/* line 81, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-tag {
+  color: #170;
+}
+
+/* line 82, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-attribute {
+  color: #00c;
+}
+
+/* line 83, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-header {
+  color: blue;
+}
+
+/* line 84, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-quote {
+  color: #090;
+}
+
+/* line 85, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-hr {
+  color: #999;
+}
+
+/* line 86, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-s-default .cm-link {
+  color: #00c;
+}
+
+/* line 88, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-negative {
+  color: #d44;
+}
+
+/* line 89, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-positive {
+  color: #292;
+}
+
+/* line 90, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-header, .cm-strong {
+  font-weight: bold;
+}
+
+/* line 91, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-em {
+  font-style: italic;
+}
+
+/* line 92, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-link {
+  text-decoration: underline;
+}
+
+/* line 94, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-invalidchar {
+  color: #f00;
+}
+
+/* line 96, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+div.CodeMirror span.CodeMirror-matchingbracket {
+  color: #0f0;
+}
+
+/* line 97, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+div.CodeMirror span.CodeMirror-nonmatchingbracket {
+  color: #f22;
+}
+
+/* STOP */
+/* The rest of this file contains styles related to the mechanics of
+   the editor. You probably shouldn't touch them. */
+/* line 104, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror {
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  color: black;
+}
+
+/* line 112, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-scroll {
+  /* 30px is the magic margin used to hide the element's real scrollbars */
+  /* See overflow: hidden in .CodeMirror, and the paddings in .CodeMirror-sizer */
+  margin-bottom: -30px;
+  margin-right: -30px;
+  padding-bottom: 30px;
+  padding-right: 30px;
+  height: 100%;
+  outline: none;
+  /* Prevent dragging from highlighting the element */
+  position: relative;
+}
+
+/* line 121, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-sizer {
+  position: relative;
+}
+
+/* The fake, visible scrollbars. Used to force redraw during scrolling
+   before actuall scrolling happens, thus preventing shaking and
+   flickering artifacts. */
+/* line 128, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler {
+  position: absolute;
+  z-index: 6;
+  display: none;
+}
+
+/* line 133, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-vscrollbar {
+  right: 0;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* line 138, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-hscrollbar {
+  bottom: 0;
+  left: 0;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+/* line 143, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-scrollbar-filler {
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+}
+
+/* line 148, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-gutters {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding-bottom: 30px;
+  z-index: 3;
+}
+
+/* line 154, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-gutter {
+  height: 100%;
+  padding-bottom: 30px;
+  margin-bottom: -32px;
+  display: inline-block;
+  /* Hack to make IE7 behave */
+  *zoom: 1;
+  *display: inline;
+}
+
+/* line 163, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-gutter-elt {
+  position: absolute;
+  cursor: default;
+  z-index: 4;
+}
+
+/* line 169, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-lines {
+  cursor: text;
+}
+
+/* line 172, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror pre {
+  /* Reset some styles that the rest of the page might have set */
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border-width: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  white-space: pre;
+  word-wrap: normal;
+  line-height: inherit;
+  color: inherit;
+  z-index: 2;
+  position: relative;
+  overflow: visible;
+}
+
+/* line 188, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-wrap pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: normal;
+}
+
+/* line 193, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-linebackground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+/* line 199, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-linewidget {
+  position: relative;
+  z-index: 2;
+  overflow: auto;
+}
+
+/* line 205, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-widget {
+  display: inline-block;
+}
+
+/* line 209, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-wrap .CodeMirror-scroll {
+  overflow-x: hidden;
+}
+
+/* line 213, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-measure {
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/* line 219, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-measure pre {
+  position: static;
+}
+
+/* line 221, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror div.CodeMirror-cursor {
+  position: absolute;
+  visibility: hidden;
+  border-right: none;
+  width: 0;
+}
+
+/* line 227, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-focused div.CodeMirror-cursor {
+  visibility: visible;
+}
+
+/* line 231, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-selected {
+  background: #d9d9d9;
+}
+
+/* line 232, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror-focused .CodeMirror-selected {
+  background: #d7d4f0;
+}
+
+/* line 234, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.cm-searching {
+  background: #ffa;
+  background: rgba(255, 255, 0, 0.4);
+}
+
+/* IE7 hack to prevent it from returning funny offsetTops on the spans */
+/* line 240, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+.CodeMirror span {
+  *vertical-align: text-bottom;
+}
+
+@media print {
+  /* Hide the cursor when printing */
+  /* line 244, ../../../../shared/bundle/ruby/1.9.1/gems/codeschool-kraken-codemirror-0.0.6/vendor/assets/javascripts/codemirror/lib/codemirror.css */
+  .CodeMirror div.CodeMirror-cursor {
+    visibility: hidden;
+  }
+}
+/* line 5, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--feed, .btn--next, .btn--slides, .btn--submit, .btn--success, .btn--console, .btn--start, .overview-btn {
+  background: black;
+  border: 0;
+  color: white;
+  display: inline-block;
+  font: bold 2.25em/1.4 "YWFTProcessing", sans-serif;
+  padding: 0.33333em 1.38889em 0.22222em;
+  text-align: center;
+}
+/* line 13, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--feed:hover, .btn--next:hover, .btn--slides:hover, .btn--submit:hover, .btn--success:hover, .btn--console:hover, .btn--start:hover, .overview-btn:hover, .btn--feed:focus, .btn--next:focus, .btn--slides:focus, .btn--submit:focus, .btn--success:focus, .btn--console:focus, .btn--start:focus, .overview-btn:focus {
+  color: #bbbdc0;
+}
+/* line 16, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--feed:active, .btn--next:active, .btn--slides:active, .btn--submit:active, .btn--success:active, .btn--console:active, .btn--start:active, .overview-btn:active {
+  -webkit-transform: translateY(2px);
+  -moz-transform: translateY(2px);
+  -ms-transform: translateY(2px);
+  -o-transform: translateY(2px);
+  transform: translateY(2px);
+  -webkit-transition: color 0.1s ease-out;
+  transition: color 0.1s ease-out;
+  color: #08a650;
+}
+
+/* line 21, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--feed, .btn--slides {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: "YWFTProcessing", sans-serif;
+  font-size: 1em;
+  letter-spacing: 0;
+  line-height: 2.2;
+  padding: 0.125em 1.25em 0;
+  text-transform: none;
+}
+
+/* line 40, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--feed {
+  display: none;
+  float: right;
+  margin: 0 0.625em 0.625em;
+}
+/* line 46, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.is-feed-expanded .btn--feed {
+  display: inline-block;
+}
+
+/* line 49, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--next {
+  background-color: #333333;
+  font-size: 1.5em;
+}
+/* line 53, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--next:hover {
+  background-color: #454545;
+  color: white;
+}
+
+/* line 57, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--slides {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+/* line 63, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--slides:before {
+  margin-right: 0.5em;
+}
+
+/* line 68, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--submit {
+  background-position: left 22px;
+  background-repeat: repeat-x;
+  border: 3px solid black;
+  bottom: 3px;
+  color: black;
+  display: block;
+  font-size: 1.5625em;
+  height: 44px;
+  line-height: 44px;
+  padding-bottom: 0;
+  padding-top: 0;
+  position: absolute;
+  right: 3px;
+  width: 115px;
+  z-index: 10;
+}
+/* line 86, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.level--1 .btn--submit {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/btn-6f04e572e8943b3421dfdb8d5894de4d.svg);
+}
+/* line 86, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.level--2 .btn--submit {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/2/btn-f23d926e8a8de0a93ca9aed7179aee6b.svg);
+}
+/* line 86, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.level--3 .btn--submit {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/3/btn-d606ce523e8ecc2f24560bd03fa93216.svg);
+}
+/* line 86, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.level--4 .btn--submit {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/4/btn-2e17830b12a2820c0de35a08ec2e35b0.svg);
+}
+/* line 86, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.level--5 .btn--submit {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/5/btn-0a842b13346d291f6ff855e4a58ae6c9.svg);
+}
+/* line 88, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--submit:hover, .btn--submit:focus {
+  color: white;
+}
+/* line 91, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.is-exercise-complete .btn--submit, .is-exercise-complete.is-exercise-editor-next .btn--submit {
+  right: 113px;
+}
+/* line 94, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.is-exercise-singleline_editor-next .btn--submit {
+  right: 3px;
+}
+/* line 96, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.is-exercise-submitting .btn--submit {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/loading-7936c731d8c42def04fe94fd8d4831ee.gif);
+  background-position: center 14px;
+  background-repeat: no-repeat;
+  text-indent: -624.9375em;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  /* line 96, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+  .is-exercise-submitting .btn--submit {
+    background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/loading@2x-53e484a8bb61d2f113bbab5150a02515.gif);
+    background-size: 48px 15px;
+  }
+}
+
+/* line 103, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--success {
+  background: #08a650;
+  font-size: 1.5em;
+}
+/* line 107, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--success:hover {
+  background: #0ac860;
+  color: white;
+}
+
+/* line 111, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--console {
+  border-radius: 50%;
+  color: black;
+  display: block;
+  float: left;
+  font-size: 0.875em;
+  height: 22px;
+  line-height: 22;
+  text-align: center;
+  width: 22px;
+}
+/* line 122, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--console:hover, .btn--console:focus {
+  color: white;
+}
+
+/* line 126, ../../app/assets/stylesheets/modules/_buttons.css.sass */
+.btn--start {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #ab1910, inset 0 -4px 0 #ab1910;
+  font-size: 1.125em;
+  background: #ec4035;
+  display: block;
+  padding: 0.55556em 1.66667em;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror {
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+  line-height: 24px;
+  height: auto;
+  position: relative;
+}
+/* line 10, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror pre {
+  padding: 0 0.5em;
+}
+/* line 15, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-activeline {
+  background: #404040;
+}
+/* line 17, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-cursor {
+  border-left: 1px solid white !important;
+}
+/* line 19, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-gutters {
+  background: #404040;
+  border-right: 0;
+}
+/* line 22, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-linenumber {
+  color: #bbbdc0;
+}
+/* line 24, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-lines {
+  padding: 0;
+}
+/* line 26, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-pre {
+  padding: 0 0.5em;
+}
+/* line 28, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-scroll {
+  background: transparent;
+}
+/* line 30, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .CodeMirror-selected {
+  background: #737373 !important;
+}
+/* line 35, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios {
+  background: transparent;
+  color: white;
+  height: 100%;
+}
+/* line 39, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-keyword,
+.CodeMirror.cm-s-ios .cm-atom {
+  color: #b07dc4;
+}
+/* line 42, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-number {
+  color: #e1c76a;
+}
+/* line 44, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-def {
+  color: blue;
+}
+/* line 46, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-variable {
+  color: white;
+}
+/* line 48, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-variable-2 {
+  color: blue;
+}
+/* line 50, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-variable-3 {
+  color: blue;
+}
+/* line 52, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-property {
+  color: blue;
+}
+/* line 54, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-operator,
+.CodeMirror.cm-s-ios .cm-comment,
+.CodeMirror.cm-s-ios .cm-meta {
+  color: #bbbdc0;
+}
+/* line 58, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-string {
+  color: #1ebcef;
+}
+/* line 60, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-string-2 {
+  color: blue;
+}
+/* line 62, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-error {
+  color: blue;
+}
+/* line 64, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-qualifier {
+  color: blue;
+}
+/* line 66, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-builtin {
+  color: blue;
+}
+/* line 68, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-bracket {
+  color: blue;
+}
+/* line 70, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-tag {
+  color: blue;
+}
+/* line 72, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-attribute {
+  color: blue;
+}
+/* line 74, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-header {
+  color: blue;
+}
+/* line 76, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-quote {
+  color: blue;
+}
+/* line 78, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-hr {
+  color: blue;
+}
+/* line 80, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .cm-link {
+  color: blue;
+}
+/* line 85, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror.cm-s-ios .build-error {
+  background: #a51e22;
+  color: white;
+}
+/* line 89, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror .burned {
+  opacity: 0.5;
+}
+
+/* line 92, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.CodeMirror-widget {
+  background: #d5d7d9;
+  border-radius: 20px;
+  color: black;
+}
+
+/* line 99, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.console {
+  background: transparent;
+  color: white;
+  height: 100%;
+  overflow: auto;
+  padding: 0;
+}
+
+/* line 106, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.jquery-console-inner {
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+  padding: 0.625em 1em;
+}
+
+/* line 109, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.jquery-console-cursor {
+  background: #bbbdc0;
+  color: black;
+}
+
+/* line 112, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.jquery-console-error-message {
+  color: #bb2226;
+}
+
+/* line 114, ../../app/assets/stylesheets/modules/_editor.css.sass */
+.jquery-console-success-message {
+  color: #08a650;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_enroll.css.sass */
+.exercise-enroll {
+  margin: 0 auto;
+  max-width: 60em;
+  padding: 0 2.5em;
+}
+/* line 9, ../../app/assets/stylesheets/modules/_enroll.css.sass */
+.exercise-enroll p {
+  font-size: 1.25em;
+}
+
+/* line 12, ../../app/assets/stylesheets/modules/_enroll.css.sass */
+.enroll-header {
+  padding-right: 125px;
+  position: relative;
+}
+
+/* line 17, ../../app/assets/stylesheets/modules/_enroll.css.sass */
+.enroll-badge.is-badge-unearned {
+  bottom: -15px;
+  position: absolute;
+  right: 0;
+}
+/* line 21, ../../app/assets/stylesheets/modules/_enroll.css.sass */
+.enroll-badge.is-badge-unearned:after {
+  color: black;
+  font-size: 2.5em;
+  left: 33px;
+  position: absolute;
+  top: 30px;
+}
+/* line 29, ../../app/assets/stylesheets/modules/_enroll.css.sass */
+.enroll-badge.is-badge-unearned img {
+  -webkit-filter: brightness(0.15) sepia(1);
+  filter: brightness(0.15) sepia(1);
+  opacity: 0.7;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercises {
+  -webkit-transition: opacity 0.15s ease-out, -webkit-transform 0.3s ease-out, -webkit-filter 0.15s ease-out;
+  transition: opacity 0.15s ease-out, -webkit-transform 0.3s ease-out, -webkit-filter 0.15s ease-out;
+  background: black;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 10;
+}
+/* line 12, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--intro .exercises, .exercise--wrapup .exercises {
+  background: none;
+}
+
+/* line 21, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective p, .exercise-objective li,
+.exercise-successMessage p,
+.exercise-successMessage li, .exercise-objective-note {
+  font-family: "PTSansRegular", sans-serif;
+  font-size: 1.25em;
+  line-height: 1.4;
+}
+
+@media screen and (min-width: 920px) {
+  /* line 26, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-header, .exercise-objective,
+  .exercise-successMessage, .exercise--text .exercise-header, .exercise--text .exercise-actions, .feed {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 680px;
+  }
+}
+
+/* line 34, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-header {
+  margin-bottom: 0.9375em;
+  margin-top: 0.9375em;
+}
+/* line 38, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-header h1 {
+  font-size: 2.125em;
+  line-height: 1.2;
+  padding-bottom: 0.29412em;
+}
+
+/* line 43, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective,
+.exercise-successMessage {
+  margin-bottom: 2em;
+}
+/* line 48, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective h2,
+.exercise-successMessage h2 {
+  color: white;
+}
+/* line 52, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective li,
+.exercise-successMessage li {
+  list-style-type: square;
+  list-style-position: inside;
+  margin-bottom: 0.5em;
+}
+/* line 56, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective a,
+.exercise-successMessage a {
+  text-decoration: underline;
+}
+/* line 58, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective a:hover, .exercise-objective a:focus,
+.exercise-successMessage a:hover,
+.exercise-successMessage a:focus {
+  color: white;
+}
+/* line 61, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective code,
+.exercise-successMessage code {
+  position: relative;
+  background: #404040;
+  color: #bbbdc0;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.1;
+  padding: 0.2em;
+}
+/* line 63, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.exercise-objective code:before, .exercise-objective code:after,
+.exercise-successMessage code:before,
+.exercise-successMessage code:after {
+  background: black;
+  content: "";
+  height: 4px;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+/* line 71, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.exercise-objective code:before,
+.exercise-successMessage code:before {
+  left: 0;
+}
+/* line 73, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.exercise-objective code:after,
+.exercise-successMessage code:after {
+  right: 0;
+  bottom: 0;
+  top: auto;
+}
+/* line 69, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective pre code,
+.exercise-successMessage pre code {
+  padding: 1em 0;
+}
+/* line 71, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective .CodeMirror,
+.exercise-successMessage .CodeMirror {
+  background: #333333;
+  overflow-x: auto;
+  padding: 0.625em 0.9375em;
+}
+/* line 75, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective .CodeMirror-sizer,
+.exercise-successMessage .CodeMirror-sizer {
+  background-color: #333333;
+}
+
+/* line 78, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-note {
+  border: 2px solid #333333;
+  color: #bbbdc0;
+  font-size: 1em !important;
+  padding: 1.25em;
+}
+/* line 84, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-note span:before {
+  font-size: 0.875em;
+  margin-right: 0.28571em;
+}
+
+/* line 90, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-fileHeader,
+.exercise-objective-error,
+.exercise-objective-errorFile {
+  display: block;
+}
+
+/* line 94, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-error,
+.exercise-objective-errorFile {
+  background: #a51e22;
+  color: white;
+  font-size: 0.8em;
+  padding: 0.25em 0.5em;
+}
+
+/* line 101, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-fileHeader {
+  background: #404040;
+  color: #bbbdc0;
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+  font-size: 0.7em;
+  margin-bottom: -17px;
+  padding: 0.25em 0.5em;
+}
+/* line 109, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-objective-fileHeader {
+  font-size: 0.875em;
+  margin-bottom: -25px;
+  padding: 0.3125em 0.625em;
+}
+
+/* line 113, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-error {
+  margin-bottom: 4px;
+}
+
+/* line 115, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-errorFile {
+  margin-top: -20px;
+}
+
+/* line 118, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-action {
+  border: 2px solid #d3b017;
+  margin-top: 1.5em;
+  padding: 1.5em;
+  position: relative;
+}
+/* line 123, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-action:before, .exercise-objective-action:after {
+  position: absolute;
+  color: #d3b017;
+}
+/* line 127, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-action:before {
+  background: black;
+  border: 4px solid black;
+  font-size: 1.3em;
+  left: 10px;
+  top: -24px;
+}
+/* line 135, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-action:after {
+  bottom: 5px;
+  content: "Mission";
+  font-family: "SilkscreenNormal";
+  font-size: 0.7em;
+  right: 10px;
+  text-transform: uppercase;
+}
+
+/* line 143, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-objective-actionCode {
+  border: 2px solid #d3b017;
+}
+
+/* line 148, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tab {
+  position: relative;
+  color: #bbbdc0;
+  display: block;
+  font-size: 0.8125em;
+  font-weight: bold;
+  line-height: 40px;
+  padding: 0 0.76923em;
+  position: relative;
+  text-align: center;
+  z-index: 20;
+}
+/* line 63, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.exercise-tab:before, .exercise-tab:after {
+  background: black;
+  content: "";
+  height: 4px;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+/* line 71, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.exercise-tab:before {
+  left: 0;
+}
+/* line 73, ../../app/assets/stylesheets/core/_helpers.css.sass */
+.exercise-tab:after {
+  right: 0;
+}
+/* line 161, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-exercise-tabs-active .exercise-tab {
+  background: #333333;
+  color: white;
+}
+/* line 164, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.resource--html .exercise-tab {
+  overflow: visible;
+}
+@media screen and (min-width: 920px) {
+  /* line 167, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .is-exercise-tabs-active .exercise-tab, .is-exercise-single .is-exercise-tabs-editors-active .exercise-tab, .is-exercise-single .is-exercise-tabs-resources-active .exercise-tab {
+    background: transparent;
+    color: white;
+  }
+  /* line 172, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .is-exercise-tabs-active .exercise-tab:hover, .is-exercise-tabs-active .exercise-tab:focus, .is-exercise-single .is-exercise-tabs-editors-active .exercise-tab:hover, .is-exercise-single .is-exercise-tabs-editors-active .exercise-tab:focus, .is-exercise-single .is-exercise-tabs-resources-active .exercise-tab:hover, .is-exercise-single .is-exercise-tabs-resources-active .exercise-tab:focus {
+    color: white;
+  }
+  /* line 175, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .is-exercise-tabs-editors-active .exercise-tab, .is-exercise-tabs-resources-active .exercise-tab, .is-exercise-single .is-exercise-tabs-active .exercise-tab {
+    background: #333333;
+    color: white;
+  }
+}
+
+/* line 181, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tab-count {
+  background: #ee4136;
+  color: white;
+  display: none;
+  font-family: "PTSansRegular", sans-serif;
+  font-size: 0.8125em;
+  height: 20px;
+  line-height: 20px;
+  position: absolute;
+  right: 9px;
+  text-align: center;
+  top: 9px;
+  width: 20px;
+}
+/* line 194, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-unread .exercise-tab-count {
+  display: block;
+}
+
+/* line 197, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tab-pane {
+  position: absolute;
+  top: 47px;
+  bottom: 7px;
+  left: 0;
+  right: 0;
+  background: #333333;
+  display: none;
+  overflow: auto;
+}
+/* line 202, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--editors .exercise-tab-pane {
+  padding-bottom: 56px;
+}
+/* line 204, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-exercise-tabs-active .exercise-tab-pane {
+  display: block;
+}
+/* line 206, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tab-pane pre {
+  padding: 0 1.25em;
+}
+/* line 208, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--editors .exercise-tab-pane pre {
+  padding: 0 0.625em;
+}
+/* line 210, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-tab-pane pre {
+  font-size: 0.875em;
+}
+/* line 213, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-tab-pane p {
+  font-family: "PTSansRegular", sans-serif;
+  padding-left: 0.625em;
+  padding-right: 0.625em;
+}
+/* line 217, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-tab-pane pre code {
+  padding: 1em 0;
+}
+/* line 219, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-tab-pane .CodeMirror {
+  background: #333333;
+  overflow-x: auto;
+  margin: 1.78571em 0.71429em;
+  padding: 0.71429em 1.07143em;
+}
+/* line 225, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-tab-pane .CodeMirror.cm-s-ios {
+  height: auto;
+}
+/* line 227, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-tab-pane .CodeMirror-sizer {
+  background-color: #333333;
+}
+@media screen and (min-width: 920px) {
+  /* line 231, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .is-exercise-tabs-active .exercise-tab-pane, .is-exercise-single .is-exercise-tabs-editors-active .exercise-tab-pane, .is-exercise-single .is-exercise-tabs-resources-active .exercise-tab-pane {
+    display: none;
+  }
+  /* line 235, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .is-exercise-tabs-editors-active .exercise-tab-pane, .is-exercise-tabs-resources-active .exercise-tab-pane, .is-exercise-single .is-exercise-tabs-active .exercise-tab-pane {
+    display: block;
+  }
+}
+
+/* line 242, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-fullscreen {
+  font-size: 1.375em;
+  position: absolute;
+  right: 0;
+  top: 0.40909em;
+}
+/* line 250, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-fullscreen i:before {
+  color: #bbbdc0;
+}
+
+/* line 255, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-links {
+  background: #262626;
+  bottom: 7px;
+  height: 56px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 3;
+}
+
+/* line 264, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-links-answer {
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+  color: #bbbdc0;
+  font-size: 1.25em;
+  margin: 0.75em 0 0 0.5em;
+}
+/* line 271, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-hint-submitting .exercise-links-answer {
+  opacity: 0.3;
+}
+/* line 273, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-exercise-answerable .exercise-links-answer {
+  display: block;
+}
+/* line 275, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-links-answer:hover, .exercise-links-answer:hover:before, .exercise-links-answer:focus {
+  color: white;
+}
+/* line 279, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-links-answer:before {
+  margin-right: 0.25em;
+}
+
+/* line 284, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-links-next {
+  border: 3px solid black;
+  bottom: 0;
+  color: white;
+  display: none;
+  font-size: 1.875em;
+  height: 44px;
+  line-height: 44px;
+  padding: 0;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  width: 100px;
+}
+/* line 297, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-exercise-complete .exercise-links-next {
+  display: block;
+}
+/* line 299, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-links-next:hover i:before, .exercise-links-next:focus i:before {
+  color: black;
+}
+
+/* line 306, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-single {
+  font-size: 1.5625em;
+  position: absolute;
+  right: 1.36em;
+  top: 0.32em;
+}
+/* line 315, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-single i:before {
+  color: #333333;
+}
+@media screen and (max-width: 920px) {
+  /* line 306, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-single {
+    display: none;
+  }
+}
+
+/* line 324, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-share {
+  height: 20px;
+  margin-bottom: 2.5em;
+}
+
+/* line 332, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--console,
+.exercise--editor,
+.exercise--singleline_editor,
+.exercise--enroll,
+.exercise--video {
+  background: black;
+}
+
+/* line 341, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--intro,
+.exercise--wrapup {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+/* line 345, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--intro .exercise-actions,
+.exercise--wrapup .exercise-actions {
+  padding-bottom: 5em;
+}
+@media screen and (min-width: 1000px) {
+  /* line 341, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise--intro,
+  .exercise--wrapup {
+    min-height: 100%;
+  }
+}
+
+/* line 352, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--enroll {
+  min-height: 100%;
+}
+
+/* line 357, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--singleline_editor,
+.exercise--console,
+.exercise--editor {
+  height: 100%;
+  position: relative;
+}
+/* line 364, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-loading .exercise--singleline_editor .exercise-content, .is-reloading .exercise--singleline_editor .exercise-content, .is-loading
+.exercise--console .exercise-content, .is-reloading
+.exercise--console .exercise-content, .is-loading
+.exercise--editor .exercise-content, .is-reloading
+.exercise--editor .exercise-content {
+  opacity: 0;
+}
+/* line 367, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-loading .exercise--singleline_editor .exercise-actions, .is-loading
+.exercise--console .exercise-actions, .is-loading
+.exercise--editor .exercise-actions {
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  -o-transform: translateX(20px);
+  transform: translateX(20px);
+  opacity: 0;
+}
+/* line 371, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--singleline_editor.is-exercise-error .exercise-content,
+.exercise--console.is-exercise-error .exercise-content,
+.exercise--editor.is-exercise-error .exercise-content {
+  background: rgba(44, 8, 9, 0.8);
+}
+/* line 374, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--singleline_editor.is-exercise-fullscreen .exercise-content,
+.exercise--console.is-exercise-fullscreen .exercise-content,
+.exercise--editor.is-exercise-fullscreen .exercise-content {
+  display: none;
+}
+/* line 376, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--singleline_editor.is-exercise-fullscreen .exercise-actions,
+.exercise--console.is-exercise-fullscreen .exercise-actions,
+.exercise--editor.is-exercise-fullscreen .exercise-actions {
+  left: 7px;
+  right: 7px;
+  top: 45px;
+  width: auto;
+  z-index: 30;
+}
+@media screen and (min-width: 920px) {
+  /* line 376, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise--singleline_editor.is-exercise-fullscreen .exercise-actions,
+  .exercise--console.is-exercise-fullscreen .exercise-actions,
+  .exercise--editor.is-exercise-fullscreen .exercise-actions {
+    top: 158px;
+  }
+}
+/* line 385, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--singleline_editor.is-exercise-single .exercise-actions,
+.exercise--console.is-exercise-single .exercise-actions,
+.exercise--editor.is-exercise-single .exercise-actions {
+  position: absolute;
+  bottom: 0;
+}
+/* line 388, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--singleline_editor .exercise-content,
+.exercise--console .exercise-content,
+.exercise--editor .exercise-content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50px;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transition: background-color 0.4s ease-out, opacity 0.4s 0.2s ease-out;
+  transition: background-color 0.4s ease-out, opacity 0.4s 0.2s ease-out;
+  background: black;
+  overflow: auto;
+  margin-right: 19px;
+  padding: 0 2.5em;
+  -webkit-overflow-scrolling: touch;
+}
+@media screen and (min-width: 920px) {
+  /* line 388, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise--singleline_editor .exercise-content,
+  .exercise--console .exercise-content,
+  .exercise--editor .exercise-content {
+    bottom: 0;
+    right: 50%;
+    top: 165px;
+  }
+  /* line 402, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise--singleline_editor .exercise-content code,
+  .exercise--console .exercise-content code,
+  .exercise--editor .exercise-content code {
+    word-break: break-word;
+  }
+}
+/* line 404, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--singleline_editor .exercise-actions,
+.exercise--console .exercise-actions,
+.exercise--editor .exercise-actions {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  bottom: 7px;
+  left: 7px;
+  right: 7px;
+  -webkit-transition: opacity 0.4s 0.6s ease-out, -webkit-transform 0.4s 0.6s ease-out;
+  transition: opacity 0.4s 0.6s ease-out, -webkit-transform 0.4s 0.6s ease-out;
+  background: black;
+  min-height: 200px;
+  z-index: 20;
+}
+@media screen and (min-width: 920px) {
+  /* line 404, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise--singleline_editor .exercise-actions,
+  .exercise--console .exercise-actions,
+  .exercise--editor .exercise-actions {
+    border-top: 0;
+    bottom: 300px;
+    top: 158px;
+    left: 50%;
+  }
+}
+
+/* line 422, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.level--1 .exercise--singleline_editor.is-exercise-singleline_editor-next .exercise-links-next,
+.level--1 .exercise--singleline_editor.is-exercise-singleline_editor-next .feed-item--success {
+  display: none;
+}
+
+/* line 429, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--console .exercise-links-submit {
+  display: none;
+}
+
+/* line 434, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--consoles,
+.exercise-tabs--editors,
+.exercise-tabs--resources {
+  padding: 0 2.8125em 0 0;
+}
+/* line 438, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--consoles:before,
+.exercise-tabs--editors:before,
+.exercise-tabs--resources:before {
+  border-left: 4px solid black;
+  bottom: 7px;
+  box-shadow: -4px 0 0 white, -8px 0 0 #bbbdc0, -12px 0 0 black;
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 7px;
+}
+/* line 446, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--consoles li,
+.exercise-tabs--editors li,
+.exercise-tabs--resources li {
+  float: left;
+  width: 25%;
+  padding-top: 0.4375em;
+}
+@media screen and (min-width: 920px) {
+  /* line 446, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-tabs--consoles li,
+  .exercise-tabs--editors li,
+  .exercise-tabs--resources li {
+    width: 28%;
+  }
+}
+/* line 452, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--consoles.exercise-tabs--5 li,
+.exercise-tabs--editors.exercise-tabs--5 li,
+.exercise-tabs--resources.exercise-tabs--5 li {
+  width: 15%;
+}
+@media screen and (min-width: 920px) {
+  /* line 456, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-tabs--consoles.exercise-tabs--3,
+  .exercise-tabs--editors.exercise-tabs--3,
+  .exercise-tabs--resources.exercise-tabs--3 {
+    padding-right: 4.6875em;
+  }
+  /* line 458, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-tabs--consoles.exercise-tabs--3 li,
+  .exercise-tabs--editors.exercise-tabs--3 li,
+  .exercise-tabs--resources.exercise-tabs--3 li {
+    width: 33.33333%;
+  }
+  /* line 456, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-tabs--consoles.exercise-tabs--4,
+  .exercise-tabs--editors.exercise-tabs--4,
+  .exercise-tabs--resources.exercise-tabs--4 {
+    padding-right: 4.6875em;
+  }
+  /* line 458, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-tabs--consoles.exercise-tabs--4 li,
+  .exercise-tabs--editors.exercise-tabs--4 li,
+  .exercise-tabs--resources.exercise-tabs--4 li {
+    width: 25%;
+  }
+  /* line 456, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-tabs--consoles.exercise-tabs--5,
+  .exercise-tabs--editors.exercise-tabs--5,
+  .exercise-tabs--resources.exercise-tabs--5 {
+    padding-right: 4.6875em;
+  }
+  /* line 458, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-tabs--consoles.exercise-tabs--5 li,
+  .exercise-tabs--editors.exercise-tabs--5 li,
+  .exercise-tabs--resources.exercise-tabs--5 li {
+    width: 20%;
+  }
+}
+/* line 460, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-exercise-single .exercise-tabs--consoles, .is-exercise-single
+.exercise-tabs--editors, .is-exercise-single
+.exercise-tabs--resources {
+  position: static;
+}
+/* line 462, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-exercise-single .exercise-tabs--consoles li, .is-exercise-single
+.exercise-tabs--editors li, .is-exercise-single
+.exercise-tabs--resources li {
+  width: 25%;
+}
+@media screen and (min-width: 920px) {
+  /* line 460, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .is-exercise-single .exercise-tabs--consoles, .is-exercise-single
+  .exercise-tabs--editors, .is-exercise-single
+  .exercise-tabs--resources {
+    padding-right: 5.3125em;
+  }
+}
+@media screen and (min-width: 920px) {
+  /* line 467, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .is-exercise-single .exercise-tabs--consoles.exercise-tabs--5, .is-exercise-single
+  .exercise-tabs--editors.exercise-tabs--5, .is-exercise-single
+  .exercise-tabs--resources.exercise-tabs--5 {
+    padding-right: 4.6875em;
+  }
+  /* line 469, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .is-exercise-single .exercise-tabs--consoles.exercise-tabs--5 li, .is-exercise-single
+  .exercise-tabs--editors.exercise-tabs--5 li, .is-exercise-single
+  .exercise-tabs--resources.exercise-tabs--5 li {
+    width: 14%;
+  }
+}
+@media screen and (min-width: 920px) {
+  /* line 434, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-tabs--consoles,
+  .exercise-tabs--editors,
+  .exercise-tabs--resources {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-right: 0.4375em;
+  }
+}
+
+/* line 475, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.is-exercise-single .exercise-tabs--resources {
+  position: static;
+}
+/* line 477, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-tab-pane {
+  background-color: #4d4d4d;
+}
+/* line 479, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-tab-pane pre {
+  white-space: pre-wrap;
+}
+/* line 481, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-tab-pane p code {
+  background: #333333;
+  padding: 0 0.25em;
+}
+/* line 484, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .exercise-tab-pane > div {
+  height: 100%;
+}
+/* line 486, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise-tabs--resources .is-exercise-tabs-active .exercise-tab {
+  background-color: #4d4d4d;
+}
+@media screen and (min-width: 920px) {
+  /* line 474, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-tabs--resources {
+    bottom: -300px;
+    height: 307px;
+    top: auto;
+  }
+  /* line 492, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise-tabs--resources .is-exercise-tabs-resources-active .exercise-tab {
+    background-color: #4d4d4d;
+    color: white;
+  }
+  /* line 495, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .is-exercise-single .exercise-tabs--resources .is-exercise-tabs-resources-active .exercise-tab {
+    background-color: transparent;
+  }
+  /* line 497, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .is-exercise-single .exercise-tabs--resources .is-exercise-tabs-active .exercise-tab {
+    background-color: #4d4d4d;
+    color: white;
+  }
+}
+
+/* line 503, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--text {
+  margin: 1.25em 0 9.375em;
+}
+/* line 505, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--text .exercise-content {
+  padding: 0 3.75em;
+}
+@media screen and (min-width: 920px) {
+  /* line 505, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+  .exercise--text .exercise-content {
+    padding: 0;
+  }
+}
+/* line 511, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--text .exercise-actions {
+  margin-bottom: 2.5em;
+}
+/* line 514, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--text .exercise-links {
+  background: none;
+  padding: 0;
+  position: static;
+}
+/* line 518, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--text .exercise-links-submit {
+  display: none;
+}
+/* line 520, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--text .exercise-links-next {
+  border: 0;
+  color: black;
+  display: block;
+  height: 52px;
+  line-height: 47px;
+  position: static;
+  width: 100%;
+}
+/* line 528, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--text .exercise-links-next:hover, .exercise--text .exercise-links-next:hover i:before {
+  color: white;
+}
+/* line 531, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--text .exercise-links-next:before {
+  content: "Continue ";
+}
+/* line 533, ../../app/assets/stylesheets/modules/_exercises.css.sass */
+.exercise--text .exercise-links-next i:before {
+  left: 5px;
+  position: relative;
+  top: 3px;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed {
+  padding-bottom: 2.5em;
+}
+/* line 8, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed h2 {
+  display: none;
+}
+/* line 10, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed ol {
+  -webkit-perspective: 800px;
+  perspective: 800px;
+}
+
+/* line 14, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item {
+  -webkit-animation: feed 0.5s ease-out;
+  -moz-animation: feed 0.5s ease-out;
+  animation: feed 0.5s ease-out;
+  -webkit-transition: background-color 0.5s 0.2s ease-out;
+  transition: background-color 0.5s 0.2s ease-out;
+  background: #333333;
+  display: none;
+  margin-bottom: 0.1875em;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+/* line 24, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item:first-child {
+  display: block;
+}
+/* line 26, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item.is-feed-expanded {
+  z-index: 1;
+}
+/* line 28, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item.is-feed-expanded p,
+.feed-item.is-feed-expanded pre,
+.feed-item.is-feed-expanded .feed-files {
+  display: block;
+}
+/* line 32, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item h3 {
+  font-size: 1em;
+  margin-bottom: 0;
+}
+/* line 35, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item p {
+  display: none;
+  font-family: "PTSansRegular", sans-serif;
+  margin: 0 0.625em 0.625em;
+}
+/* line 39, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item p code {
+  padding: 0 0.25em;
+}
+
+/* line 42, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item-toggle {
+  color: white;
+  display: block;
+  padding: 0.625em;
+}
+/* line 46, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.is-feed-expanded .feed-item-toggle:after {
+  content: "-";
+}
+/* line 48, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item-toggle:before, .feed-item-toggle:after {
+  font-family: "YWFTProcessing", sans-serif;
+}
+/* line 52, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item-toggle:before {
+  opacity: 0.25;
+  padding-right: 0.1875em;
+}
+/* line 55, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item-toggle:after {
+  content: "+";
+  font-size: 1.5em;
+  opacity: 0.5;
+  position: absolute;
+  right: 0.41667em;
+  top: 0.04167em;
+}
+/* line 63, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item-toggle:hover, .feed-item-toggle:focus {
+  color: #cccccc;
+}
+/* line 66, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item-toggle:hover:after, .feed-item-toggle:focus:after {
+  opacity: 1;
+}
+
+/* line 70, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-files {
+  color: black;
+  cursor: pointer;
+  display: none;
+  margin: 0 0.625em;
+}
+/* line 75, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-files b {
+  background: white;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  display: block;
+  font-weight: bold;
+  line-height: 2;
+  margin: 0.625em 0 0;
+  padding: 0 0.625em;
+}
+/* line 84, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-files .CodeMirror {
+  background: white;
+  margin: 0 0 0.625em;
+  height: 6.25em;
+}
+/* line 89, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-files .CodeMirror pre {
+  margin: 0;
+  padding: 0 0.625em;
+}
+
+/* line 93, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed pre {
+  background: white;
+  color: black;
+  display: none;
+  margin: 0.625em;
+  padding: 0.625em;
+}
+
+/* line 103, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item--error.is-feed-expanded {
+  background: #a51e22;
+}
+/* line 107, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item--error p code {
+  background: #7a1619;
+  color: white;
+}
+
+/* line 114, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item--hint.is-feed-expanded {
+  background: #bbbdc0;
+}
+
+/* line 121, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item--success {
+  display: none;
+}
+/* line 123, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item--success.is-feed-expanded {
+  background: #08a650;
+}
+/* line 127, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.feed-item--success .feed-item-toggle:after {
+  display: none;
+}
+
+/* line 131, ../../app/assets/stylesheets/modules/_feed.css.sass */
+.is-exercise-complete .feed-item--success:first-child {
+  display: block;
+}
+
+/* line 8, ../../app/assets/stylesheets/modules/_flag.sass */
+.flag {
+  display: table;
+  width: 100%;
+}
+
+/* line 14, ../../app/assets/stylesheets/modules/_flag.sass */
+.flag-img,
+.flag-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 21, ../../app/assets/stylesheets/modules/_flag.sass */
+.flag--top .flag-img, .flag--top
+.flag-body {
+  vertical-align: top;
+}
+/* line 24, ../../app/assets/stylesheets/modules/_flag.sass */
+.flag--bottom .flag-img, .flag--bottom
+.flag-body {
+  vertical-align: bottom;
+}
+
+/* line 29, ../../app/assets/stylesheets/modules/_flag.sass */
+.flag-img {
+  padding-right: 0.625em;
+}
+/* line 31, ../../app/assets/stylesheets/modules/_flag.sass */
+.flag-img > img {
+  display: block;
+}
+/* line 36, ../../app/assets/stylesheets/modules/_flag.sass */
+.flag--rev .flag-img {
+  padding-left: 0.625em;
+  padding-right: 0;
+}
+
+/* line 42, ../../app/assets/stylesheets/modules/_flag.sass */
+.flag-body {
+  width: 100%;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.higgie {
+  -webkit-animation: soon 3s 2s;
+  -moz-animation: soon 3s 2s;
+  animation: soon 3s 2s;
+  -webkit-transition: left 2s 2s linear;
+  transition: left 2s 2s linear;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/higgie-d1a3bcd02bd6d9d117056a21f3446020.svg);
+  background-position: 0 -70px;
+  background-repeat: no-repeat;
+  bottom: -38px;
+  display: block;
+  height: 64px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 50px;
+  z-index: 1;
+}
+/* line 22, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.level--3 .higgie {
+  bottom: -28px;
+}
+@media screen and (min-width: 920px) {
+  /* line 5, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .higgie {
+    -webkit-animation: standing 1s steps(2) infinite;
+    -moz-animation: standing 1s steps(2) infinite;
+    animation: standing 1s steps(2) infinite;
+    bottom: 38px;
+    -webkit-animation-fill-mode: none;
+    -moz-animation-fill-mode: none;
+    animation-fill-mode: none;
+  }
+}
+/* line 30, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.wrapup--level .higgie {
+  -webkit-animation: standing 1s steps(2) infinite;
+  -moz-animation: standing 1s steps(2) infinite;
+  animation: standing 1s steps(2) infinite;
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -webkit-animation-fill-mode: none;
+  -moz-animation-fill-mode: none;
+  animation-fill-mode: none;
+  bottom: 38px;
+  right: 30px;
+  left: auto;
+}
+@media screen and (min-width: 920px) {
+  /* line 43, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .level--3 .higgie {
+    -webkit-animation: standing-3 1s steps(2) infinite;
+    -moz-animation: standing-3 1s steps(2) infinite;
+    animation: standing-3 1s steps(2) infinite;
+    background-position: 0 -68px;
+    height: 74px;
+  }
+  /* line 47, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .level--4 .higgie, .level--5 .higgie {
+    -webkit-animation: standing-4 1s steps(2) infinite;
+    -moz-animation: standing-4 1s steps(2) infinite;
+    animation: standing-4 1s steps(2) infinite;
+  }
+}
+@media screen and (min-width: 920px) {
+  /* line 54, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .is-running .higgie {
+    -webkit-animation: jumping 2s steps(2) 1, running 1s steps(3) 2s 2;
+    -moz-animation: jumping 2s steps(2) 1, running 1s steps(3) 2s 2;
+    animation: jumping 2s steps(2) 1, running 1s steps(3) 2s 2;
+  }
+  /* line 56, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .is-running.level--2 .higgie {
+    -webkit-animation: jumping-2 2s steps(2) 1, running 1s steps(3) 2s 2;
+    -moz-animation: jumping-2 2s steps(2) 1, running 1s steps(3) 2s 2;
+    animation: jumping-2 2s steps(2) 1, running 1s steps(3) 2s 2;
+  }
+  /* line 58, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .is-running.level--3 .higgie {
+    -webkit-animation: jumping-3 2s steps(2) 1, running-3 1s steps(3) 2s 2;
+    -moz-animation: jumping-3 2s steps(2) 1, running-3 1s steps(3) 2s 2;
+    animation: jumping-3 2s steps(2) 1, running-3 1s steps(3) 2s 2;
+  }
+  /* line 60, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .is-running.level--4 .higgie {
+    -webkit-animation: jumping 2s steps(2) 1, running 1s steps(3) 2s 2;
+    -moz-animation: jumping 2s steps(2) 1, running 1s steps(3) 2s 2;
+    animation: jumping 2s steps(2) 1, running 1s steps(3) 2s 2;
+  }
+  /* line 62, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .is-running.level--5 .higgie {
+    -webkit-animation: jumping-3 2s steps(2) 1, running 1s steps(3) 2s 2;
+    -moz-animation: jumping-3 2s steps(2) 1, running 1s steps(3) 2s 2;
+    animation: jumping-3 2s steps(2) 1, running 1s steps(3) 2s 2;
+  }
+}
+/* line 67, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.is-error .higgie {
+  -webkit-animation: falling 3s ease-in-out 1s;
+  -moz-animation: falling 3s ease-in-out 1s;
+  animation: falling 3s ease-in-out 1s;
+}
+/* line 69, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.is-error.level--2 .higgie {
+  -webkit-animation: falling-2 3s ease-in-out 1s;
+  -moz-animation: falling-2 3s ease-in-out 1s;
+  animation: falling-2 3s ease-in-out 1s;
+}
+/* line 71, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.is-error.level--3 .higgie {
+  -webkit-animation: falling-3 3s ease-in-out 1s;
+  -moz-animation: falling-3 3s ease-in-out 1s;
+  animation: falling-3 3s ease-in-out 1s;
+}
+/* line 73, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.is-error.level--4 .higgie {
+  -webkit-animation: falling-2 3s ease-in-out 1s;
+  -moz-animation: falling-2 3s ease-in-out 1s;
+  animation: falling-2 3s ease-in-out 1s;
+}
+/* line 75, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.is-error.level--5 .higgie {
+  -webkit-animation: falling-2 3s ease-in-out 1s;
+  -moz-animation: falling-2 3s ease-in-out 1s;
+  animation: falling-2 3s ease-in-out 1s;
+}
+/* line 81, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.level--2 .higgie {
+  background-image: url("levels/2/higgie.svg");
+}
+/* line 81, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.level--3 .higgie {
+  background-image: url("levels/3/higgie.svg");
+}
+/* line 81, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.level--4 .higgie {
+  background-image: url("levels/4/higgie.svg");
+}
+/* line 81, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.level--5 .higgie {
+  background-image: url("levels/5/higgie.svg");
+}
+
+/* line 86, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.higgie--exercise {
+  background: url(images/higgie-speech.svg) 10px bottom no-repeat;
+  border: 2px solid #333333;
+  margin: 1.25em 0;
+  padding: 0.9375em 1.25em;
+}
+/* line 91, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.higgie--exercise p, .higgie--exercise pre {
+  font-size: 1.125em;
+  margin-left: 5.55556em;
+}
+/* line 95, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.higgie--exercise p {
+  font-family: "SilkscreenNormal";
+}
+
+/* line 100, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.higgie--wrapup {
+  -webkit-animation: standing 1s steps(2) infinite;
+  -moz-animation: standing 1s steps(2) infinite;
+  animation: standing 1s steps(2) infinite;
+  -webkit-transition: none;
+  transition: none;
+  bottom: 38px;
+  left: 30px;
+  -webkit-animation-fill-mode: none;
+  -moz-animation-fill-mode: none;
+  animation-fill-mode: none;
+}
+/* line 108, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.level--2 .higgie--wrapup {
+  left: 80px;
+}
+/* line 110, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.level--3 .higgie--wrapup {
+  -webkit-animation: standing-3 1s steps(2) infinite;
+  -moz-animation: standing-3 1s steps(2) infinite;
+  animation: standing-3 1s steps(2) infinite;
+  background-position: 0 -68px;
+  bottom: 38px;
+  height: 74px;
+  left: 130px;
+}
+/* line 116, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.level--4 .higgie--wrapup {
+  -webkit-animation: standing-4 1s steps(2) infinite;
+  -moz-animation: standing-4 1s steps(2) infinite;
+  animation: standing-4 1s steps(2) infinite;
+  left: 190px;
+}
+/* line 119, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+.level--5 .higgie--wrapup {
+  -webkit-animation: standing-4 1s steps(2) infinite;
+  -moz-animation: standing-4 1s steps(2) infinite;
+  animation: standing-4 1s steps(2) infinite;
+  left: 250px;
+}
+@media screen and (min-width: 900px) {
+  /* line 100, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .higgie--wrapup {
+    left: 240px;
+  }
+  /* line 124, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .level--2 .higgie--wrapup {
+    left: 290px;
+  }
+  /* line 126, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .level--3 .higgie--wrapup {
+    left: 340px;
+  }
+  /* line 128, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .level--4 .higgie--wrapup {
+    left: 400px;
+  }
+  /* line 130, ../../app/assets/stylesheets/modules/_higgie.css.sass */
+  .level--5 .higgie--wrapup {
+    left: 458px;
+  }
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_hud.css.sass */
+.hud {
+  color: black;
+  font-family: "SilkscreenNormal";
+  font-size: 1.25em;
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  z-index: 10;
+}
+/* line 13, ../../app/assets/stylesheets/modules/_hud.css.sass */
+.hud li {
+  margin-right: 0.75em;
+  display: inline;
+}
+/* line 16, ../../app/assets/stylesheets/modules/_hud.css.sass */
+.hud li:last-child {
+  margin-right: 0;
+}
+/* line 18, ../../app/assets/stylesheets/modules/_hud.css.sass */
+.level--5 .hud li {
+  color: white;
+}
+
+/* line 24, ../../app/assets/stylesheets/modules/_hud.css.sass */
+.is-success .hud-complete,
+.is-success .hud-points {
+  -webkit-animation: flash 0.3s ease-in-out 2.5s 3;
+  -moz-animation: flash 0.3s ease-in-out 2.5s 3;
+  animation: flash 0.3s ease-in-out 2.5s 3;
+}
+
+/* line 31, ../../app/assets/stylesheets/modules/_hud.css.sass */
+.hud-points:after {
+  content: " pts";
+  text-transform: uppercase;
+}
+
+/* line 37, ../../app/assets/stylesheets/modules/_hud.css.sass */
+.hud-flag {
+  margin-left: 10px;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.srt {
+  left: -9999px;
+  position: absolute;
+  top: -9999px;
+}
+
+/* line 10, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.btn--slides:before, .enroll-badge.is-badge-unearned:after, .exercise-objective-note span:before, .exercise-objective-action:before, .exercise-fullscreen i:before, .exercise-links-answer:before, .exercise-links-next i:before, .exercise-single i:before, .feed-item-toggle:before, .feed-item-toggle:after, .notifications-close:before, .overview-close i:before, .overview-toggle i:before, .logo--cs i:before {
+  display: inline-block;
+  font-family: "Course";
+  speak: none;
+  vertical-align: baseline;
+}
+
+/* line 16, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.is-exercise-fullscreen .exercise-fullscreen i:before, .exercise-links-next i:before {
+  content: "\e00b";
+}
+
+/* line 18, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.exercise-objective-action:before {
+  content: "\e00e";
+}
+
+/* line 20, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.feed-item--success .feed-item-toggle:before {
+  content: "\e00a";
+}
+
+/* line 22, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.notifications-close:before, .overview-close i:before {
+  content: "\e00c";
+}
+
+/* line 24, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.logo--cs i:before {
+  content: "\e009";
+}
+
+/* line 26, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.feed-item--error .feed-item-toggle:before {
+  content: "\e008";
+}
+
+/* line 28, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.exercise-objective-note span:before {
+  content: "\e007";
+}
+
+/* line 30, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.exercise-fullscreen i:before {
+  content: "\e006";
+}
+
+/* line 32, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.exercise-links-answer:before, .feed-item--hint .feed-item-toggle:before {
+  content: "\e004";
+}
+
+/* line 34, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.enroll-badge.is-badge-unearned:after {
+  content: "\e005";
+}
+
+/* line 36, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.overview-toggle i:before {
+  content: "\e00d";
+}
+
+/* line 38, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.is-exercise-single .exercise-single i:before {
+  content: "\e000";
+}
+
+/* line 40, ../../app/assets/stylesheets/modules/_icons.css.sass */
+.exercise-single i:before {
+  content: "\e001";
+}
+
+/* line 7, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro, .wrapup {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 6.25em;
+}
+@media screen and (min-width: 1000px) {
+  /* line 7, ../../app/assets/stylesheets/modules/_intro.css.sass */
+  .intro, .wrapup {
+    float: left;
+    margin-top: 2.5em;
+    width: 50%;
+  }
+}
+
+/* line 14, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup {
+  float: none;
+  margin: 0 auto;
+  width: 40.625em;
+}
+
+/* line 21, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro-cell, .wrapup-cell {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 3.125em;
+}
+
+/* line 26, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-cell {
+  padding-top: 6.25em;
+}
+
+/* line 28, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.exercise-actions .wrapup-cell {
+  padding-top: 0;
+}
+
+/* line 33, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/bg-bricks-10ab4952f05605ee8a5b78c380ee995c.svg) repeat;
+  z-index: -1;
+}
+
+/* line 37, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-sidewalk {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/bg-floor-8986a68c4799559d71b4c69958ce8793.svg);
+  display: none;
+  height: 92px;
+}
+@media screen and (min-height: 930px) {
+  /* line 37, ../../app/assets/stylesheets/modules/_intro.css.sass */
+  .wrapup-sidewalk {
+    display: block;
+  }
+}
+
+/* line 49, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-grid-box {
+  float: left;
+  max-width: 50%;
+}
+/* line 52, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-grid-box:last-child {
+  float: right;
+}
+/* line 54, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-grid-box p {
+  font-family: "PTSansRegular", sans-serif;
+  font-size: 1.25em;
+}
+
+/* line 60, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-card {
+  background: #f7f7f7;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin-bottom: 1.875em;
+  min-height: 75px;
+  padding: 0.9375em;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
+
+/* line 71, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-card-content {
+  padding-left: 110px;
+  position: relative;
+  z-index: 1;
+}
+/* line 75, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-card-content p {
+  color: #1a1a1a;
+  font-family: "PTSansRegular", sans-serif;
+  font-size: 1.125em;
+  margin: 0;
+}
+
+/* line 80, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-card-header {
+  font-size: 1.625em;
+  margin: 0.19231em 0;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+/* line 89, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro-header,
+.wrapup-header {
+  border-bottom: 4px solid black;
+  box-shadow: 0 4px 0 white, 0 8px 0 #bbbdc0, 0 12px 0 black;
+  margin: 20px -20px 30px;
+  min-height: 145px;
+  position: relative;
+  text-align: center;
+}
+/* line 97, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.level--1 .intro-header, .level--1
+.wrapup-header {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/sky-9378420ae0098a540d8eac693c73710f.svg) 0 -5px repeat-x, url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/ground-2e1f9bd75aca06923adfcadd4083d9f4.svg) 0 105px repeat-x;
+}
+/* line 97, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.level--2 .intro-header, .level--2
+.wrapup-header {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/2/sky-25235d02a0feae4ef663e7e45952d398.svg) 0 -5px repeat-x, url(//d2rwobdpv93es3.cloudfront.net/assets/levels/2/ground-91bb526e8beb28ab2634b4b1e7a2ac69.svg) 0 105px repeat-x;
+}
+/* line 97, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.level--3 .intro-header, .level--3
+.wrapup-header {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/3/sky-c40e9e2853d691673211649433ff0086.svg) 0 -5px repeat-x, url(//d2rwobdpv93es3.cloudfront.net/assets/levels/3/ground-f0e25592f9efe259da2dd37e96f3fc9d.svg) 0 105px repeat-x;
+}
+/* line 97, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.level--4 .intro-header, .level--4
+.wrapup-header {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/4/sky-10e057ce05ef27ec82663edd1868384c.svg) 0 -5px repeat-x, url(//d2rwobdpv93es3.cloudfront.net/assets/levels/4/ground-53ecf35415bc8a0b9a074f7ae2825313.svg) 0 105px repeat-x;
+}
+/* line 97, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.level--5 .intro-header, .level--5
+.wrapup-header {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/5/sky-b5bee9feaf8af841561f469cd5ed59f9.svg) 0 -5px repeat-x, url(//d2rwobdpv93es3.cloudfront.net/assets/levels/5/ground-ed8d5f812153cbc65a726c9fc812e43e.svg) 0 105px repeat-x;
+}
+/* line 99, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro-header h1,
+.wrapup-header h1 {
+  line-height: 1.25em;
+  text-transform: uppercase;
+}
+/* line 102, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro-header h2,
+.wrapup-header h2 {
+  font-size: 1.875em;
+  padding-top: 0.16667em;
+}
+
+/* line 109, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-badge {
+  left: 10px;
+  position: absolute;
+  top: 10px;
+}
+
+/* line 114, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-badge--card {
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  left: -8px;
+  padding: 5px;
+  position: absolute;
+  top: -8px;
+}
+
+/* line 125, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro-content,
+.wrapup-content {
+  font-family: "PTSansRegular", sans-serif;
+  line-height: 1.4;
+  padding-bottom: 1.25em;
+}
+/* line 130, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.page--home .intro-content, .page--home
+.wrapup-content {
+  margin-bottom: 1.25em;
+}
+/* line 132, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro-content p,
+.wrapup-content p {
+  font-size: 1.125em;
+}
+/* line 134, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro-content ol li,
+.wrapup-content ol li {
+  font-size: 1.125em;
+  list-style-position: inside;
+  list-style-type: decimal;
+  margin-bottom: 0.625em;
+  padding-left: 1em;
+}
+
+/* line 140, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-content p {
+  font-family: "PTSansRegular", sans-serif;
+  margin-bottom: 0;
+}
+
+/* line 146, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro-next,
+.wrapup-next {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-position: left 44px;
+  background-repeat: repeat-x;
+  border: 4px solid black;
+  display: block;
+  font-size: 1.875em;
+  margin-top: 0.66667em;
+  padding: 0.4em 0 0.33333em;
+}
+@media screen and (min-width: 1000px) {
+  /* line 146, ../../app/assets/stylesheets/modules/_intro.css.sass */
+  .intro-next,
+  .wrapup-next {
+    float: left;
+    width: 50%;
+  }
+}
+/* line 160, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro-next:hover,
+.wrapup-next:hover {
+  color: black;
+}
+/* line 162, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.intro-next:active,
+.wrapup-next:active {
+  -webkit-transform: translateY(2px);
+  -moz-transform: translateY(2px);
+  -ms-transform: translateY(2px);
+  -o-transform: translateY(2px);
+  transform: translateY(2px);
+}
+
+/* line 167, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.level--1 .intro-next {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/btn-6f04e572e8943b3421dfdb8d5894de4d.svg);
+}
+/* line 167, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.level--2 .intro-next {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/2/btn-f23d926e8a8de0a93ca9aed7179aee6b.svg);
+}
+/* line 167, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.level--3 .intro-next {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/3/btn-d606ce523e8ecc2f24560bd03fa93216.svg);
+}
+/* line 167, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.level--4 .intro-next {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/4/btn-2e17830b12a2820c0de35a08ec2e35b0.svg);
+}
+/* line 167, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.level--5 .intro-next {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/5/btn-0a842b13346d291f6ff855e4a58ae6c9.svg);
+}
+
+/* line 170, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup-next {
+  float: none;
+  margin: 0.66667em auto;
+  width: 21.66667em;
+}
+
+/* line 177, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 100%;
+  position: relative;
+}
+/* line 181, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course h2 {
+  color: white;
+  font-size: 1.25em;
+  text-transform: none;
+}
+/* line 186, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course h3 {
+  text-align: center;
+  margin-bottom: 1.11111em;
+}
+/* line 191, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course a {
+  color: #f4cb3e;
+}
+/* line 193, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course a:hover, .wrapup--course a:focus {
+  color: white;
+}
+/* line 197, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-cell {
+  box-sizing: border-box;
+  max-width: 56.25em;
+  min-width: 48em;
+  padding-bottom: 3.125em;
+  padding-top: 3.125em;
+}
+/* line 204, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-header {
+  border-bottom: 4px solid black;
+  box-shadow: 0 4px 0 white, 0 8px 0 #bbbdc0, 0 12px 0 black;
+  border-bottom: 4px solid black;
+  box-shadow: 0 4px 0 white, 0 8px 0 #bbbdc0, 0 12px 0 black;
+  padding-left: 8.4375em;
+  padding-right: 1.25em;
+  text-align: left;
+}
+/* line 211, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-header h1 {
+  text-transform: none;
+}
+/* line 213, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-header p {
+  font-family: "PTSansRegular", sans-serif;
+  font-size: 1.125em;
+  margin-top: 0.27778em;
+}
+/* line 218, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-share {
+  margin-bottom: 1.25em;
+}
+@media screen and (min-width: 775px) {
+  /* line 222, ../../app/assets/stylesheets/modules/_intro.css.sass */
+  .wrapup--course .wrapup-share h2 {
+    float: left;
+  }
+  /* line 224, ../../app/assets/stylesheets/modules/_intro.css.sass */
+  .wrapup--course .wrapup-share .addthis {
+    float: left;
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+}
+/* line 229, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .borders {
+  padding-top: 1.875em;
+  padding-bottom: 2.8125em;
+}
+/* line 235, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-continue h2 {
+  color: white;
+  font-size: 26px;
+  line-height: 1.6;
+  margin: 1.15385em 0 0.76923em;
+  text-align: center;
+}
+/* line 242, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-continue h2 b {
+  display: block;
+}
+/* line 245, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-character {
+  border-bottom: 4px solid black;
+  box-shadow: 0 4px 0 white, 0 8px 0 #bbbdc0, 0 12px 0 black;
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/sky-9378420ae0098a540d8eac693c73710f.svg) 0 -5px repeat-x, url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/ground-2e1f9bd75aca06923adfcadd4083d9f4.svg) 0 105px repeat-x;
+  height: 145px;
+  margin: -1.125em -1.25em 1.25em;
+  overflow: hidden;
+  position: relative;
+}
+/* line 253, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-course {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  padding-right: 5%;
+  text-align: left;
+  width: 50%;
+}
+/* line 259, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-course:last-child {
+  float: right;
+  padding-right: 0;
+}
+/* line 262, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-course h3 {
+  font-size: 1.75em;
+  margin-bottom: 0;
+  text-align: left;
+}
+/* line 266, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-course .btn--start {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  bottom: 0;
+  color: white;
+  position: absolute;
+  width: 100%;
+}
+/* line 272, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-course .btn--start:hover {
+  color: black;
+}
+/* line 274, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-course:last-child .btn--start {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #868a8f, inset 0 -4px 0 #868a8f;
+  background: #bbbdc0;
+  color: black;
+}
+/* line 278, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-course:last-child .btn--start:hover {
+  color: white;
+}
+/* line 281, ../../app/assets/stylesheets/modules/_intro.css.sass */
+.wrapup--course .wrapup-course-content {
+  min-height: 150px;
+  position: relative;
+}
+
+/* line 7, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 80px;
+  bottom: 120px;
+  left: 55%;
+  right: 5%;
+}
+
+/* line 13, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map--intro {
+  display: none;
+}
+@media screen and (min-width: 1000px) {
+  /* line 13, ../../app/assets/stylesheets/modules/_maps.css.sass */
+  .map--intro {
+    display: block;
+  }
+}
+/* line 17, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.level--2 .map--intro {
+  top: 40px;
+}
+/* line 19, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.level--3 .map--intro {
+  left: 58%;
+}
+
+/* line 22, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map--overview {
+  position: absolute;
+  top: 190px;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+}
+
+/* line 24, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map--home {
+  position: absolute;
+  top: 150px;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+}
+
+/* line 29, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map-img {
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* line 36, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map--1 .map-img {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/map-0bbea99d3acc0e63f88c90d129717488.svg);
+}
+
+/* line 36, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map--2 .map-img {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/2/map-e6c90612df4b8f36ccd4d8179a215e32.svg);
+}
+
+/* line 36, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map--3 .map-img {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/3/map-2635b3de98743c11364078f52b211130.svg);
+}
+
+/* line 36, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map--4 .map-img {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/4/map-436b26fd3927a68167484f33de1ca24b.svg);
+}
+
+/* line 36, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map--5 .map-img {
+  background-image: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/5/map-f76c60f47a0d122fc409e07177d42e88.svg);
+}
+
+/* line 39, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map--1 .map--overview .map-img,
+.map--3 .map--overview .map-img,
+.map--4 .map--overview .map-img,
+.map--5 .map--overview .map-img {
+  top: 2%;
+}
+
+/* line 44, ../../app/assets/stylesheets/modules/_maps.css.sass */
+.map--1 .map--home .map-img,
+.map--3 .map--home .map-img,
+.map--4 .map--home .map-img,
+.map--5 .map--home .map-img {
+  top: 25px;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_notifications.css.sass */
+.notifications {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 200;
+}
+
+/* line 11, ../../app/assets/stylesheets/modules/_notifications.css.sass */
+.notifications-close:before {
+  color: #c96063;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+}
+/* line 18, ../../app/assets/stylesheets/modules/_notifications.css.sass */
+.notifications-close:before:hover {
+  color: white;
+}
+
+/* line 21, ../../app/assets/stylesheets/modules/_notifications.css.sass */
+.notification {
+  background: black;
+  font-family: "PTSansRegular", sans-serif;
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 37px;
+  position: relative;
+  width: 300px;
+}
+/* line 28, ../../app/assets/stylesheets/modules/_notifications.css.sass */
+.notification.notification--error {
+  background: #a51e22;
+  color: white;
+}
+/* line 31, ../../app/assets/stylesheets/modules/_notifications.css.sass */
+.notification p {
+  margin: 0;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  height: 0;
+  min-width: 850px;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+  z-index: -1;
+}
+/* line 14, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview.is-overview-toggled {
+  height: 100%;
+  opacity: 1;
+  overflow: visible;
+  position: fixed;
+  visibility: visible;
+  z-index: 200;
+}
+
+/* line 24, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.page--home {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/bg-907cb4f88154381fdc828f4d8f3cad5a.svg) repeat;
+  min-width: 768px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* line 31, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.badges {
+  margin-top: 1.25em;
+}
+/* line 34, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.badges .badge {
+  float: left;
+  list-style-type: none;
+  margin: 0 1.5625em 0.9375em 0;
+  padding-left: 0;
+}
+
+/* line 42, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--a, .overview-row--1, .overview-row--2, .overview-row--3, .overview-row--4, .overview-row--5 {
+  padding: 1.5625em 0 0;
+  text-align: center;
+}
+
+/* line 46, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--1, .overview-row--2, .overview-row--3, .overview-row--4, .overview-row--5 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 4px solid black;
+  border-right: 4px solid black;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.45), inset 2px 0 0 rgba(255, 255, 255, 0.25), inset -2px 0 0 rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  float: left;
+  top: 195px;
+  width: 20%;
+  z-index: 201;
+}
+/* line 57, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.is-map-incomplete.overview-row--1, .is-map-incomplete.overview-row--2, .is-map-incomplete.overview-row--3, .is-map-incomplete.overview-row--4, .is-map-incomplete.overview-row--5 {
+  background: #bdbec0;
+}
+/* line 59, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.is-map-incomplete.overview-row--1 a, .is-map-incomplete.overview-row--2 a, .is-map-incomplete.overview-row--3 a, .is-map-incomplete.overview-row--4 a, .is-map-incomplete.overview-row--5 a {
+  cursor: not-allowed;
+}
+/* line 61, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.is-map-incomplete.overview-row--1 .map-img, .is-map-incomplete.overview-row--2 .map-img, .is-map-incomplete.overview-row--3 .map-img, .is-map-incomplete.overview-row--4 .map-img, .is-map-incomplete.overview-row--5 .map-img {
+  -webkit-filter: grayscale(0.85);
+  filter: grayscale(0.85);
+  opacity: 0.5;
+}
+/* line 65, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--1:hover .map-img, .overview-row--2:hover .map-img, .overview-row--3:hover .map-img, .overview-row--4:hover .map-img, .overview-row--5:hover .map-img {
+  -webkit-filter: none;
+  filter: none;
+  opacity: 1;
+}
+
+/* line 71, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--a {
+  background: #e7e7e7;
+  padding-bottom: 1.5625em;
+}
+
+/* line 76, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--1 {
+  background: #08a650;
+  left: 0;
+}
+/* line 81, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--1 .btn--next:hover {
+  color: #08a650;
+}
+/* line 83, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--1:hover, .overview-row--1:focus {
+  background: #08a650;
+}
+
+/* line 85, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--2 {
+  background: #4268b2;
+  left: 20%;
+}
+/* line 90, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--2:hover, .overview-row--2:focus {
+  background: #4268b2;
+}
+
+/* line 92, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--3 {
+  background: #f5cc40;
+  left: 40%;
+}
+/* line 97, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--3:hover, .overview-row--3:focus {
+  background: #f5cc40;
+}
+
+/* line 99, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--4 {
+  background: #ee4136;
+  left: 60%;
+}
+/* line 104, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--4:hover, .overview-row--4:focus {
+  background: #ee4136;
+}
+
+/* line 106, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--5 {
+  background: #804099;
+  border-right: 0;
+  left: 80%;
+}
+/* line 112, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row--5:hover, .overview-row--5:focus {
+  background: #804099;
+}
+
+/* line 117, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-cell {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 3.75em 6.25em;
+}
+
+/* line 126, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-grid-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 1.25em;
+}
+/* line 129, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-grid-box:first-child {
+  clear: left;
+}
+@media screen and (min-width: 1100px) {
+  /* line 126, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .overview-grid-box {
+    float: left;
+    padding-right: 5%;
+    width: 50%;
+  }
+  /* line 135, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .overview-grid-box:last-child {
+    float: right;
+    padding-right: 0;
+  }
+}
+
+/* line 141, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-header {
+  border-bottom: 4px solid black;
+  box-shadow: 0 4px 0 white, 0 8px 0 #bbbdc0, 0 12px 0 black;
+  color: white;
+}
+/* line 145, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.page--home .overview-header {
+  position: relative;
+}
+
+/* line 150, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-content-header {
+  color: white;
+  font-family: "YWFTProcessing", sans-serif;
+  padding-top: 0.69444em;
+}
+
+/* line 157, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+/* line 161, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-close i:before {
+  color: #bdbec0;
+  font-size: 1.875em;
+}
+/* line 166, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-close:hover i:before {
+  color: black;
+}
+
+/* line 171, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-toggle {
+  color: black;
+}
+/* line 173, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-toggle:hover, .overview-toggle:focus {
+  color: #262626;
+}
+/* line 176, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-toggle:hover i:before, .overview-toggle:focus i:before {
+  color: #262626;
+}
+/* line 178, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.level--5 .overview-toggle {
+  color: white;
+}
+/* line 180, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.level--5 .overview-toggle:hover, .level--5 .overview-toggle:focus {
+  color: #cccccc;
+}
+/* line 183, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.level--5 .overview-toggle:hover i:before, .level--5 .overview-toggle:focus i:before {
+  color: #cccccc;
+}
+/* line 185, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-toggle i:before {
+  font-size: 0.7em;
+  margin-right: -0.35em;
+}
+
+@media screen and (min-width: 1050px) {
+  /* line 193, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .overview-description {
+    margin: 0 auto;
+    width: 765px;
+  }
+}
+
+/* line 201, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.logo--course {
+  margin: 0 auto;
+  width: inherit;
+}
+@media screen and (min-width: 1050px) {
+  /* line 204, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .page--home .logo--course {
+    float: left;
+    width: 40%;
+  }
+}
+/* line 208, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.logo--course strong {
+  color: black;
+  display: block;
+  margin-top: 0.625em;
+}
+
+/* line 215, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-tagline {
+  display: none;
+  font-size: 1.75em;
+}
+@media screen and (min-width: 1050px) {
+  /* line 215, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .overview-tagline {
+    display: block;
+    float: right;
+    margin-top: 0.85714em;
+    text-align: left;
+    width: 50%;
+  }
+}
+
+/* line 229, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.logo--cs i:before {
+  color: #bdbec0;
+  font-size: 1.875em;
+}
+/* line 234, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.logo--cs:hover i:before {
+  color: black;
+}
+
+/* line 239, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-nav {
+  left: 15px;
+  position: absolute;
+  top: 20px;
+}
+/* line 243, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-nav li {
+  display: inline;
+  font-family: "SilkscreenNormal";
+  line-height: 0.75em;
+  margin-right: 1.25em;
+}
+/* line 248, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-nav li:last-child {
+  margin-right: 0;
+}
+
+/* line 253, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-levels li {
+  list-style-type: none;
+}
+/* line 255, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-levels li a {
+  display: block;
+}
+
+/* line 258, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-levels--home li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  height: 400px;
+  padding: 1.25em;
+  position: relative;
+  text-align: center;
+  width: 20%;
+}
+@media screen and (min-width: 880px) {
+  /* line 258, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .overview-levels--home li {
+    height: 450px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  /* line 258, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .overview-levels--home li {
+    height: 500px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 258, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .overview-levels--home li {
+    height: 530px;
+  }
+}
+
+/* line 276, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row-header h2 {
+  color: white;
+  font-size: 2.5em;
+}
+/* line 280, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row-header h2 b {
+  display: none;
+  font-weight: bold;
+}
+/* line 283, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.page--home .overview-row-header h2 {
+  font-size: 2.25em;
+}
+/* line 285, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.page--home .overview-row-header h2 b {
+  display: inline;
+}
+@media screen and (min-width: 1100px) {
+  /* line 283, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .page--home .overview-row-header h2 {
+    font-size: 2.5em;
+  }
+}
+/* line 289, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row-header h3 {
+  font-size: 1.125em;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 830px) {
+  /* line 295, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .overview-row-header h2 {
+    font-size: 3em;
+  }
+  /* line 297, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .overview-row-header h2 b {
+    display: inline;
+  }
+  /* line 299, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .overview-row-header h3 {
+    font-size: 1.5em;
+  }
+}
+/* line 302, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.page--home .overview-row-header h2 b {
+  display: block;
+}
+/* line 304, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.page--home .overview-row-header h3 {
+  display: none;
+}
+@media screen and (min-width: 950px) {
+  /* line 307, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .page--home .overview-row-header h2 b {
+    display: inline;
+  }
+  /* line 309, ../../app/assets/stylesheets/modules/_overview.css.sass */
+  .page--home .overview-row-header h3 {
+    display: block;
+  }
+}
+/* line 312, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-row-header p {
+  color: black;
+  font-family: "SilkscreenNormal";
+  font-size: 1.25em;
+}
+
+/* line 319, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-levels-list {
+  border-top: 4px solid black;
+  margin-top: 1.5625em;
+  padding: 0 0.625em;
+}
+/* line 323, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-levels-list li {
+  border-bottom: 4px solid black;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.25);
+  color: black;
+  font-family: "PTSansRegular", sans-serif;
+  font-size: 1.125em;
+  margin: 0 -0.55556em;
+  padding: 0.55556em;
+}
+
+/* line 335, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-btn {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #868a8f, inset 0 -4px 0 #868a8f;
+  background: #bbbdc0;
+  border: 4px solid black;
+  clear: both;
+  color: black;
+  display: block;
+  margin: 0 auto 0.55556em;
+  width: 400px;
+}
+/* line 345, ../../app/assets/stylesheets/modules/_overview.css.sass */
+.overview-btn:hover {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #263d67, inset 0 -4px 0 #263d67;
+  background: #4169b2;
+  color: white;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_points.css.sass */
+.points--success {
+  color: #bbbdc0;
+  display: block;
+  font: bold 1.375em/24px "YWFTProcessing", sans-serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 12, ../../app/assets/stylesheets/modules/_points.css.sass */
+.points--success b {
+  color: white;
+  display: block;
+  font-family: "YWFTProcessing", sans-serif;
+  font-size: 3.36364em;
+  line-height: 0.7;
+}
+
+/* line 19, ../../app/assets/stylesheets/modules/_points.css.sass */
+.points--intro,
+.points--wrapup {
+  color: black;
+  font-family: "SilkscreenNormal";
+  font-size: 1.125em;
+  position: absolute;
+  right: 15px;
+  text-align: right;
+  top: 10px;
+}
+
+/* line 29, ../../app/assets/stylesheets/modules/_points.css.sass */
+.points--success {
+  font-size: 0.875em;
+  height: 104px;
+  line-height: 30px;
+  padding-top: 34px;
+  position: absolute;
+  right: 24px;
+  top: 8px;
+  width: 141px;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.progress {
+  border-bottom: 4px solid black;
+  box-shadow: 0 4px 0 white, 0 8px 0 #bbbdc0, 0 12px 0 black;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  left: 0;
+  right: 0;
+  background-color: black;
+  display: block;
+  height: 36px;
+  margin: 0;
+  opacity: 1;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  z-index: 100;
+}
+/* line 20, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.exercise--intro .progress, .exercise--wrapup .progress {
+  display: none;
+}
+/* line 23, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.exercise--text .progress {
+  position: fixed;
+}
+/* line 26, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--1 .progress {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/sky-9378420ae0098a540d8eac693c73710f.svg) repeat-x;
+}
+/* line 26, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--2 .progress {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/2/sky-25235d02a0feae4ef663e7e45952d398.svg) repeat-x;
+}
+/* line 26, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--3 .progress {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/3/sky-c40e9e2853d691673211649433ff0086.svg) repeat-x;
+}
+/* line 26, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--4 .progress {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/4/sky-10e057ce05ef27ec82663edd1868384c.svg) repeat-x;
+}
+/* line 26, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--5 .progress {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/5/sky-b5bee9feaf8af841561f469cd5ed59f9.svg) repeat-x;
+}
+@media screen and (min-width: 920px) {
+  /* line 5, ../../app/assets/stylesheets/modules/_progress.css.sass */
+  .progress {
+    -webkit-transition: background-position-x 2s 2s linear;
+    transition: background-position-x 2s 2s linear;
+    height: 150px;
+  }
+}
+/* line 34, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.progress .ground {
+  -webkit-transition: background-position-x 2s 2s linear;
+  transition: background-position-x 2s 2s linear;
+  bottom: 0;
+  height: 0;
+  position: absolute;
+  width: 100%;
+}
+/* line 41, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--1 .progress .ground {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/ground-2e1f9bd75aca06923adfcadd4083d9f4.svg) repeat-x;
+}
+/* line 41, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--2 .progress .ground {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/2/ground-91bb526e8beb28ab2634b4b1e7a2ac69.svg) repeat-x;
+}
+/* line 41, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--3 .progress .ground {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/3/ground-f0e25592f9efe259da2dd37e96f3fc9d.svg) repeat-x;
+}
+/* line 41, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--4 .progress .ground {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/4/ground-53ecf35415bc8a0b9a074f7ae2825313.svg) repeat-x;
+}
+/* line 41, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--5 .progress .ground {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/5/ground-ed8d5f812153cbc65a726c9fc812e43e.svg) repeat-x;
+}
+@media screen and (min-width: 920px) {
+  /* line 34, ../../app/assets/stylesheets/modules/_progress.css.sass */
+  .progress .ground {
+    height: 40px;
+  }
+}
+/* line 48, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.progress .elements {
+  -webkit-transition: left 2s 2s linear;
+  transition: left 2s 2s linear;
+  bottom: 40px;
+  height: 74px;
+  position: absolute;
+  width: 100%;
+}
+/* line 57, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.progress .foliage--1,
+.progress .foliage--2 {
+  bottom: 0;
+  position: absolute;
+}
+/* line 64, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.progress .flag {
+  -webkit-animation: waving 2s steps(2) 0 infinite;
+  -moz-animation: waving 2s steps(2) 0 infinite;
+  animation: waving 2s steps(2) 0 infinite;
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/flag-cs-525305afaac1961926f90d3233fc48b5.svg) no-repeat;
+  bottom: 38px;
+  height: 68px;
+  position: absolute;
+  right: 50px;
+  width: 34px;
+}
+/* line 72, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--5 .progress .flag {
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+}
+
+/* line 80, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--1 .foliage--1 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/foliage-01-d4722e80589fbe63f8c63a9f2509120f.svg) no-repeat;
+}
+/* line 80, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--1 .foliage--2 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/1/foliage-02-27b1403cadaf62dcb599b558767d9a40.svg) no-repeat;
+}
+
+/* line 80, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--2 .foliage--1 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/2/foliage-01-5712326737f197ddef46fbb6ae0aaa26.svg) no-repeat;
+}
+/* line 80, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--2 .foliage--2 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/2/foliage-02-42002d783af08f7038bb42a7f756def1.svg) no-repeat;
+}
+
+/* line 80, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--3 .foliage--1 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/3/foliage-01-63315a7cfd38e62f9c1861517405273b.svg) no-repeat;
+}
+/* line 80, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--3 .foliage--2 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/3/foliage-02-e668f798e88a18edd3b5b08deb6a1dbf.svg) no-repeat;
+}
+
+/* line 80, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--4 .foliage--1 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/4/foliage-01-6fcb20fe86784fae30a98fcc1a3ca3b7.svg) no-repeat;
+}
+/* line 80, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--4 .foliage--2 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/4/foliage-02-e8e80728dcd5dbfe7dde90be752e9267.svg) no-repeat;
+}
+
+/* line 80, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--5 .foliage--1 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/5/foliage-01-c258de6763146bfe8e75811e84ffa066.svg) no-repeat;
+}
+/* line 80, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--5 .foliage--2 {
+  background: url(//d2rwobdpv93es3.cloudfront.net/assets/levels/5/foliage-02-d590f798f90dbc8fb3ea2c5fefcc0401.svg) no-repeat;
+}
+
+/* line 84, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--1 .foliage--1 {
+  height: 60px;
+  left: 30px;
+  width: 164px;
+}
+/* line 88, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--1 .foliage--2 {
+  bottom: -2px;
+  height: 74px;
+  left: 350px;
+  width: 158px;
+}
+
+/* line 95, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--2 .foliage--1 {
+  bottom: -4px;
+  height: 56px;
+  left: 60px;
+  width: 202px;
+}
+/* line 100, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--2 .foliage--2 {
+  -webkit-animation: snowman 1.5s steps(2) infinite;
+  -moz-animation: snowman 1.5s steps(2) infinite;
+  animation: snowman 1.5s steps(2) infinite;
+  bottom: -2px;
+  height: 56px;
+  left: 400px;
+  width: 44px;
+}
+
+/* line 108, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--3 .foliage--1 {
+  height: 60px;
+  left: 60px;
+  width: 266px;
+}
+/* line 112, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--3 .foliage--2 {
+  bottom: -1px;
+  height: 70px;
+  left: 95px;
+  width: 142px;
+}
+
+/* line 119, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--4 .foliage--1 {
+  height: 52px;
+  left: 10px;
+  width: 144px;
+}
+/* line 123, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--4 .foliage--2 {
+  height: 74px;
+  left: 100px;
+  width: 188px;
+}
+
+/* line 129, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--5 .foliage--1 {
+  bottom: 60px;
+  height: 30px;
+  left: 325px;
+  width: 46px;
+}
+/* line 134, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.level--5 .foliage--2 {
+  height: 62px;
+  left: 56px;
+  width: 234px;
+}
+
+/* line 141, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.progress-overlay {
+  height: 150px;
+  padding-top: 33px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+}
+/* line 149, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.progress-overlay h2 {
+  color: white;
+}
+/* line 151, ../../app/assets/stylesheets/modules/_progress.css.sass */
+.is-success .progress-overlay {
+  -webkit-animation: flash 0.3s ease-in-out 1s 3;
+  -moz-animation: flash 0.3s ease-in-out 1s 3;
+  animation: flash 0.3s ease-in-out 1s 3;
+  background: #08a650;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_states.css.sass */
+.is-hidden {
+  visibility: hidden;
+}
+
+/* line 5, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success {
+  position: absolute;
+  top: 50px;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transition: opacity 0.3s ease-out, visibility 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  background: black;
+  overflow: auto;
+  padding: 2.5em;
+  z-index: 100;
+}
+/* line 12, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success.is-hidden {
+  -webkit-transform: translateX(-20px);
+  -moz-transform: translateX(-20px);
+  -ms-transform: translateX(-20px);
+  -o-transform: translateX(-20px);
+  transform: translateX(-20px);
+  opacity: 0;
+}
+/* line 15, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success.is-hidden + div {
+  -webkit-filter: none;
+  filter: none;
+  opacity: 1;
+}
+/* line 18, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success + div {
+  opacity: 0.5;
+}
+/* line 20, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success h2 {
+  color: white;
+  margin-right: 2.70833em;
+}
+/* line 23, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success p {
+  font-family: "PTSansRegular", sans-serif;
+  font-size: 1.25em;
+  padding-right: 5.5em;
+}
+/* line 27, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success strong {
+  color: #08a650;
+}
+@media screen and (min-width: 920px) {
+  /* line 5, ../../app/assets/stylesheets/modules/_success.css.sass */
+  .success {
+    bottom: 0;
+    right: 50%;
+    top: 145px;
+  }
+}
+/* line 33, ../../app/assets/stylesheets/modules/_success.css.sass */
+.is-exercise-fullscreen .success {
+  bottom: 0;
+  right: 0;
+  top: 50px;
+}
+@media screen and (min-width: 920px) {
+  /* line 33, ../../app/assets/stylesheets/modules/_success.css.sass */
+  .is-exercise-fullscreen .success {
+    top: 145px;
+  }
+}
+
+/* line 40, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success-points {
+  -webkit-transition: opacity 0.5s 0.2s ease-out, -webkit-transform 0.5s 0.2s ease-out;
+  transition: opacity 0.5s 0.2s ease-out, -webkit-transform 0.5s 0.2s ease-out;
+}
+/* line 42, ../../app/assets/stylesheets/modules/_success.css.sass */
+.is-hidden .success-points {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+/* line 46, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success-controls {
+  margin-top: 1.875em;
+}
+/* line 49, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success-controls li {
+  float: left;
+  width: 49%;
+}
+/* line 52, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success-controls li:first-child {
+  margin-right: 2%;
+}
+/* line 54, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success-controls a {
+  display: block;
+}
+/* line 56, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success-controls span {
+  display: block;
+  font-size: 0.8125em;
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+  margin-top: 0.76923em;
+  text-align: center;
+}
+/* line 63, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success-controls .btn--success {
+  background: #333333;
+}
+/* line 65, ../../app/assets/stylesheets/modules/_success.css.sass */
+.success-controls .btn--success:hover {
+  background: #454545;
+}
+
+/* line 27, ../../app/assets/stylesheets/application.css.sass */
+.level--1 .btn--console,
+.level--1 .exercise--text .exercise-links-next {
+  background: #1ebcef;
+}
+/* line 31, ../../app/assets/stylesheets/application.css.sass */
+.level--1 .exercise-links-next,
+.level--1 .btn--next {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #0b799c, inset 0 -4px 0 #0b799c;
+  background-color: #1ebcef;
+}
+/* line 36, ../../app/assets/stylesheets/application.css.sass */
+.level--1 .btn--submit,
+.level--1 .intro-next {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #0b4b26, inset 0 -4px 0 #0b4b26;
+  background-color: #17a554;
+}
+/* line 41, ../../app/assets/stylesheets/application.css.sass */
+.level--1 .exercise-links-answer,
+.level--1 .exercise-links-answer:before {
+  color: #17a554;
+}
+/* line 44, ../../app/assets/stylesheets/application.css.sass */
+.level--1 .exercise-links-answer:hover, .level--1 .exercise-links-answer:hover:before,
+.level--1 .exercise-links-answer:before:hover,
+.level--1 .exercise-links-answer:before:hover:before {
+  color: white;
+}
+/* line 48, ../../app/assets/stylesheets/application.css.sass */
+.level--1 .enroll-header strong,
+.level--1 .exercise-objective a,
+.level--1 .exercise-successMessage a,
+.level--1 .intro-content p a {
+  color: #1ebcef;
+}
+/* line 54, ../../app/assets/stylesheets/application.css.sass */
+.level--1 .exercise-objective a:hover,
+.level--1 .exercise-successMessage a:hover,
+.level--1 .exercise-tab:hover,
+.level--1 .intro-content p a:hover {
+  color: #65d1f4;
+}
+/* line 60, ../../app/assets/stylesheets/application.css.sass */
+.level--1 .exercise-header h1,
+.level--1 .exercise-objective h2,
+.level--1 .exercise-objective h3 {
+  color: #1ebcef;
+  border-bottom: 1px solid #1ebcef;
+}
+/* line 66, ../../app/assets/stylesheets/application.css.sass */
+.level--1 .exercise-objective-note span {
+  color: #17a554;
+}
+
+/* line 27, ../../app/assets/stylesheets/application.css.sass */
+.level--2 .btn--console,
+.level--2 .exercise--text .exercise-links-next {
+  background: #6b70a9;
+}
+/* line 31, ../../app/assets/stylesheets/application.css.sass */
+.level--2 .exercise-links-next,
+.level--2 .btn--next {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #40446e, inset 0 -4px 0 #40446e;
+  background-color: #6b70a9;
+}
+/* line 36, ../../app/assets/stylesheets/application.css.sass */
+.level--2 .btn--submit,
+.level--2 .intro-next {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #0f7794, inset 0 -4px 0 #0f7794;
+  background-color: #20bde9;
+}
+/* line 41, ../../app/assets/stylesheets/application.css.sass */
+.level--2 .exercise-links-answer,
+.level--2 .exercise-links-answer:before {
+  color: #20bde9;
+}
+/* line 44, ../../app/assets/stylesheets/application.css.sass */
+.level--2 .exercise-links-answer:hover, .level--2 .exercise-links-answer:hover:before,
+.level--2 .exercise-links-answer:before:hover,
+.level--2 .exercise-links-answer:before:hover:before {
+  color: white;
+}
+/* line 48, ../../app/assets/stylesheets/application.css.sass */
+.level--2 .enroll-header strong,
+.level--2 .exercise-objective a,
+.level--2 .exercise-successMessage a,
+.level--2 .intro-content p a {
+  color: #6b70a9;
+}
+/* line 54, ../../app/assets/stylesheets/application.css.sass */
+.level--2 .exercise-objective a:hover,
+.level--2 .exercise-successMessage a:hover,
+.level--2 .exercise-tab:hover,
+.level--2 .intro-content p a:hover {
+  color: #9b9fc5;
+}
+/* line 60, ../../app/assets/stylesheets/application.css.sass */
+.level--2 .exercise-header h1,
+.level--2 .exercise-objective h2,
+.level--2 .exercise-objective h3 {
+  color: #6b70a9;
+  border-bottom: 1px solid #6b70a9;
+}
+/* line 66, ../../app/assets/stylesheets/application.css.sass */
+.level--2 .exercise-objective-note span {
+  color: #20bde9;
+}
+
+/* line 27, ../../app/assets/stylesheets/application.css.sass */
+.level--3 .btn--console,
+.level--3 .exercise--text .exercise-links-next {
+  background: #e1c76a;
+}
+/* line 31, ../../app/assets/stylesheets/application.css.sass */
+.level--3 .exercise-links-next,
+.level--3 .btn--next {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #bf9d26, inset 0 -4px 0 #bf9d26;
+  background-color: #e1c76a;
+}
+/* line 36, ../../app/assets/stylesheets/application.css.sass */
+.level--3 .btn--submit,
+.level--3 .intro-next {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #bf9d26, inset 0 -4px 0 #bf9d26;
+  background-color: #e1c76a;
+}
+/* line 41, ../../app/assets/stylesheets/application.css.sass */
+.level--3 .exercise-links-answer,
+.level--3 .exercise-links-answer:before {
+  color: #e1c76a;
+}
+/* line 44, ../../app/assets/stylesheets/application.css.sass */
+.level--3 .exercise-links-answer:hover, .level--3 .exercise-links-answer:hover:before,
+.level--3 .exercise-links-answer:before:hover,
+.level--3 .exercise-links-answer:before:hover:before {
+  color: white;
+}
+/* line 48, ../../app/assets/stylesheets/application.css.sass */
+.level--3 .enroll-header strong,
+.level--3 .exercise-objective a,
+.level--3 .exercise-successMessage a,
+.level--3 .intro-content p a {
+  color: #e1c76a;
+}
+/* line 54, ../../app/assets/stylesheets/application.css.sass */
+.level--3 .exercise-objective a:hover,
+.level--3 .exercise-successMessage a:hover,
+.level--3 .exercise-tab:hover,
+.level--3 .intro-content p a:hover {
+  color: #eedfaa;
+}
+/* line 60, ../../app/assets/stylesheets/application.css.sass */
+.level--3 .exercise-header h1,
+.level--3 .exercise-objective h2,
+.level--3 .exercise-objective h3 {
+  color: #e1c76a;
+  border-bottom: 1px solid #e1c76a;
+}
+/* line 66, ../../app/assets/stylesheets/application.css.sass */
+.level--3 .exercise-objective-note span {
+  color: #e1c76a;
+}
+
+/* line 27, ../../app/assets/stylesheets/application.css.sass */
+.level--4 .btn--console,
+.level--4 .exercise--text .exercise-links-next {
+  background: #f15622;
+}
+/* line 31, ../../app/assets/stylesheets/application.css.sass */
+.level--4 .exercise-links-next,
+.level--4 .btn--next {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #a3310a, inset 0 -4px 0 #a3310a;
+  background-color: #f15622;
+}
+/* line 36, ../../app/assets/stylesheets/application.css.sass */
+.level--4 .btn--submit,
+.level--4 .intro-next {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #a3310a, inset 0 -4px 0 #a3310a;
+  background-color: #f15622;
+}
+/* line 41, ../../app/assets/stylesheets/application.css.sass */
+.level--4 .exercise-links-answer,
+.level--4 .exercise-links-answer:before {
+  color: #f15622;
+}
+/* line 44, ../../app/assets/stylesheets/application.css.sass */
+.level--4 .exercise-links-answer:hover, .level--4 .exercise-links-answer:hover:before,
+.level--4 .exercise-links-answer:before:hover,
+.level--4 .exercise-links-answer:before:hover:before {
+  color: white;
+}
+/* line 48, ../../app/assets/stylesheets/application.css.sass */
+.level--4 .enroll-header strong,
+.level--4 .exercise-objective a,
+.level--4 .exercise-successMessage a,
+.level--4 .intro-content p a {
+  color: #f15622;
+}
+/* line 54, ../../app/assets/stylesheets/application.css.sass */
+.level--4 .exercise-objective a:hover,
+.level--4 .exercise-successMessage a:hover,
+.level--4 .exercise-tab:hover,
+.level--4 .intro-content p a:hover {
+  color: #f68d6a;
+}
+/* line 60, ../../app/assets/stylesheets/application.css.sass */
+.level--4 .exercise-header h1,
+.level--4 .exercise-objective h2,
+.level--4 .exercise-objective h3 {
+  color: #f15622;
+  border-bottom: 1px solid #f15622;
+}
+/* line 66, ../../app/assets/stylesheets/application.css.sass */
+.level--4 .exercise-objective-note span {
+  color: #f15622;
+}
+
+/* line 27, ../../app/assets/stylesheets/application.css.sass */
+.level--5 .btn--console,
+.level--5 .exercise--text .exercise-links-next {
+  background: #7f4497;
+}
+/* line 31, ../../app/assets/stylesheets/application.css.sass */
+.level--5 .exercise-links-next,
+.level--5 .btn--next {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #442451, inset 0 -4px 0 #442451;
+  background-color: #7f4497;
+}
+/* line 36, ../../app/assets/stylesheets/application.css.sass */
+.level--5 .btn--submit,
+.level--5 .intro-next {
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 #43244f, inset 0 -4px 0 #43244f;
+  background-color: #7e4396;
+}
+/* line 41, ../../app/assets/stylesheets/application.css.sass */
+.level--5 .exercise-links-answer,
+.level--5 .exercise-links-answer:before {
+  color: #7e4396;
+}
+/* line 44, ../../app/assets/stylesheets/application.css.sass */
+.level--5 .exercise-links-answer:hover, .level--5 .exercise-links-answer:hover:before,
+.level--5 .exercise-links-answer:before:hover,
+.level--5 .exercise-links-answer:before:hover:before {
+  color: white;
+}
+/* line 48, ../../app/assets/stylesheets/application.css.sass */
+.level--5 .enroll-header strong,
+.level--5 .exercise-objective a,
+.level--5 .exercise-successMessage a,
+.level--5 .intro-content p a {
+  color: #7f4497;
+}
+/* line 54, ../../app/assets/stylesheets/application.css.sass */
+.level--5 .exercise-objective a:hover,
+.level--5 .exercise-successMessage a:hover,
+.level--5 .exercise-tab:hover,
+.level--5 .intro-content p a:hover {
+  color: #a56bbc;
+}
+/* line 60, ../../app/assets/stylesheets/application.css.sass */
+.level--5 .exercise-header h1,
+.level--5 .exercise-objective h2,
+.level--5 .exercise-objective h3 {
+  color: #7f4497;
+  border-bottom: 1px solid #7f4497;
+}
+/* line 66, ../../app/assets/stylesheets/application.css.sass */
+.level--5 .exercise-objective-note span {
+  color: #7e4396;
+}
+
+/* line 72, ../../app/assets/stylesheets/application.css.sass */
+.exercise-header h1 strong,
+.exercise-header .points--exercise {
+  display: none;
+}

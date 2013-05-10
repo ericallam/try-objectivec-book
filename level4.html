@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>
+      Code School - Try Objective-C Book
+    </title>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href="application.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="codemirror/lib/codemirror.js" type="text/javascript" ></script>
+    <script src="codemirror/mode/clike/clike.js" type="text/javascript" ></script>
+    <script src="codemirror/addon/runMode/runMode.js" type="text/javascript" ></script>
+    <script src="javascripts/objc.js" type="text/javascript" ></script>
+    <script src="javascripts/jquery.js" type="text/javascript" ></script>
+    <script src="javascripts/underscore.js" type="text/javascript" ></script>
+    <script src="application.js" type="text/javascript" ></script>
+  </head>
+  <body>
+
+  <div class="user-enrolled level--4 exercise--text">
+  
+    
+
+    <ol class="exercises">
+      <li class="exercise exercise--text">
+          <div class="exercise-content">
+              <div class="exercise-objective">
+                <h2>Level 4 Table of Contents</h2>
+
+                <ul style="margin-top:15px">
+                  
+                    <li><a href="#exercise-35">Introducing classes</a></li>
+                  
+                    <li><a href="#exercise-36">Naming your class</a></li>
+                  
+                    <li><a href="#exercise-37">Class interfaces and inheritance</a></li>
+                  
+                    <li><a href="#exercise-38">Defining a class property</a></li>
+                  
+                    <li><a href="#exercise-39">Class implementation</a></li>
+                  
+                    <li><a href="#exercise-40">Using a property</a></li>
+                  
+                    <li><a href="#exercise-41">Practice creating a class</a></li>
+                  
+                    <li><a href="#exercise-42">Creating a custom method</a></li>
+                  
+                    <li><a href="#exercise-43">Implementing a custom method</a></li>
+                  
+                    <li><a href="#exercise-44">Running your custom method</a></li>
+                  
+                    <li><a href="#exercise-45">Understanding self</a></li>
+                  
+                    <li><a href="#exercise-46">Logging a property instead of self</a></li>
+                  
+                    <li><a href="#exercise-47">Defining a method that returns a result</a></li>
+                  
+                    <li><a href="#exercise-48">Logging a method result</a></li>
+                  
+                    <li><a href="#exercise-49">Declaring a method that takes arguments</a></li>
+                  
+                    <li><a href="#exercise-50">Passing arguments into a method</a></li>
+                  
+                    <li><a href="#exercise-51">Define method with argument</a></li>
+                  
+                    <li><a href="#exercise-52">Accessing data in properties vs. passing data as arguments</a></li>
+                  
+                    <li><a href="#exercise-53">Decrease the battery life by 1</a></li>
+                  
+                    <li><a href="#exercise-54">Decrease the battery life by a variable amount</a></li>
+                  
+                    <li><a href="#exercise-55">Making a property read-only</a></li>
+                  
+                    <li><a href="#exercise-56">Making batteryLife read-only</a></li>
+                  
+                    <li><a href="#exercise-57">Assigning a default value to a property</a></li>
+                  
+                    <li><a href="#exercise-58">Creating an instance variable</a></li>
+                  
+                </ul>
+              </div>
+          </div>
+      </li>
+    </ol>
+      
+    <section id="course" class="course">
+        <ol id="exercises" class="exercises">
+            
+              <li id="exercise-35" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.1</strong> Introducing classes
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>You should now feel pretty comfortable creating and sending messages to objects of <code>NSString</code>, <code>NSArray</code>, <code>NSNumber</code>, etc.  Those handy object types are provided for us by Apple and cover common functionality that most programs will need.  But what if you wanted to make your own custom type of object and make up methods for objects of that type?</p>
+
+<p>In Objective-C the way to define a custom type of object is to define a class.</p>
+
+<div class="higgie--exercise">
+  <p>SNOOOOOZE</p>
+</div>
+
+<p>Don’t listen to him, classes are exciting! They allow you to make your code more readable and organized, but more than that they will change the way you think about programming.</p>
+
+<p>Programming languages like Objective-C are based around the idea of objects and sending messages to objects and getting back responses. It’s not like the real world where only people talk to each other, in Objective-C an object of any type can talk to all other objects equally (it’d be like if an iPhone suddenly started talking: not possible in the real world).</p>
+
+<div class="higgie--exercise">
+  <p>I heard that.</p>
+</div>
+
+<p>You see, in Objective-C we CAN make a talking phone, and the only way to do that is with a class.  Let’s say we try to make a talking phone with just an <code>NSDictionary</code>, which at first you might think would be enough:</p>
+
+<pre data-syntax="objc">NSDictionary *talkingiPhone = @{
+  @"Name": @"Mr. Higgie", 
+  @"ModelNumber": @1
+};
+</pre>
+
+<p>This is a good start: our <code>talkingiPhone</code> object has a Name and a ModelNumber. But this is just data, just “properties” describing the phone. We could send a message to this object but all the messages we have to choose from is defined by <code>NSDictionary</code> and has to do with dictioanry-like operations.  Our <code>TalkingPhone</code> should have a method like <code>speak</code> or <code>beQuietNow</code>. So, to do that we have to create a class.  A class has a name, properties (like <code>Name</code> and <code>ModelNumber</code> above) and methods.</p>
+
+<p>Let’s start down this journey and make our first class together.</p>
+
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-36" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.2</strong> Naming your class
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>The first decision you have to make when creating a class is what to name it.</p>
+
+<p>Objects and classes are usually a noun, like <code>Car</code> or <code>NSDictionary</code> or <code>Boat</code>.</p>
+
+<p>It’s also a good idea to use conventions when naming things, especially in Objective-C.  There is already a very strong convention to start classes with a capital letter.  This makes it easy to tell the difference between a class and an object. Nothing in the language enforces this, but it’s considered a good practice to follow the conventions of a language.</p>
+
+<p>Remember, we are trying to create a class to replace this NSDictionary:</p>
+
+<pre data-syntax="objc">NSDictionary *talkingiPhone = @{
+  @"Name": @"Mr. Higgie",
+  @"ModelNumber": @1
+};
+</pre>
+<p class="exercise-objective-action">
+  So go ahead and decide on a name and enter it in the editor to the right. We'll be using this name to build out a class for the rest of this level.
+</p>
+<div class="higgie--exercise">
+  <p>Personally I'd go with <code>MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone</code></p>
+</div>
+
+                        
+                          <a name="exercise-36-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">Enter class name::</span>
+                                  <pre data-syntax="objc"></pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-36-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-37" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.3</strong> Class interfaces and inheritance
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <div class="higgie--exercise">
+  <p><code>TalkingPhone</code> is a fantastic name!  Very classy ;)</p>
+</div>
+
+<p>Now that we know the name of the class is we want to create, we have to define it’s interface:</p>
+
+<pre data-syntax="objc">@interface TalkingPhone
+@end
+</pre>
+
+<p>A class <em>interface</em> is like a menu in a restaurant: a public list of what is available, but instead of meals it’s a list of methods and properties.  “Customers” of this class can look at the interface and know what messages it can send to an object belonging to that class.</p>
+
+<p>At this point there aren’t any messages we can send to <code>TalkingPhone</code> objects. With this interface definition we wouldn’t even be able to create a <code>TalkingPhone</code> object because <code>TalkingPhone</code> doesn’t implement <code>alloc</code> or <code>init</code>.  There are other methods all Objective-C objects are expected to have as well: <code>description</code>, <code>class</code>, <code>copy</code>, and more. Do we need to define <code>alloc</code> and <code>init</code> and all these other common methods in our <code>TalkingPhone</code> class interface to get it to work?  No, that would be an awful lot of work. Object-Oriented languages like Objective-C has a technique to solve this problem in an elegant way: <em>Inheritance</em>.</p>
+
+<h2>Inheritance</h2>
+
+<p>An overworked, underpaid, ambitious chef dutifully prepares the coming dinner services’ predefined ingredients when she has a brilliant idea: she’s going to start a new innovative chain of high-end restaurants.
+Her new, innovative idea comes down to this: she’s going to build a restaurant to develop a generic menu of 5-10 brilliant but common dishes. No one will ever visit this restaurant, it is merely an abstract place for her to develop the common dishes all her restaurants will serve.</p>
+
+<p>She will then find chefs to create specific restaurants that build upon the generic menu: Bristros, Fast Food, Gastro Pubs, etc.
+These restaurants will be made of concrete, and the ambitious chef will allow her concrete chain of restaurants to innovate on what they serve and only asks that they serve her common dishes.</p>
+
+<p>I think you know where I’m going with this. The concrete restaurants inherit their menu from the root abstract restaurant.
+Concrete classes inherit their common methods from a root abstract class. In Objective-C, the root abstract class is <code>NSObject</code>, and classes like <code>NSDictionary</code>, <code>NSString</code>, <code>NSArray</code>, and <code>TalkingPhone</code> all should inherit from <code>NSObject</code> to respond to a common set of messages.</p>
+
+<p>We can make our <code>TalkingPhone</code> class inherit from <code>NSObject</code> and enter the Object-Oriented world of Objective-C as simply as this:</p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+@end
+</pre>
+
+<p>Now “Customers” of <code>TalkingPhone</code> will see that it inherits from <code>NSObject</code> and can assume that <code>TalkingPhone</code> will respond to all the messages a <code>NSObject</code> can respond to, like <code>class</code>, <code>init</code>, <code>copy</code>, <code>description</code>, etc. Learn all the messages <code>NSObject</code> provides by checking out the <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html" target="_blank">class reference</a>.</p>
+
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-38" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.4</strong> Defining a class property
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Now that our <code>TalkingPhone</code> interface includes the menu of common methods from <code>NSObject</code>, it’s time to customize <code>TalkingPhone</code>. One way to do this is to add properties. For example, a <code>Person</code> object might want to store information about the person’s first and last name:</p>
+
+<pre data-syntax="objc">@interface Person : NSObject
+@property NSString *firstName;
+@property NSString *lastName;
+@end
+</pre>
+
+<p>Properties are defined by using <code>@property</code> between the <code>@interface</code> and <code>@end</code> declarations.  Properties, just like variables, need both a type and a name.</p>
+
+<p>On our <code>TalkingPhone</code> class, we can add a property for <code>phoneName</code> like this:</p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+
+@end
+</pre>
+
+<p>We’ve now made <code>TalkingPhone</code> have an <code>NSString *</code> property with the name <code>phoneName</code>.</p>
+
+<p class="exercise-objective-action">
+  Add another property to <code>TalkingPhone</code> to hold an <code>NSString *</code> for the phone's model number, and give it the name <code>modelNumber</code>.
+</p>
+
+                        
+                          <a name="exercise-38-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">Class Interface:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-38-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-39" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.5</strong> Class implementation
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Now that we have a class interface for <code>TalkingPhone</code>, it’s time we do some implementing.  Remember that if the class interface is like a restaurant menu, the class implementation is like the kitchen: it’s where properties and methods get made.</p>
+
+<p>For example, let’s say we’ve defined a class interface for a <code>Person</code> class with two properties:</p>
+
+<pre data-syntax="objc">@interface Person : NSObject
+@property NSString *firstName;
+@property NSString *lastName;
+@end
+</pre>
+
+<p>Now all we have to do to implement the <code>Person</code> class is this:</p>
+
+<pre data-syntax="objc">@implementation Person
+@end
+</pre>
+
+<div class="higgie--exercise">
+  <p>What happened to the <code>firstName</code> and <code>lastName</code> properties?</p>
+</div>
+
+<p>Properties are special because they are <em>automatically</em> implemented once the class is implemented.  This isn’t the case with methods but we’ll get to that in a bit.</p>
+
+<h3>File Organization</h3>
+
+<p>Before we implement the <code>TalkingPhone</code> class, there is one more thing we have to cover: file organization and importing.
+When you’re creating a class, you don’t want to put the header and the implementation in the same file.
+That’d be like keeping the menus in the kitchen, how would customers ever know what to order?</p>
+
+<p>The same goes for classes. The convention in Objective-C is to name the header file <code>&lt;ClassName&gt;.h</code> and the implementation file <code>&lt;ClassName&gt;.m</code>.  So the <code>Person</code> class above would be defined in two files:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.h</span></p>
+
+<pre data-syntax="objc">@interface Person : NSObject
+@property NSString *firstName;
+@property NSString *lastName;
+@end
+</pre>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">#import "Person.h"
+
+@implementation Person
+@end
+</pre>
+
+<p>Because we’ve separated the implementation of <code>Person</code> from the interface, we have to <em>import</em> the interface file in <code>Person.m</code>. <code>#import</code> will find the <code>Person.h</code> file and “copy” it into the <code>Person.m</code> file.</p>
+
+<p class="exercise-objective-action">
+  Now go ahead and implement the <code>TalkingPhone</code> class in the <code>TalkingPhone.m</code> file to the right. As you can see we've already imported the header file for you.
+</p>
+
+                        
+                          <a name="exercise-39-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+/*//Add the class implementation//*/</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-39-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-40" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.6</strong> Using a property
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Properties are like variables that attach to an object.  If you remember back in Level 1 when we created a variable <code>firstName</code> to store a string so we could use it later?
+Properties are like that but allow the object or anyone using the object to have access to that variable.</p>
+
+<p>So if you created a <code>Person</code> object, you could set it’s <code>firstName</code> property like this:</p>
+
+<pre data-syntax="objc">Person *person = [[Person alloc] init];
+person.firstName = @"Eric";
+</pre>
+
+<p>Notice how we don’t have to include the <code>NSString</code> type to the left of the name of the property. That’s because we’ve already defined <code>firstName</code> to be of type <code>NSString</code> in the property definition:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.h</span></p>
+
+<pre data-syntax="objc">@interface Person : NSObject
+@property NSString *firstName;
+@property NSString *lastName;
+@end
+</pre>
+
+<p>To retrieve the value of the property, just use <code>person.firstName</code>:</p>
+
+<pre data-syntax="objc">NSLog(@"Person's first name is %@", person.firstName);
+</pre>
+
+<p>Properties are accessed using the <em>dot</em> notation: <code>&lt;object&gt;.&lt;property&gt;</code>.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> Properties, although accessed and set using <em>dot</em> notation, use message sending under the hood. When you call <code>person.firstName</code>, it calls <code>[person firstName]</code> and when you call <code>person.firstName = @"Eric"</code> it calls <code>[person setFirstName:@"Eric"]</code>
+</p>
+
+<p class="exercise-objective-action">
+  To complete this challenge, set the <code>phoneName</code> property on <code>talkingiPhone</code>.
+</p>
+
+                        
+                          <a name="exercise-40-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">Challenge:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+/*//Set the phoneName property//*/
+NSLog(@"%@", talkingiPhone.phoneName);</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-40-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-41" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.7</strong> Practice creating a class
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>That was a lot to cover so let’s do a little practice. The next steps are to:</p>
+
+<div class="exercise-objective-action">
+  <p>1. Create an instance of <code>TalkingPhone</code> class called <code>talkingDroid</code>.</p>
+  <p>2. Set its <code>phoneName</code> and <code>modelNumber</code> properties.</p>
+  <p>3. Log out both properties using <code>NSLog</code>.</p>
+</div>
+
+                        
+                          <a name="exercise-41-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">Challenge:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"                                          
+
+/*//Create a TalkingPhone object and call it talkingDroid//*/
+/*//Set it's phoneName and modelNumber properties//*/
+
+NSLog(@"phoneName: %@", talkingDroid.phoneName);
+NSLog(@"modelNumber: %@", talkingDroid.modelNumber);</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-41-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-42" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.8</strong> Creating a custom method
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Properties are great but they don’t give us much more functionality that we could get with a NSDictionary. Things get interesting when we can have objects that respond to specialized messages.  For example, let’s say we wanted objects of the TalkingPhone class to respond to the <code>speak</code> message which would log something out. We want to send the <code>speak</code> message like so:</p>
+
+<pre data-syntax="objc">TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init]; 
+
+[talkingiPhone speak];
+</pre>
+
+<p>To be able to send the <code>speak</code> message to <code>talkingiPhone</code>, we need to define a method on our <code>TalkingPhone</code> class named <code>speak</code>. In our header file we’d declare this method like so:</p>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+// list of properties
+
+-(void)speak;
+
+@end
+</pre>
+
+<p>Method declarations start with the dash (<code>-</code>) followed by the type of the value returned from the method in parenthesis. <code>(void)</code> means that the <code>speak</code> message will not return anything.</p>
+
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-43" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.9</strong> Implementing a custom method
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <div class="higgie--exercise">
+  <p>I'd like to order one <code>speak</code> message please</p>
+</div>
+
+<p>Declaring <code>speak</code> on the <code>TalkingPhone</code> menu/header will only get us so far, we still need to write some code that is executed when the <code>speak</code> message is sent.</p>
+
+<p>The metaphorical kitchen for a class is the implementation file. Yes, we finally get to crack open <code>TalkingPhone.m</code> and muck around. The syntax for implementing a method is the same as its header declaration, but with an attached curly-brace block:</p>
+
+<p><span class="exercise-objective-fileHeader">Coffee.h</span></p>
+
+<pre data-syntax="objc">@interface Coffee : NSObject
+- (void) pour;
+@end
+</pre>
+
+<p><span class="exercise-objective-fileHeader">Coffee.m</span></p>
+
+<pre data-syntax="objc">#import "Coffee.h"
+
+@implementation Coffee
+- (void) pour;
+{
+  NSLog(@"Pouring coffee");
+}
+@end
+</pre>
+
+<p>As you can see, the <code>- (void) pour;</code> line stays exactly the same in the <code>Coffee.m</code> file, but it’s directly followed by <code>{}</code> which wraps the code that will be executed every time the <code>pour</code> message is sent to a <code>Coffee</code> object.</p>
+
+<p class="exercise-objective-action">
+  It's now time to implement the <code>speak</code> method in the <code>TalkingPhone.m</code> file. At this point all it should do is call <code>NSLog</code>.
+</p>
+
+                        
+                          <a name="exercise-43-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) speak;
+
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+/*//Implement speak here//*/
+
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-43-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-44" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.10</strong> Running your custom method
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Now our <code>TalkingPhone</code> objects can <code>speak</code>!</p>
+
+<p class="exercise-objective-action">
+  Try it out by sending the <code>speak</code> message to the <code>talkingiPhone</code> object.
+</p>
+
+                        
+                          <a name="exercise-44-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">Challenge:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+/*//Send the speak message to talkingiPhone//*/</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) speak;
+
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+-(void)speak;
+{
+    NSLog(@"Hello from inside of speak!");
+}
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-44-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-45" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.11</strong> Understanding self
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Our implementation of <code>speak</code> leaves a lot to be desired.  As you can see from the log, we can’t actually tell which object is doing the speaking.</p>
+
+<div class="higgie--exercise">
+  <p>Ugh these methods are so self-centered</p>
+</div>
+
+<p>It’s true!  Inside of a method definition there is a variable called <code>self</code> that represents the object the message was sent to.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> Consider this <code>self</code> a "magic variable" that is provided to your method definitions by the internals of Objective-C.
+</p>
+
+<p>As an example, let’s log out the coffee object that is poured:</p>
+
+<p><span class="exercise-objective-fileHeader">Coffee.m</span></p>
+
+<pre data-syntax="objc">#import "Coffee.h"
+
+@implementation Coffee
+- (void) pour;
+{
+  NSLog(@"Pouring %@", self);
+}
+@end
+</pre>
+
+<p>And then when <code>pour</code> is sent to a <code>Coffee</code> object, something like this would get logged:</p>
+
+<pre data-syntax="">Pouring &lt;Coffee: 0x100108240&gt;
+</pre>
+
+<p>That <code>&lt;Coffee: 0x100108240&gt;</code> is the string description of a <code>Coffee</code> object located at the memory address <code>0x100108240</code>.</p>
+
+<p class="exercise-objective-action">
+  To test this out, update the <code>speak</code> method definition to NSLog the <code>self</code> variable to see which <code>TalkingPhone</code> object is receiving the <code>speak</code> message.
+</p>
+
+                        
+                          <a name="exercise-45-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) speak;
+
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+-(void)speak;
+{
+    NSLog(@"%@ says Hello There!", /*//add the self variable here//*/);
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+[talkingiPhone speak];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-45-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-46" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.12</strong> Logging a property instead of self
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>In case you missed it, this is the result of logging the <code>self</code> variable in <code>speak</code>:</p>
+
+<p>
+  <span class="exercise-objective-error">
+    TalkingPhone.m[6]: &lt;TalkingPhone: 0x7f94bac0ad70&gt; says Hello There!
+  </span>
+</p>
+
+<p>A confusing memory address isn’t exactly the most helpful log message.</p>
+
+<p class="exercise-objective-action">
+  Change the <code>speak</code> implementation to log the <code>phoneName</code> property instead of just <code>self</code>. Be sure to access the <code>phoneName</code> property on <code>self</code>.
+</p>
+
+                        
+                          <a name="exercise-46-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) speak;
+
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+-(void)speak;
+{
+    NSLog(@"%@ says Hello There!", self);
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+[talkingiPhone speak];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-46-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-47" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.13</strong> Defining a method that returns a result
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>What if instead of having <code>speak</code> just log a string with its <code>phoneName</code>, we could have it create and return a string as a result.  Then, whoever sends the <code>speak</code> message can store that <code>NSString</code> to a variable.</p>
+
+<p>We already know that messages can have results, but how do you define a method that returns a result?  The first thing we have to do is declare what type of object the method will return in it’s header file.  For example, let’s say we want to define a <code>fullName</code> method on the <code>Person</code> class that returns a <code>NSString</code>:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.h</span></p>
+
+<pre data-syntax="objc">@interface Person : NSObject
+@property NSString *firstName;
+@property NSString *lastName;
+
+- (NSString *)fullName;
+</pre>
+
+<p>Here the <code>fullName</code> method has a return type defined in the parenthesis as <code>NSString *</code>. Now all we have to do is update the method implementation and use the keyword <code>return</code> to tell the method to return a string:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">#import "Person.h"
+
+@implementation Person
+
+- (NSString *)fullName;
+{
+   return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+}
+@end
+</pre>
+
+<p>You can return any type of object you want. Maybe you want an array of a person’s names:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">#import "Person.h"
+
+@implementation Person
+
+- (NSArray *)names;
+{
+   return @[self.firstName, self.lastName];
+}
+@end
+</pre>
+<p class="exercise-objective-action">
+  Update the <code>speak</code> method to create and return a string instead of logging it. Remember you have to set the return type in both the header and implementation files.
+</p>
+
+                        
+                          <a name="exercise-47-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) speak;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+-(void)speak;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says Hello There!", self.phoneName];
+    return /*//return the message variable//*/;
+}
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-47-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-48" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.14</strong> Logging a method result
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <div class="exercise-objective-action">
+  <p>It's now time to update the code to assign the result of sending the <code>speak</code> message to the <code>talkingiPhone</code> object to a new <code>NSString *</code> variable named <code>phoneMessage</code>.</p>
+
+  <p>Then, NSLog the <code>phoneMessage</code> string so we can make sure that it works.</p>
+</div>
+
+                        
+                          <a name="exercise-48-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">Challenge:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+NSString *phoneMessage = /*//send the speak message//*/;
+
+NSLog(@"%@", phoneMessage);</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (NSString *) speak;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+-(NSString *)speak;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says Hello There!", self.phoneName];
+    return message;
+}
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-48-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-49" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.15</strong> Declaring a method that takes arguments
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>We’ve now learned how to define a method that returns a result.  It’s also possible to define a method that accepts <em>extra information</em> when that method is called.  We can do this by defining a method that takes arguments. </p>
+
+<p>For example, what if every time we sent a <code>TalkingPhone</code> object the <code>speak</code> message, we could pass in a <code>greeting</code> string. That way we could alter the resulting string based on the argument passed in.</p>
+
+<p>To do this, we must first update the <code>TalkingPhone</code> header and change the method declaration to take a single argument that is an <code>NSString *</code>:</p>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+-(NSString *)speak:(NSString *)greeting;
+@end
+</pre>
+
+<p>All we had to do was add <code>:(NSString *)greeting</code> to the end of the declaration. We can break it down into three parts:</p>
+
+<ol>
+  <li>The <code>:</code> means “what follows is an argument declaration”. </li>
+  <li>The type of the argument in parenthesis <code>(NSString *)</code></li>
+  <li>The argument name.</li>
+</ol>
+
+<p>To update the method implementation just copy the method declaration in the header and viola, <code>speak</code> takes an argument:</p>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+-(NSString *)speak:(NSString *)greeting;
+{
+  NSString *message = [NSString stringWithFormat:@"%@ says %@", self.name, greeting];
+  
+  return message;
+}
+@end
+</pre>
+
+<p>We use the argument <code>greeting</code> in the method definition just like any other variable. With this method definition, we now have to send the <code>speak:</code> method with an argument:</p>
+
+<pre data-syntax="objc">TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone = @"Mr. Higgie";
+[talkingiPhone speak:@"Hello There!"];
+</pre>
+
+<p>When the method implementation is executed, the <code>greeting</code> variable so set to the string passed in. In the above case <code>greeting</code> would be set to <code>@"Hello There"</code>.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> Message names that take arguments should include the <code>:</code> in the name.  So a message named <code>speak</code> takes no arguments, while one named <code>speak:</code> takes a single argument. A message takes the same number of arguments as <code>:</code>'s in its name. So with something like <code>dictionaryWithObjects:forKeys:count:</code> you know it takes 3 arguments.
+</p>
+
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-50" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.16</strong> Passing arguments into a method
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p class="exercise-objective-action">
+  Let's use our latest creation. In the challenge to the right, send the <code>speak</code> message to <code>talkingiPhone</code> 3 or more times with a different <code>greeting</code> argument, and log out the result of each message in a seperate <code>NSLog</code> call.
+</p>
+
+                        
+                          <a name="exercise-50-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">Challenge:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+/*//Send speak message here//*/
+/*//Send speak message here//*/
+/*//Send speak message here//*/</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (NSString *) speak:(NSString *)greeting;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-50-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-51" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.17</strong> Define method with argument
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>We added a new method to <code>TalkingPhone</code> called <code>reportBatteryLife</code>. Right now <code>reportBatteryLife</code> isn’t too useful as it will always report the battery life as 100.</p>
+
+<p class="exercise-objective-action">
+  Change the <code>reportBatteryLife</code> method to accept an argument that is of type <code>NSNumber *</code>. Then, update the method implementation to replace the static <code>100</code> with the <code>NSNumber</code> argument.
+</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> Take a look at the "Example Use" tab to find out how we expect to be able to call <code>reportBatteryLife:</code>.
+</p>
+
+                        
+                          <a name="exercise-51-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void)reportBatteryLife;
+- (NSString *) speak:(NSString *)greeting;
+
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (void)reportBatteryLife;
+{
+    NSLog(@"Battery life is at 100");
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+[talkingiPhone reportBatteryLife:@99];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-51-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-52" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.18</strong> Accessing data in properties vs. passing data as arguments
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>We’ve just committed a big Object-Oriented design mistake: we’re passing in information about the state of an object to one of it’s methods. It would be like if we had a <code>fullName</code> method on the <code>Person</code> class that took as arguments their <code>firstName</code> and <code>lastName</code>:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">#import "Person.h"
+
+@implementation Person
+- (NSString *)fullNameWithFirstName:(NSString *)firstName lastName:(NSString *)lastName;
+{
+  return [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+}
+@end
+</pre>
+
+<p>It’s much better to have properties for <code>firstName</code> and <code>lastName</code> so methods can access those properties using <code>self</code>:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">#import "Person.h"
+
+@implementation Person
+- (NSString *)fullName;
+{
+  return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+}
+@end
+</pre>
+
+<p>We’ve started to fix this design mistake and added the <code>batteryLife</code> property to <code>TalkingPhone</code>.</p>
+
+<p class="exercise-objective-action">
+  Complete the fix by updating the <code>reportBatteryLife</code> method to use the property instead of taking an argument.
+</p>
+
+                        
+                          <a name="exercise-52-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property NSNumber *batteryLife;
+
+- (void) reportBatteryLife:(NSNumber *)battery;
+- (NSString *) speak:(NSString *)greeting;
+
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (void) reportBatteryLife:(NSNumber *)battery;
+{
+    NSLog(@"Battery life is %@", battery);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+talkingiPhone.batteryLife = @100;
+
+[talkingiPhone reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-52-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-53" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.19</strong> Decrease the battery life by 1
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Now that our <code>TalkingPhone</code> class has a property for <code>batteryLife</code>, we can have methods that not only can read the <code>batteryLife</code> value, but also change it.</p>
+
+<p class="exercise-objective-action">
+  Add a new method to <code>TalkingPhone</code> called <code>decreaseBatteryLife</code>. It doesn't need to take any arguments or return anything.  All it should do is decrease the <code>batteryLife</code> property by 1.
+<p>
+
+You'll see that we've provided the method definition block in the implementation file.
+
+<p class="exercise-objective-note">
+  <span>Note:</span> If you are curious, this piece of code: <code>@([self.batteryLife intValue] - 1);</code> results in a <code>NSNumber *</code> object that is 1 less than <code>self.batteryLife</code>. It does this using a Objective-C <a href="http://clang.llvm.org/docs/ObjectiveCLiterals.html#boxed-expressions" target="_blank">boxed expression literal</a>.
+</p>
+</p></p>
+
+                        
+                          <a name="exercise-53-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property NSNumber *batteryLife;
+
+/*//Declare the decreaseBatteryLife method here//*/
+
+- (void) reportBatteryLife;
+- (NSString *) speak:(NSString *)greeting;
+
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+/*//Copy the decreaseBatteryLife declaration from the header//*/
+{
+  self.batteryLife = @([self.batteryLife intValue] - 1);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", self.batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+talkingiPhone.batteryLife = @100;
+
+[talkingiPhone decreaseBatteryLife];
+[talkingiPhone reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-53-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-54" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.20</strong> Decrease the battery life by a variable amount
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Now every-time we send the <code>decreaseBatteryLife</code> message to a <code>TalkingPhone</code> object, the object’s <code>batteryLife</code> is decreased by 1, and always 1.</p>
+
+<p class="exercise-objective-action">
+  In this challenge, change the <code>decreaseBatteryLife</code> method to decrease the batteryLife by the amount passed into it when the message is sent.
+</p>
+
+<p>This means adding an argument of type <code>NSNumber *</code> to the method declaration in both the header and implementation files, and using that argument instead of <code>1</code>.</p>
+
+                        
+                          <a name="exercise-54-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property NSNumber *batteryLife;
+
+- (void) decreaseBatteryLife;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (void) decreaseBatteryLife;
+{
+  self.batteryLife = @([self.batteryLife intValue] - /*//[argument intValue]//*/);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", self.batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+talkingiPhone.batteryLife = @100;
+
+[talkingiPhone decreaseBatteryLife:@5];
+[talkingiPhone reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-54-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-55" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.21</strong> Making a property read-only
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <div class="higgie--exercise">
+  <p>Hey, I don't want people to be able to set my <code>batteryLife</code> to anything they want!</p>
+</div>
+
+<p>Mr. Higgie is right, it doesn’t make sense for the <code>TalkingPhone</code> class to allow outside code to set the <code>batteryLife</code> property to anything it wants. Right now there is nothing stopping outside code doing this:</p>
+
+<pre data-syntax="objc">TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.batteryLife = @500;
+</pre>
+
+<p>One way to solve this problem is to make the <code>batteryLife</code> property <em>read-only</em>. For example, let’s set the <code>readonly</code> attribute for the <code>lastName</code> property on <code>Person</code>:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.h</span></p>
+
+<pre data-syntax="objc">@interface Person : NSObject
+@property NSString *firstName;
+@property (readonly) NSString *lastName;
+@end
+</pre>
+
+<p>We’ve <em>tagged</em> the <code>lastName</code> property with the <code>readonly</code> attribute by including <code>(readonly)</code> right after the <code>@property</code> declaration. This means that code outside the class can no longer set the property, and if they try will receive an error like this:</p>
+
+<pre data-syntax="objc">person.lastName = @"Jobs";
+</pre>
+
+<p><span class="exercise-objective-errorFile">Assignment to readonly property</span></p>
+
+<p>Okay, so outside code can’t set the property value, but surely code inside a class can set the property, or else how would it get set.</p>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">#import "Person.h"
+
+@implementation Person
+
+- (void) changeLastName:(NSString *)newLastName;
+{
+  self.lastName = newLastName;
+}
+@end
+</pre>
+
+<p><span class="exercise-objective-errorFile">Assignment to readonly property</span></p>
+
+<p>Nope, that doesn’t work because as it turns out, <code>self.lastName =</code> is exactly the same as <code>person.lastName =</code>. They are both treated as “outside code” and so won’t work. To fix this, instead of assigning to <code>self.lastName</code>, code inside a method can assign to the special variable <code>_lastName</code>.</p>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">#import "Person.h"
+
+@implementation Person
+
+- (void) changeLastName:(NSString *)newLastName;
+{
+  _lastName = newLastName;
+}
+@end
+</pre>
+
+<div class="higgie--exercise">
+  <p>You just totally made that up, didn't you?</p>
+</div>
+
+<p>No!  I know it seems strange but every property has a special <em>internal</em> variable that is prefixed with an underscore <code>_</code>. This way a property can be read-only to the outside world, but methods on the class still are able to update the property’s value.</p>
+
+<p class="exercise-objective-note">
+<span>Note:</span> Some people will only use the <em>internal</em> variable syntax inside of methods and never access the property through <code>self</code>, but others don't. The decision comes down to stylistic preferences as either way works just fine.
+</p>
+
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-56" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.22</strong> Making batteryLife read-only
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p class="exercise-objective-action">
+    It's now time to update the <code>batteryLife</code> property to make it read-only. After you do that, make sure and update the <code>decreaseBatteryLife:</code> implementation to set the internal variable <code>_batteryLife</code> instead of <code>self.batteryLife</code>.
+</p>
+
+                        
+                          <a name="exercise-56-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property NSNumber *batteryLife;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  self.batteryLife = @([self.batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", self.batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+[talkingiPhone decreaseBatteryLife:@5];
+[talkingiPhone reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-56-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-57" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.23</strong> Assigning a default value to a property
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Now that we’ve made <code>batteryLife</code> read-only from outside code, we can no longer set the initial <code>batteryLife</code> value to <code>@100</code> after initializing a <code>TalkingPhone</code> object like we have been:</p>
+
+<pre data-syntax="objc">TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.batteryLife = @100;
+</pre>
+
+<p><span class="exercise-objective-errorFile">Assignment to readonly property</span></p>
+
+<p>Ideally, we could just set the default value of <code>batteryLife</code> so every new <code>TalkingPhone</code> object has its <code>batteryLife</code> set to <code>@100</code>.</p>
+
+<p>Well, we can do that by taking advantage of a feature of inheritance: method overriding.  For example, we could log every time a new <code>Person</code> object is created by overriding the <code>init</code> method:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">#import "Person.h"
+
+@implementation Person
+- (Person *) init;
+{
+    NSLog(@"Cool, a new Person is being initialized");
+}
+@end
+</pre>
+
+<p>The above implementation of <code>init</code> overrides the method defined in <code>NSObject</code>, which <code>Person</code> inherits from.  But as you can see, <code>init</code> should return a <code>Person *</code> object and we aren’t returning anything.  How do we create a <code>Person</code> now that we’ve overridden <code>init</code>? Through another <em>special variable</em> called <code>super</code>, we’re able to call back up into the <code>init</code> method defined in <code>NSObject</code>:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">#import "Person.h"
+
+@implementation Person
+- (Person *) init;
+{
+    NSLog(@"Cool, a new Person is being initialized");
+
+    return [super init];
+}
+@end
+</pre>
+
+<p>We’re also able to set <em>internal</em> variables on the current object being initialized before we return <code>[super init]</code>:</p>
+
+<p><span class="exercise-objective-fileHeader">Person.m</span></p>
+
+<pre data-syntax="objc">#import "Person.h"
+
+@implementation Person
+- (Person *) init;
+{
+    NSLog(@"Cool, a new Person is being initialized");
+    _firstName = @"Tim";
+    _lastName = @"Cook";
+    return [super init];
+}
+@end
+</pre>
+
+<p>Now every <code>Person</code> object created will start out with its <code>firstName</code> set to <code>@"Tim" and </code>lastName<code> set to </code>@”Cook”`.</p>
+
+<p class="exercise-objective-action">
+  Go ahead and update the <code>TalkingPhone.m</code> file to initially set the <code>_batteryLife</code> to <code>@100</code>.
+</p>
+
+                        
+                          <a name="exercise-57-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property (readonly) NSNumber *batteryLife;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  /*//set _batteryLife to @100//*/;
+  return [super init];
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([self.batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", self.batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+[talkingiPhone decreaseBatteryLife:@5];
+[talkingiPhone reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-57-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-58" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>4.24</strong> Creating an instance variable
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>What if we wanted to hide the <code>batteryLife</code> property even further and not even let outside code <em>read</em> the property. Then the only way to know the battery life would be to send the <code>reportBatteryLife</code> message. To accomplish this, we’d have to get rid of the <code>batteryLife</code> property and replace it with a <em>completely internal</em> variable.</p>
+
+<p>To learn how, let’s first look at this <code>Coffee</code> class that has a <code>temperature</code> property:</p>
+
+<p><span class="exercise-objective-fileHeader">Coffee.h</span></p>
+
+<pre data-syntax="objc">@interface Coffee : NSObject
+@property NSNumber *temperature;
+@end
+</pre>
+
+<p>To replace the <code>temperature</code> property with a variable only available to methods of the <code>Coffee</code> class, we have to remove the property and replace it with an <em>instance variable</em>:</p>
+
+<p><span class="exercise-objective-fileHeader">Coffee.h</span></p>
+
+<pre data-syntax="objc">@interface Coffee : NSObject {
+  NSNumber *_temperature;
+}        
+@end
+</pre>
+
+<p>Instance variables go in an optional curly-brace block after the <code>@interface</code> declaration, and are defined like any other variable. We kept the naming convention for internal variables by using <code>_temperature</code>.  Now methods on the <code>Coffee</code> class can access this new variable:</p>
+
+<p><span class="exercise-objective-fileHeader">Coffee.m</span></p>
+
+<pre data-syntax="objc">#import "Coffee.h"
+
+@implementation Coffee
+- (void)pour;
+{
+  if([_temperature intValue] &lt; 155){
+    NSLog(@"Oh no! The coffee is cold!");
+  }{
+    NSLog(@"Mmmm, delicious warm coffee");
+  }
+}
+@end
+</pre>
+
+<p class="exercise-objective-action">
+  Convert <code>batteryLife</code> to an instance variable, and update the methods on the class to use it. Make sure to prefix the instance variable name with a underscore.
+</p>
+
+                        
+                          <a name="exercise-58-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.h:</span>
+                                  <pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property (readonly) NSNumber *batteryLife;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">TalkingPhone.m:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([self.batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", self.batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end</pre>
+                                
+                                  <span class="exercise-objective-fileHeader">Example Use:</span>
+                                  <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+[talkingiPhone decreaseBatteryLife:@5];
+[talkingiPhone reportBatteryLife];</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-58-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+        </ol>
+
+
+
+        <ol class="exercises">
+          <li class="exercise exercise--text">
+              <div class="exercise-content">
+                  <div class="exercise-objective">
+                    <h2>Answers for Level 4</h2>
+                  </div>
+              </div>
+          </li>
+        </ol>
+        
+
+        <ol id="answers" class="exercises">
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+                
+                  <li id="answer-38" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-38-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.4</strong> Defining a class property <a href="#exercise-38-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">Class Interface File</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-39" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-39-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.5</strong> Class implementation <a href="#exercise-39-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-40" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-40-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.6</strong> Using a property <a href="#exercise-40-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+NSLog(@"%@", talkingiPhone.phoneName);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-41" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-41-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.7</strong> Practice creating a class <a href="#exercise-41-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingDroid = [[TalkingPhone alloc] init];
+talkingDroid.phoneName = @"Android";
+talkingDroid.modelNumber = @"Nexus 4";
+NSLog(talkingDroid.phoneName);
+NSLog(talkingDroid.modelNumber);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+            
+              
+                
+                  <li id="answer-43" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-43-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.9</strong> Implementing a custom method <a href="#exercise-43-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+- (void) speak;
+{
+  NSLog(@"Something to log");
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-44" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-44-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.10</strong> Running your custom method <a href="#exercise-44-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+[talkingiPhone speak];
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-45" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-45-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.11</strong> Understanding self <a href="#exercise-45-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+- (void) speak {
+  NSLog(@"%@", self);
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-46" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-46-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.12</strong> Logging a property instead of self <a href="#exercise-46-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+- (void) speak {
+  NSLog(@"%@", self.phoneName);
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-47" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-47-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.13</strong> Defining a method that returns a result <a href="#exercise-47-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+- (NSString *) speak;
+@end
+</pre>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+- (NSString *) speak {
+  NSString *message = [NSString stringWithFormat:@"%@ says Hello There!", self.phoneName];
+  return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-48" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-48-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.14</strong> Logging a method result <a href="#exercise-48-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+NSString *phoneMessage = [talkingiPhone speak];
+
+NSLog(@"%@", phoneMessage);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+            
+              
+                
+                  <li id="answer-50" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-50-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.16</strong> Passing arguments into a method <a href="#exercise-50-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">#import "TalkingPhone.h"
+
+TalkingPhone *talkingiPhone = [[TalkingPhone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+NSLog([talkingiPhone speak:@"I'm sorry"]);
+NSLog([talkingiPhone speak:@"I'm bored"]);
+NSLog([talkingiPhone speak:@"this stinks"]);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-51" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-51-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.17</strong> Define method with argument <a href="#exercise-51-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property NSNumber *batteryLife;
+
+- (NSString *) speak:(NSString *)greeting;
+- (void)reportBatteryLife:(NSNumber *)batteryLife;
+@end
+</pre>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+- (void)reportBatteryLife:(NSNumber *)batteryLife;
+{
+  NSLog(@"Battery life is at %@", batteryLife);
+}
+
+- (NSString *) speak:(NSString *)greeting;
+{
+  NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+  return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-52" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-52-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.18</strong> Accessing data in properties vs. passing data as arguments <a href="#exercise-52-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property NSNumber *batteryLife;
+
+- (NSString *) speak:(NSString *)greeting;
+- (void)reportBatteryLife;
+@end
+</pre>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", self.batteryLife);
+}
+- (NSString *) speak:(NSString *)greeting;
+{
+  NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+  return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-53" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-53-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.19</strong> Decrease the battery life by 1 <a href="#exercise-53-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property NSNumber *batteryLife;
+
+- (NSString *) speak:(NSString *)greeting;
+- (void)decreaseBatteryLife;
+- (void)reportBatteryLife;
+@end
+</pre>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+- (void)decreaseBatteryLife;
+{
+  self.batteryLife = @([self.batteryLife intValue] - 1);
+}
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", self.batteryLife);
+}
+- (NSString *) speak:(NSString *)greeting;
+{
+  NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+  return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-54" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-54-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.20</strong> Decrease the battery life by a variable amount <a href="#exercise-54-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property NSNumber *batteryLife;
+
+- (NSString *) speak:(NSString *)greeting;
+- (void)decreaseBatteryLife:(NSNumber *)num;
+- (void) reportBatteryLife;
+@end
+</pre>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+- (void)decreaseBatteryLife:(NSNumber *)num;
+{
+  self.batteryLife = @([self.batteryLife intValue] - [num intValue]);
+}
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", self.batteryLife);
+}
+- (NSString *) speak:(NSString *)greeting;
+{
+  NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+  return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+            
+              
+                
+                  <li id="answer-56" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-56-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.22</strong> Making batteryLife read-only <a href="#exercise-56-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property (readonly) NSNumber *batteryLife;
+
+- (void) decreaseBatteryLife:(NSNumber *)num;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end
+</pre>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", self.batteryLife);
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)num;
+{
+  _batteryLife = @([self.batteryLife intValue] - [num intValue]);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-57" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-57-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.23</strong> Assigning a default value to a property <a href="#exercise-57-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  self = [super init];
+  _batteryLife = @100;
+  return self;
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", self.batteryLife);
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([self.batteryLife intValue] - [arg intValue]);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-58" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-58-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>4.24</strong> Creating an instance variable <a href="#exercise-58-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p><span class="exercise-objective-fileHeader">TalkingPhone.h</span></p>
+
+<pre data-syntax="objc">@interface TalkingPhone : NSObject {
+   NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+</pre>
+
+<p><span class="exercise-objective-fileHeader">TalkingPhone.m</span></p>
+
+<pre data-syntax="objc">#import "TalkingPhone.h"
+
+@implementation TalkingPhone
+
+- (TalkingPhone *)init;
+{
+  self = [super init];
+  _batteryLife = @100;
+  return self;
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", _batteryLife);
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+        </ol>
+    </section>
+  </div>
+  </body>
+</html>

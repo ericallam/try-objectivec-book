@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>
+      Code School - Try Objective-C Book
+    </title>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href="application.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="codemirror/lib/codemirror.js" type="text/javascript" ></script>
+    <script src="codemirror/mode/clike/clike.js" type="text/javascript" ></script>
+    <script src="codemirror/addon/runMode/runMode.js" type="text/javascript" ></script>
+    <script src="javascripts/objc.js" type="text/javascript" ></script>
+    <script src="javascripts/jquery.js" type="text/javascript" ></script>
+    <script src="javascripts/underscore.js" type="text/javascript" ></script>
+    <script src="application.js" type="text/javascript" ></script>
+  </head>
+  <body>
+
+  <div class="user-enrolled level--3 exercise--text">
+  
+    
+
+    <ol class="exercises">
+      <li class="exercise exercise--text">
+          <div class="exercise-content">
+              <div class="exercise-objective">
+                <h2>Level 3 Table of Contents</h2>
+
+                <ul style="margin-top:15px">
+                  
+                    <li><a href="#exercise-26">A simple if</a></li>
+                  
+                    <li><a href="#exercise-27">if - else</a></li>
+                  
+                    <li><a href="#exercise-28">if - else if - else</a></li>
+                  
+                    <li><a href="#exercise-29">Equal strings</a></li>
+                  
+                    <li><a href="#exercise-30">Switch it up</a></li>
+                  
+                    <li><a href="#exercise-31">Switch on enums</a></li>
+                  
+                    <li><a href="#exercise-32">Fast enumeration</a></li>
+                  
+                    <li><a href="#exercise-33">Enumerating a NSDictionary</a></li>
+                  
+                    <li><a href="#exercise-34">Practice makes perfect</a></li>
+                  
+                    <li><a href="#exercise-68">Playing with code blocks</a></li>
+                  
+                    <li><a href="#exercise-70">Blocks with arguments</a></li>
+                  
+                    <li><a href="#exercise-69">Enumerate with blocks</a></li>
+                  
+                </ul>
+              </div>
+          </div>
+      </li>
+    </ol>
+      
+    <section id="course" class="course">
+        <ol id="exercises" class="exercises">
+            
+              <li id="exercise-26" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.1</strong> A simple if
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Have you ever made a decision and then afterwards immediately regretted it?</p>
+
+<p>Well, computers don&#8217;t feel regret but that doesn&#8217;t mean they can&#8217;t make decisions.</p>
+
+<div class="higgie--exercise">
+  <p>I decide to regret nothing</p>
+</div>
+
+<p>The simplest way to make a decision in Objective-C is to use an <code>if</code> statement:</p>
+
+<pre data-syntax="objc">if (mrHiggieIsMean) {
+  NSLog(@"Confirmed: he is super mean");
+}
+</pre>
+
+<p>The lines of code inside the curly-braces <code>{}</code> is only executed if the code in the parentheses <code>()</code> after the <code>if</code>
+is <em>true</em>. But how do we know what is <em>true</em> and what is <em>false</em>?</p>
+
+<p>In Objective-C, there is a special data type meant to handle this exact situation. A variable defined with the <code>BOOL</code> type
+can be set to either <code>YES</code> (true) or <code>NO</code> (false).  You can declare a <code>BOOL</code> variable like this:</p>
+
+<pre data-syntax="objc">BOOL mrHiggieIsMean = NO;
+
+if (mrHiggieIsMean) {
+  NSLog(@"Confirmed: he is super mean");
+}
+</pre>
+
+<p>Only when the <code>if</code> encounters a <code>YES</code> will it execute the code inside the curly-braces <code>{}</code>.</p>
+
+<p class="exercise-objective-action">
+  Go ahead and define the <code>mrHiggieIsMean</code> variable to <code>YES</code> so the code inside the curly-braces is executed.
+</p>
+
+                        
+                          <a name="exercise-26-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">/*//Set mrHiggieIsMean to YES//*/
+
+if (mrHiggieIsMean) {
+  NSLog(@"Confirmed: he is super mean");
+}
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-26-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-27" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.2</strong> if - else
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Maybe we aren&#8217;t being fair to Mr. Higgie. Let&#8217;s give him a chance to
+change his ways.</p>
+
+<div class="higgie--exercise">
+  <p>There is always Software Update</p>
+</div>
+
+<p>So how would we execute code if <code>mrHiggieIsMean</code> got changed to <code>NO</code>? We could do something like this:</p>
+
+<pre data-syntax="objc">if(mrHiggieIsMean){
+  NSLog(@"Confirmed: he is super mean");
+}
+
+if(!mrHiggieIsMean){
+  NSLog(@"No, actually he's really nice");
+}
+</pre>
+
+<p>That exclamation point <code>!</code> is called the negation operator, and it turns <code>YES</code> into <code>NO</code> and <code>NO</code> into <code>YES</code>. But there is an easier way, using <code>else</code>:</p>
+
+<pre data-syntax="objc">if(mrHiggieIsMean){
+  NSLog(@"Confirmed: he is super mean");
+} else {
+  NSLog(@"No, actually he's really nice");
+}
+</pre>
+<p class="exercise-objective-action">
+  Go ahead and update the code on the right to execute a different log if <code>mrHiggieIsMean</code> turns out to be <code>NO</code>. To make things more interesting,
+    we'll be asking the <code>mrHiggie</code> object to set the <code>mrHiggieIsMean</code> variable.  This way we have to make sure and handle both cases.
+</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> It wouldn't make sense if you set the <code>mrHiggieIsMean</code> variable to just <code>YES</code> or <code>NO</code>. At that point why even use a conditional?
+</p>
+
+                        
+                          <a name="exercise-27-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">BOOL mrHiggieIsMean = [mrHiggie areYouMean];
+
+if (mrHiggieIsMean) {
+  NSLog(@"Confirmed: he is super mean");
+}
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-27-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-28" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.3</strong> if - else if - else
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Someone really smart once said &#8220;The world is everything that is the case&#8221;, and unfortunately sometimes
+the case isn&#8217;t always black-and-white, <em>true</em> or <em>false</em>, <code>YES</code> or <code>NO</code>.  Maybe it won&#8217;t always
+be so clear whether or not Mr. Higgie is mean.</p>
+
+<p>For example, let&#8217;s say the <code>mrHiggie</code> object is updated and no longer has the <code>areYouMean</code> method that returns a <code>BOOL</code> but instead
+there is a <code>meannessScale</code> method that returns an <code>NSNumber</code> between 0 and 10, with 0 representing completely nice and 10 representing completely mean. In the pursuit of fairness,
+we should also log out messages more suited to the ambiguousness of our current situation:</p>
+
+<pre data-syntax="">+----------------+-----------------------------------------+
+| Meanness Range |               Log String                |
++----------------+-----------------------------------------+
+| 0-3            | Mr. Higgie is on the nice side          |
+| 4-7            | Mr. Higgie is sorta nice but not really |
+| 8-10           | Mr. Higgie is definitely mean           |
++----------------+-----------------------------------------+
+</pre>
+
+<p>So it seems we can&#8217;t really use <code>if</code> with <code>else</code> because that only handles two cases when we need to handle three. Luckily there is a third option that combines the best
+of <code>if</code> and <code>else</code> - <code>else if</code>. So we could handle all three logs like this:</p>
+
+<pre data-syntax="objc">if(0-3) {
+  NSLog(@"Mr. Higgie is on the nice side");
+} else if(4-7) {
+  NSLog(@"Mr. Higgie is sorta nice but not really");
+} else {
+  NSLog(@"Mr. Higgie is definitely mean");
+}
+</pre>
+
+<p>But remember how we just said that code inside the <code>if</code> parentheses needs to be either <code>YES</code> or <code>NO</code>?  We can get the <code>intValue</code> from our <code>NSNumber</code> object
+and then use the <em>less than</em>  comparison operator to produce a <code>BOOL</code> value, like this:</p>
+
+<pre data-syntax="objc">if([meannessScale intValue] &lt; 4) {
+  NSLog(@"Mr. Higgie is on the nice side");
+} else if(4-7) {
+  NSLog(@"Mr. Higgie is sorta nice but not really");
+} else {
+  NSLog(@"Mr. Higgie is definitely mean");
+}
+</pre>
+<p class="exercise-objective-action">
+  To complete this challenge, fill out the code inside the <code>else if</code> parenthesis so that the second <code>NSLog</code> is executed if meannessScale is less than 8.
+</p>
+
+                        
+                          <a name="exercise-28-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSNumber *meannessScale = [mrHiggie meannessScale];
+
+if([meannessScale intValue] < 4) {
+  NSLog(@"Mr. Higgie is on the nice side");
+} else if(/*//meannessScale is less than 8//*/) {
+  NSLog(@"Mr. Higgie is sorta nice but not really");
+} else {
+  NSLog(@"Mr. Higgie is definitely mean");
+}
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-28-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-29" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.4</strong> Equal strings
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>We should probably stop picking on Mr. Higgie so much. He&#8217;s not <em>all</em> bad. In fact, there is a lighter side to Mr. Higgie: he loves wearing hats.</p>
+
+<div class="higgie--exercise">
+  <p>It's true. I tan too easily.</p>
+</div>
+
+<p>In fact, if you want to find out which hat the <code>mrHiggie</code> object is wearing, all you have to do is send it the <code>currentHat</code> message
+and it will return the hat in the form of a <code>NSString</code>.</p>
+
+<p>We can also pass an NSString the <code>isEqualToString:</code> message, which will compare two <code>NSString</code> objects.  If they have exactly the same characters then the message
+will return <code>YES</code>, and otherwise it will return <code>NO</code>.  We can use <code>isEqualToString:</code> inside <code>if</code> statements to conditionally execute code based on the characters in a string, like so:</p>
+
+<pre data-syntax="objc">if([myString isEqualToString:otherString]) {
+  NSLog(@"Hello from inside the if!");
+}
+</pre>
+
+<p>As you can see in the editor to the right, we&#8217;re already logging out different messages depending on the result of <code>[mrHiggie currentHat]</code>. We recently learned that Mr. Higgie has purchased a new hat with the name <code>@"AstronautHelmet"</code>.</p>
+
+<p class="exercise-objective-action">
+  Add another <code>else if</code> to log a different message whenever this <code>@"AstronautHelmet"</code> hat is encountered.
+</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> <code>else if</code>'s have to be between the <code>if</code> and <code>else</code>
+</p>
+
+                        
+                          <a name="exercise-29-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSString *hat = [mrHiggie currentHat];
+
+if([hat isEqualToString:@"Sombrero"]) {
+  NSLog(@"Ese es un muy buen sombrero");
+} else if ([hat isEqualToString:@"Fedora"]) {
+  NSLog(@"Mr. Higgie was an iPhone before there was iPhone");
+} else {
+  NSLog(@"Mr. Higgie is currently hatless");
+}
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-29-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-30" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.5</strong> Switch it up
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>As you may have noticed, a large <code>if/else</code> block of code can quickly become very hard to read.</p>
+
+<div class="higgie--exercise">
+  <p>Only if you are human</p>
+</div>
+
+<p>A pattern you&#8217;ll find quite frequently in Objective-C is using a <code>switch</code> statement to clean up these large <code>if-else</code> blocks of code.  Use a <code>switch</code> when you have a variable that can be one of a limited set of values, and you want to execute different code based on the that single variable.</p>
+
+<p>For example, let&#8217;s say you have a variable <code>NSInteger day</code> that represents the current day - <code>1</code> for Monday, <code>2</code> for Tuesday, and so on. You could log out the current day like this:</p>
+
+<pre data-syntax="objc">NSInteger day = getDayOfWeek();
+
+switch (day) {
+  case 1: {
+    NSLog(@"Monday");
+    break;
+  }
+  case 2: {
+    NSLog(@"Tuesday");
+    break;
+  }
+  /* snip Wednesday through Saturday */
+  case 7: {
+    NSLog(@"Sunday");
+    break;
+  }
+}
+</pre>
+
+<p>The <code>switch</code> will execute each <code>case</code> checking for a match between <code>day</code> and the value following <code>case</code>. If it finds a match, it will execute the code in the curly-braces <code>{}</code>. The <code>break</code> in each <code>case</code> block tells the switch to stop searching for matches.</p>
+
+<p>You can also combine <code>case</code> statements to have multiple matching values execute the same code, which you can see in the code in the challenge editor.  You&#8217;ll see that Mr. Higgie likes to wear his Fedora hat Monday through Thursday and his Sombrero on Friday.</p>
+
+<p class="exercise-objective-action">
+  He has requested that we please update the <code>switch</code> to let him wear his AstronautHelmet hat on the weekends.
+</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> You can't pass <code>switch</code> an NSString because <code>switch</code> is in the "c layer" and thus doesn't know anything about NSString
+</p>
+
+                        
+                          <a name="exercise-30-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSInteger day = getDayOfWeek();
+
+switch (day) {
+  case 1:
+  case 2:
+  case 3:
+  case 4: {
+    [mrHiggie setCurrentHat:@"Fedora"];
+    break;
+  }
+  case 5: {
+    [mrHiggie setCurrentHat:@"Sombrero"];
+    break;
+  }
+  case 6:
+  case 7: {
+    break;
+  }
+}
+
+NSLog(@"Mr. Higgie is wearing: %@", [mrHiggie currentHat]);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-30-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-31" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.6</strong> Switch on enums
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Okay, that last challenge wasn&#8217;t exactly the most readable thing in the world.</p>
+
+<div class="higgie--exercise">
+  <p>I had an easier time reading Moby&nbsp;Dick</p>
+</div>
+
+<p>Where the <code>switch</code> really shines is when it&#8217;s used in conjunction with an <code>enum</code>. An <code>enum</code> allows you to define
+a variable that can be only 1 of a limited set of values, like the days of the week. So, instead of writing this:</p>
+
+<pre data-syntax="objc">NSInteger day = 1;
+</pre>
+
+<p>You could write this:</p>
+
+<pre data-syntax="objc">DayOfWeek day = 1;
+</pre>
+
+<p>You aren&#8217;t actually changing the value of the <code>day</code> variable, or really even it&#8217;s type. <code>DayOfWeek</code> is just an <em>alias</em> for <code>NSInteger</code>, not a whole new type. This is how it&#8217;s defined:</p>
+
+<pre data-syntax="objc">typedef NS_ENUM(NSInteger, DayOfWeek) {
+    DayOfWeekMonday = 1,
+    DayOfWeekTuesday = 2,
+    DayOfWeekWednesday = 3,
+    DayOfWeekThursday = 4,
+    DayOfWeekFriday = 5,
+    DayOfWeekSaturday = 6,
+    DayOfWeekSunday = 7
+};
+</pre>
+
+<p>As you can see we&#8217;ve assigned a name for each day of the week corresponding to the <code>NSInteger</code> value we used in the last challenge.</p>
+
+<p>Now we can use <code>DayOfWeekWednesday</code> instead of <code>3</code>. As you can see by the code in the challenge editor, this makes our code much more readable.  It also makes it more <em>safe</em> because
+Objective-C is smart enough to make sure all the possible values for <code>DayOfWeek</code> are handled in the <code>switch</code>.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> Go ahead and submit the challenge with one of the cases missing and check out the error for not covering all the possible values in an enum
+</p>
+
+<p class="exercise-objective-action">
+  Finish converting the rest of the cases to use the <code>enum</code> values.
+</p>
+
+                        
+                          <a name="exercise-31-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">DayOfWeek day = getDayOfWeek();
+
+switch (day) {
+    case DayOfWeekMonday:
+    case DayOfWeekTuesday:
+    case DayOfWeekWednesday:
+    case DayOfWeekThursday: {
+        [mrHiggie setCurrentHat:@"Fedora"];
+        break;
+    }
+    case DayOfWeekFriday: {
+        [mrHiggie setCurrentHat:@"Sombrero"];
+        break;
+    }
+    case 6:
+    case 7: {
+        [mrHiggie setCurrentHat:@"AstronautHelmet"];
+        break;
+    }
+}
+
+NSLog(@"Mr. Higgie is wearing: %@", [mrHiggie currentHat]);
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-31-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-32" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.7</strong> Fast enumeration
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Objective-C is good at making decisions, but it&#8217;s <em>great</em> at being lazy.</p>
+
+<p>For example, let&#8217;s say you had an array of <code>NSString</code> objects and you wanted to log out each item.  You could
+do the hard work and type it all out:</p>
+
+<pre data-syntax="objc">NSArray *funnyWords = @[@"Schadenfreude", @"Portmanteau", @"Penultimate"];
+
+NSLog(@"%@ is a funny word", funnyWords[0]);
+NSLog(@"%@ is a funny word", funnyWords[1]);
+NSLog(@"%@ is a funny word", funnyWords[2]);
+</pre>
+
+<p>But that is not sufficiently lazy and results in too much repeated code.  Let&#8217;s take a trip to <em>lazy town</em> and
+use a technique called <em>Fast Enumeration</em>:</p>
+
+<pre data-syntax="objc">NSArray *funnyWords = @[@"Schadenfreude", @"Portmanteau", @"Penultimate"];
+
+for (NSString *word in funnyWords) {
+  NSLog(@"%@ is a funny word", word);
+}
+</pre>
+
+<p>This means: execute the code inside the curly-braces <code>{}</code> once for each <code>NSString</code> in the <code>funnyWords</code> collection.  In this case, the code inside the curly-braces would get executed 3 times and the value of the <code>word</code> variable would cycle through the values in the <code>funnyWords</code> collection. You might imagine the unspooled code to look something like this:</p>
+
+<pre data-syntax="objc">NSArray *funnyWords = @[@"Schadenfreude", @"Portmanteau", @"Penultimate"];
+
+NSString *word;
+word = funnyWords[0];
+NSLog(@"%@ is a funny word", word);
+word = funnyWords[1];
+NSLog(@"%@ is a funny word", word);
+word = funnyWords[2];
+NSLog(@"%@ is a funny word", word);
+</pre>
+
+<p>Could you imagine having to do that for an array that has thousands of items?</p>
+
+<div class="higgie--exercise">
+  <p>Being lazy has never felt this good.</p>
+</div>
+
+<p class="exercise-objective-action">
+  Continue down this lazy path and complete this challenge by filling out the code inside the <code>for ()</code>. Make sure the <code>NSString</code> variable name is <code>hat</code>.
+</p>
+
+                        
+                          <a name="exercise-32-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSArray *newHats = @[@"Cowboy", @"Conductor", @"Baseball"];
+
+for (/*//loop through newHats//*/) {
+
+  NSLog(@"Trying on new %@ hat", hat);
+
+  if([mrHiggie tryOnHat:hat]) {
+    NSLog(@"Mr. Higgie loves it");
+  } else {
+    NSLog(@"Mr. Higgie hates it");
+  }
+}
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-32-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-33" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.8</strong> Enumerating a NSDictionary
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p><em>Fast Enumeration</em> is not limited to <code>NSArray</code> objects and can be used on <code>NSDictionary</code> objects as well:</p>
+
+<pre data-syntax="objc">NSDictionary *funnyWords = @{
+  @"Schadenfreude": @"pleasure derived by someone from another person's misfortune.",
+  @"Portmanteau": @"consisting of or combining two or more separable aspects or qualities",
+  @"Penultimate": @"second to the last"
+};
+
+for (NSString *word in funnyWords){
+  NSString *definition = funnyWords[word];
+  NSLog(@"%@ is defined as %@", word, definition);
+}
+</pre>
+
+<p>When you fast enumerate through an <code>NSDictionary</code> object, the value of the <code>word</code> variable would cycle through the keys in the <code>funnyWords</code> dictionary. Then, inside the fast enumeration block <code>{}</code>
+you can use the key to look up the associated value, demonstrated above by getting the <code>definition</code> for the current word:</p>
+
+<pre data-syntax="objc">NSString *definition = funnyWords[word];
+</pre>
+<p class="exercise-objective-action">
+  Go ahead and submit the challenge code to the right to see how fast enumerating through an <code>NSDictionary</code> object works.
+</p>
+
+                        
+                          <a name="exercise-33-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSDictionary *funnyWords = @{
+  @"Schadenfreude": @"pleasure derived by someone from another person's misfortune.",
+  @"Portmanteau": @"consisting of or combining two or more separable aspects or qualities",
+  @"Penultimate": @"second to the last"
+};
+
+for (NSString *word in funnyWords) {
+  NSString *definition = funnyWords[word];
+  NSLog(@"%@ is defined as %@", word, definition);
+}
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-33-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-34" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.9</strong> Practice makes perfect
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Because being lazy is so much fun, let&#8217;s run through one more example of <code>NSDictionary</code> fast enumeration.</p>
+
+<p>Mr. Higgie can no longer decide which hat he likes based on the type of hat alone. He demands to also know which color
+the hat is before he can make his final decision.  So we&#8217;ve changed the <code>newHats</code> variable to be an <code>NSDictionary</code> where the hat names are the keys and the hat colors are the values:</p>
+
+<pre data-syntax="objc">NSDictionary *newHats = @{
+  @"Cowboy": @"White",
+  @"Conductor": @"Brown",
+  @"Baseball": @"Red"
+};
+</pre>
+
+<p>The <code>mrHiggie</code> object also has a new message it can respond to: <code>tryOnHat:withColor:</code> which will return either <code>YES</code> or <code>NO</code>.</p>
+
+<p class="exercise-objective-action">
+  Update the code to fast enumerate through the <code>newHats</code> dictionary and have Mr. Higgie try on each hat in the collection.
+</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span>  Fast Enumeration earns its name by being faster than a traditional c-style <code>for</code> loop because it limits message sending, which can be <em>slow</em> when enumerating a 1000+ item collection object.
+</p>
+
+                        
+                          <a name="exercise-34-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSDictionary *newHats = @{                                                                                                    
+  @"Cowboy": @"White",
+  @"Conductor": @"Brown",
+  @"Baseball": @"Red"
+};
+
+for (/*//Create an NSString variable called hat to loop through each key in the newHats dictionary//*/){
+
+  /*//Create an NSString variable that stores the color of the hat//*/
+
+  NSLog(@"Trying on new %@ %@ hat", color, hat);
+
+  if([mrHiggie tryOnHat:hat withColor:color]) {
+    NSLog(@"Mr. Higgie loves it");
+  } else {
+    NSLog(@"Mr. Higgie hates it");
+  }
+}
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-34-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-68" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.10</strong> Playing with code blocks
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>So far, we&#8217;ve run across multiple features of Objective-C that use curly-braces <code>{}</code> to wrap a section of code, like <code>if</code>, <code>switch</code>, and fast enumeration. Curly-braces in these contexts are part of the syntax of the specific feature you are using, like this if statement:</p>
+
+<pre data-syntax="objc">if(someBOOLVariable){
+  NSLog(@"Hello from inside the if statement");
+}
+</pre>
+
+<p>We know that if <code>someBOOLVariable</code> is <code>YES</code>, then the code inside the curly-braces will be executed.  What if instead we wanted to have a block of code inside curly-braces divorced from any specific features like <code>if</code> and <code>switch</code>, like this:</p>
+
+<pre data-syntax="objc">{
+  NSLog(@"Hello from inside the block");
+}
+</pre>
+
+<p>Why would we want such a thing? Well, it would be really cool to be able to assign this block of code to a variable and then execute the block however many times we wanted, like this:</p>
+
+<pre data-syntax="objc">myBlock = {
+  NSLog(@"Hello from inside the block");
+}
+
+myBlock();
+myBlock();
+myBlock();
+</pre>
+
+<p>Each time we did <code>myBlock()</code>, the code inside the <code>{}</code> would execute and so above we just logged the same message three times but we only had to code <code>NSLog</code> once.</p>
+
+<div class="higgie--exercise">
+  <p>You better not be getting my hopes up. I've been hurt before.</p>
+</div>
+
+<p>This hypothetical feature actually exists and its name is <strong>blocks</strong>! Blocks are groups of code that can be treated like normal Objective-C objects meaning they can be passed to methods or included in collections like <code>NSArray</code> or <code>NSDictionary</code>.  They are very powerful: they can accept arguments and return results, just like a message.  A block can be created with <code>^{}</code>, like so:</p>
+
+<pre data-syntax="objc">^{
+  NSLog(@"Hello from inside the block");
+};
+</pre>
+
+<p>You can assign a block to a variable, just like any other object, but the syntax is slightly different. Instead of prepending the name with a <code>*</code> it uses a <code>^</code>, like this:</p>
+
+<pre data-syntax="objc">^logMessage =  ^{
+  NSLog(@"Hello from inside the block");
+};
+</pre>
+
+<p>Since blocks can return values, we need to specify which type of object the block will return before the variable name (use <code>void</code> if the block doesn&#8217;t return anything):</p>
+
+<pre data-syntax="objc">void ^logMessage = ^{
+  NSLog(@"Hello from inside the block");
+};
+</pre>
+
+<p>The above syntax still needs a little bit more code to work.  The name of the variable (including the <code>^</code>) needs to be wrapped in parenthesis:</p>
+
+<pre data-syntax="objc">void (^logMessage) = ^{
+  NSLog(@"Hello from inside the block");
+};
+</pre>
+
+<p>And we need to specify the types of the arguments that this block accepts. Since this block doesn&#8217;t accept any arguments, we can just use <code>void</code> again:</p>
+
+<pre data-syntax="objc">void (^logMessage)(void) = ^{
+  NSLog(@"Hello from inside the block");
+};
+</pre>
+
+<p>Now when we want to execute this block (often referred to as &#8220;invoking a block&#8221;), we just reference the variable name and append a group of parenthesis:</p>
+
+<pre data-syntax="objc">logMessage();
+logMessage();
+logMessage();
+</pre>
+
+<p>This will log <code>Hello from inside the block</code> three times, but you could invoke it as many times as you wish.</p>
+
+<p class="exercise-objective-action">
+  Create a block that logs a message and name it <code>myFirstBlock</code>. It shouldn't return anything or accept any arguments. After it's defined, invoke <code>myFirstBlock</code> at least once.
+</p>
+
+                        
+                          <a name="exercise-68-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc"></pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-68-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-70" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.11</strong> Blocks with arguments
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Blocks are a little like messages in that you can pass arguments to them. That means that each time we invoke a block, we can pass in different objects for that block to have access to. For example, if we wanted to create a block that accepted two <code>NSUInteger</code> arguments and logged their sum, we could do this:</p>
+
+<pre data-syntax="objc">^(NSUInteger num1, NSUInteger num2){
+  NSLog(@"The sum of the numbers is %lu", num1 + num2);
+};
+</pre>
+
+<p>To assign this block to a variable named <code>sumNumbers</code>, we would do the same thing as before but this time include the types of the arguments after the variable name:</p>
+
+<pre data-syntax="objc">void (^sumNumbers)(NSUInteger, NSUInteger) = ^(NSUInteger num1, NSUInteger num2){
+  NSLog(@"The sum of the numbers is %lu", num1 + num2);
+};
+</pre>
+
+<p>Notice how on the left side of the assignment (<code>=</code>) the arguments are defined only with their types (<code>NSUInteger, NSUInteger</code>), while on the right they are defined with their types and names (<code>NSUInteger num1, NSUInteger num2</code>)</p>
+
+<p>Now when we invoke the <code>sumNumbers</code> block, we can pass in 2 <code>NSUInteger</code> values, like so:</p>
+
+<pre data-syntax="objc">sumNumbers(45, 89);
+sumNumbers(18, 56);
+</pre>
+
+<p>Any object can be used as an argument to a block. For example, we could make a block that logs the count of objects in an <code>NSArray</code>, like this:</p>
+
+<pre data-syntax="objc">void (^logCount)(NSArray *) = ^(NSArray *array){
+  NSLog(@"There are %lu objects in this array", [array count]);
+};
+
+logCount(@[@"Mr.", @"Higgie"]);
+logCount(@[@"Mr.", @"Jony", @"Ive", @"Higgie"]);
+</pre>
+
+<p>This would log:</p>
+
+<pre data-syntax="">challenge[2]: There are 2 objects in this array
+challenge[2]: There are 4 objects in this array
+</pre>
+
+<p class="exercise-objective-action">
+  Update the <code>myFirstBlock</code> block to accept an <code>NSString *</code> object as an argument and include that string in the <code>NSLog</code> call. 
+</p>
+
+                        
+                          <a name="exercise-70-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">void (^myFirstBlock)(void) = ^{
+  NSLog(@"Hello from inside the block");
+};
+
+myFirstBlock(@"Hello");
+myFirstBlock(@"World");
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-70-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-69" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>3.12</strong> Enumerate with blocks
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>The vast majority of the time, you won&#8217;t be assigning a block to a variable and invoking it yourself. Instead, you&#8217;ll be passing a block as an argument to a message, like the <code>enumerateObjectsUsingBlock:</code> message on <code>NSArray</code>.</p>
+
+<p><code>enumerateObjectsUsingBlock:</code> can be used as a replacement for fast enumeration since it does basically the same thing: executes a block of code for each object in an array. But instead of using special syntax, it uses normal message sending and blocks. </p>
+
+<p>So you could replace this fast enumeration code:</p>
+
+<pre data-syntax="objc">for (NSString *word in funnyWords) {
+  NSLog(@"%@ is a funny word", word);
+}
+</pre>
+
+<p>With this:</p>
+
+<pre data-syntax="objc">[funnyWords enumerateObjectsUsingBlock:
+  ^(NSString *word, NSUInteger index, BOOL *stop){
+    NSLog(@"%@ is a funny word", word);  
+  }
+];
+</pre>
+
+<p>This block will be invoked once for each object in the <code>funnyWords</code> array.  Each time it is invoked, it will be passed three arguments: an <code>NSString *</code> which represents an object in the <code>funnyWords</code> array, an <code>NSUinteger</code> which is the index at which the current object is located, and a <code>BOOL *</code> argument which allows you to stop enumerating the array if you want.</p>
+
+<p>Notice how we aren&#8217;t assigning this block to a variable, instead we are passing the block directly with the message send as an argument. We could just as easily rewrite the above code to first assign the block to a variable and then pass it in to the message:</p>
+
+<pre data-syntax="objc">void (^enumeratingBlock)(NSString *, NSUInteger, BOOL *) = 
+  ^(NSString *word, NSUInteger index, BOOL *stop){
+    NSLog(@"%@ is a funny word", word);
+  };
+                         
+[funnyWords enumerateObjectsUsingBlock:enumeratingBlock];
+</pre>
+
+<p>But as you can see it takes a lot less code to just pass it in directly, and is generally considered a best practice.</p>
+
+<div class="higgie--exercise">
+  <p>We're over here talking about practice? Practice?!?.</p>
+</div>
+
+<p class="exercise-objective-action">
+  Don't listen to Mr. Higgie. Practice using blocks by rewriting the fast enumeration code to use <code>enumerateObjectsUsingBlock:</code>
+</p>
+
+                        
+                          <a name="exercise-69-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc">NSArray *newHats = @[@"Cowboy", @"Conductor", @"Baseball", 
+  @"Beanie", @"Beret", @"Fez"];
+
+for (NSString *hat in newHats) {
+   NSLog(@"Trying on hat %@", hat);
+}
+</pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-69-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+        </ol>
+
+
+
+        <ol class="exercises">
+          <li class="exercise exercise--text">
+              <div class="exercise-content">
+                  <div class="exercise-objective">
+                    <h2>Answers for Level 3</h2>
+                  </div>
+              </div>
+          </li>
+        </ol>
+        
+
+        <ol id="answers" class="exercises">
+            
+              
+                
+                  <li id="answer-26" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-26-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.1</strong> A simple if <a href="#exercise-26-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">BOOL mrHiggieIsMean = YES;
+
+if(mrHiggieIsMean) {
+  NSLog(@"Confirmed: he is super mean");
+}
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-27" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-27-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.2</strong> if - else <a href="#exercise-27-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">BOOL mrHiggieIsMean = [mrHiggie areYouMean];
+
+if (mrHiggieIsMean) {
+  NSLog(@"Confirmed: he is super mean");
+}else{
+  NSLog(@"No, actually he's really nice");
+}
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-28" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-28-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.3</strong> if - else if - else <a href="#exercise-28-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSNumber *meannessScale = [mrHiggie meannessScale];
+
+if([meannessScale intValue] &lt; 4){
+  NSLog(@"Mr. Higgie is on the nice side");
+}else if([meannessScale intValue] &lt; 8){
+  NSLog(@"Mr. Higgie is sorta nice but not really");
+}else{
+  NSLog(@"Mr. Higgie is definitely mean");
+}
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-29" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-29-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.4</strong> Equal strings <a href="#exercise-29-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSString *hat = [mrHiggie currentHat];
+
+if([hat isEqualToString:@"Sombrero"]){
+  NSLog(@"Ese es un muy buen sombrero");
+}else if ([hat isEqualToString:@"Fedora"]){
+  NSLog(@"Mr. Higgie was an iPhone before there was iPhone");
+}else if ([hat isEqualToString:@"AstronautHelmet"]){
+  NSLog(@"You could log anything here");
+}else{
+  NSLog(@"Mr. Higgie wears no hat");
+}
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-30" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-30-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.5</strong> Switch it up <a href="#exercise-30-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSInteger day = getDayOfWeek();
+
+switch (day) {
+  case 1:
+  case 2:
+  case 3:
+  case 4: {
+    [mrHiggie setCurrentHat:@"Fedora"];
+    break;
+  }
+  case 5: {
+    [mrHiggie setCurrentHat:@"Sombrero"];
+    break;
+  }
+  case 6:
+  case 7: {
+    [mrHiggie setCurrentHat:@"AstronautHelmet"];
+    break;
+  }
+}
+
+NSLog(@"Mr. Higgie is wearing: %@", [mrHiggie currentHat]);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-31" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-31-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.6</strong> Switch on enums <a href="#exercise-31-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">DayOfWeek day = getDayOfWeek();
+
+switch (day) {
+    case DayOfWeekMonday:
+    case DayOfWeekTuesday:
+    case DayOfWeekWednesday:
+    case DayOfWeekThursday:
+        [mrHiggie setCurrentHat:@"Fedora"];
+        break;
+
+    case DayOfWeekFriday:
+        [mrHiggie setCurrentHat:@"Sombrero"];
+        break;
+
+    case DayOfWeekSaturday:
+    case DayOfWeekSunday:
+        [mrHiggie setCurrentHat:@"AstronautHelmet"];
+        break;
+}
+
+NSLog(@"Mr. Higgie is wearing: %@", [mrHiggie currentHat]);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-32" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-32-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.7</strong> Fast enumeration <a href="#exercise-32-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSArray *newHats = @[@"Cowboy", @"Conductor", @"Baseball"];
+
+for (NSString *hat in newHats){
+
+  NSLog(@"Trying on new %@ hat", hat);
+
+  if([mrHiggie tryOnHat:hat]){
+    NSLog(@"Mr. Higgie loves it");
+  }else{
+    NSLog(@"Mr. Higgie hates it");
+  }
+}
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-33" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-33-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.8</strong> Enumerating a NSDictionary <a href="#exercise-33-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSDictionary *funnyWords = @{
+  @"Schadenfreude": @"pleasure derived by someone from another person's misfortune.",
+  @"Portmanteau": @"consisting of or combining two or more separable aspects or qualities",
+  @"Penultimate": @"second to the last"
+};
+
+for (NSString *word in funnyWords){
+  NSString *definition = funnyWords[word];
+  NSLog(@"%@ is defined as %@", word, definition);
+}
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-34" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-34-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.9</strong> Practice makes perfect <a href="#exercise-34-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSDictionary *newHats = @{
+  @"Cowboy": @"White",
+  @"Conductor": @"Brown",
+  @"Baseball": @"Red"
+};
+
+for (NSString *hat in newHats){
+
+  NSString *color = newHats[hat];
+
+  NSLog(@"Trying on new %@ %@ hat", color, hat);
+
+  if([mrHiggie tryOnHat:hat withColor:color]){
+    NSLog(@"Mr. Higgie loves it");
+  }else{
+    NSLog(@"Mr. Higgie hates it");
+  }
+}
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-68" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-68-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.10</strong> Playing with code blocks <a href="#exercise-68-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">void (^myFirstBlock)(void) = ^{
+  NSLog(@"Hello from inside the block");
+};
+
+myFirstBlock();
+myFirstBlock();
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-70" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-70-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.11</strong> Blocks with arguments <a href="#exercise-70-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">void (^myFirstBlock)(NSString *) = ^(NSString *message){
+  NSLog(@"Block message is: %@", message);
+};
+
+myFirstBlock(@"Hello");
+myFirstBlock(@"World");
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-69" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-69-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>3.12</strong> Enumerate with blocks <a href="#exercise-69-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSArray *newHats = @[@"Cowboy", @"Conductor", @"Baseball", 
+  @"Beanie", @"Beret", @"Fez"];
+
+[newHats enumerateObjectsUsingBlock:
+  ^(NSString *hat, NSUInteger index, BOOL *stop){
+    NSLog(@"Trying on hat #%lu: %@", index+1, hat);
+  }
+];
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+        </ol>
+    </section>
+  </div>
+  </body>
+</html>

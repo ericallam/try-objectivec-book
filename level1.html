@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>
+      Code School - Try Objective-C Book
+    </title>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href="application.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="codemirror/lib/codemirror.js" type="text/javascript" ></script>
+    <script src="codemirror/mode/clike/clike.js" type="text/javascript" ></script>
+    <script src="codemirror/addon/runMode/runMode.js" type="text/javascript" ></script>
+    <script src="javascripts/objc.js" type="text/javascript" ></script>
+    <script src="javascripts/jquery.js" type="text/javascript" ></script>
+    <script src="javascripts/underscore.js" type="text/javascript" ></script>
+    <script src="application.js" type="text/javascript" ></script>
+  </head>
+  <body>
+
+  <div class="user-enrolled level--1 exercise--text">
+  
+    
+
+    <ol class="exercises">
+      <li class="exercise exercise--text">
+          <div class="exercise-content">
+              <div class="exercise-objective">
+                <h2>Level 1 Table of Contents</h2>
+
+                <ul style="margin-top:15px">
+                  
+                    <li><a href="#exercise-1">Creating output</a></li>
+                  
+                    <li><a href="#exercise-2">Creating a variable</a></li>
+                  
+                    <li><a href="#exercise-3">Logging a variable</a></li>
+                  
+                    <li><a href="#exercise-4">Logging placeholders</a></li>
+                  
+                    <li><a href="#exercise-5">NSLog() placeholders</a></li>
+                  
+                    <li><a href="#exercise-6">Creating another variable</a></li>
+                  
+                    <li><a href="#exercise-7">Logging two variables</a></li>
+                  
+                    <li><a href="#exercise-8">Creating a number object</a></li>
+                  
+                    <li><a href="#exercise-9">Log a number object</a></li>
+                  
+                    <li><a href="#exercise-10">Creating an array variable</a></li>
+                  
+                    <li><a href="#exercise-11">Accessing values in an array</a></li>
+                  
+                    <li><a href="#exercise-12">Changing an array</a></li>
+                  
+                    <li><a href="#exercise-13">Creating a dictionary</a></li>
+                  
+                    <li><a href="#exercise-14">Accessing values in a dictionary</a></li>
+                  
+                </ul>
+              </div>
+          </div>
+      </li>
+    </ol>
+      
+    <section id="course" class="course">
+        <ol id="exercises" class="exercises">
+            
+              <li id="exercise-1" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.1</strong> Creating output
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Today you’re going to learn a little bit about Objective-C. To help us out along the way, we’ve invited Mr. Higgie. He’s an Objective-C expert and a friend of ours since 2007. Say hello, Mr. Higgie.</p>
+
+<div class="higgie--exercise">
+  <p>NSLog(@"Hello, Mr. Higgie.");</p>
+</div>
+
+<p>Please don’t laugh, it will only make him think he’s funny.  But <em>thank you</em> Mr. Higgie for introducing us to <code>NSLog</code>, a function that adds stuff to the <em>Output</em> window.</p>
+
+<p>The bit between the parenthesis is the way we represent a <em>string of characters</em> in Objective-C. You can put whatever you want in a string, like the opening line from Mr. Higgie’s favorite book:</p>
+
+<pre data-syntax="objc">@"Call me Ishmael."
+</pre>
+
+<p>To invoke the <code>NSLog</code> function, just follow Mr. Higgie’s helpful example above.</p>
+
+<p class="exercise-objective-action">Use <code>NSLog</code> to output a string containing your <em>first name</em></p>
+
+                        
+                          <a name="exercise-1-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc"></pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-1-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-2" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.2</strong> Creating a variable
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Congratulations Mr., you’ve created your first string and logged it to the <em>Output</em> window.</p>
+
+<p>But it would get very old having to type out <code>@"Mr."</code> every time you wanted a string with your name in it.</p>
+
+<p>We can store strings (and other values) in something called a <em>variable</em>. Variables are like boxes with a label. We put something in a box (a string) and give it a name so we can find it later. The name of a variable is usually descriptive of what is inside, and it usually starts with a lowercase letter and contains no spaces.</p>
+
+<p>Just like you have to choose an appropriate type of box to store something in, you have to choose the appropriate type of variable to store a value in. For string values, the type of variable you have to choose is <code>NSString *</code>.  Here is how you’d create a string variable:</p>
+
+<pre data-syntax="objc">NSString *firstName = @"Mr.";
+</pre>
+
+<p><code>NSString *</code> is the type of variable (we’ll cover why we need that little <code>*</code> later in the course), and the <code>=</code> operator stores the string <code>@"Mr."</code> in a variable with the name <code>firstName</code>.</p>
+
+<p class="exercise-objective-action">
+  Go ahead and fill out the code to the right to create your first string variable
+</p>
+
+                        
+                          <a name="exercise-2-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                <pre data-syntax="objc">NSString *firstName = @"/*//Your first name//*/";</pre>
+                              
+                              
+
+                              <a href="#exercise-2-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-3" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.3</strong> Logging a variable
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Now we have a variable that is storing a string with your first name.  But how do we get the string back out of the box?  This is so common that it’s as simple as possible: just refer to the name of the variable. So in place of using <code>@"Mr."</code> you can use the variable name <code>firstName</code>.</p>
+
+<p class="exercise-objective-action">Log your first name again but this time use the <code>firstName</code> variable</p>
+
+                        
+                          <a name="exercise-3-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                <pre data-syntax="objc">NSLog(/*//First name variable here//*/);</pre>
+                              
+                              
+
+                              <a href="#exercise-3-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-4" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.4</strong> Logging placeholders
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p><code>NSLog</code> is a powerful function. Sure, you can just pass it a single string and it will output it for you. But you can also pass it a string that contains <em>placeholders</em>, and <code>NSLog</code> will dutifully replace each placeholder with the extra values you give it.</p>
+
+<p class="exercise-objective-action">Try submitting <code>NSLog(@"Hello there, %@.", firstName);</code> to see what the output looks like.</p>
+
+                        
+                          <a name="exercise-4-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                <pre data-syntax="objc">NSLog(@"Hello there, %@.", /*//First name variable here//*/);</pre>
+                              
+                              
+
+                              <a href="#exercise-4-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-5" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.5</strong> NSLog() placeholders
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>The string you’re logging is called a formatted string.  See how <code>%@</code> is replaced with the value from <code>firstName</code> so that the full message appears in the output window?</p>
+
+<p>In <code>NSLog()</code>, <code>%@</code> is just a placeholder that means “I’m going to be replaced by a variable that is also passed into NSLog”. You can include as many placeholders as you need and they will be replaced in the order they are defined.</p>
+
+<p class="exercise-objective-action">There is no reason to limit yourself to one placeholder. Try logging <code>firstName</code> twice with a space in between.</p>
+
+                        
+                          <a name="exercise-5-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                <pre data-syntax="objc">NSLog(@"%@ %@", /*//First name variable here//*/, /*//First name variable here again//*/);</pre>
+                              
+                              
+
+                              <a href="#exercise-5-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-6" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.6</strong> Creating another variable
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <div class="higgie--exercise">
+  <p>Hey Mr., do you have a last name too?</p>
+</div>
+
+<p class="exercise-objective-action">Go ahead and create a new <code>NSString</code> variable called <code>lastName</code> and assign it a string containing your last name.</p>
+
+                        
+                          <a name="exercise-6-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc"></pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-6-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-7" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.7</strong> Logging two variables
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p class="exercise-objective-action">Now, instead of logging your first name twice, update the <code>NSLog</code> call on line 7 to log both the <code>firstName</code> and <code>lastName</code> variables</p>
+
+                        
+                          <a name="exercise-7-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                <pre data-syntax="objc">NSLog(@"%@ %@", firstName, firstName);</pre>
+                              
+                              
+
+                              <a href="#exercise-7-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-8" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.8</strong> Creating a number object
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Strings are fantastic, but were are just stratching the surface of the types of objects we can create.</p>
+
+<div class="higgie--exercise">
+  <p>Scratching the surface? Sounds like my worst nightmare</p>
+</div>
+
+<p>We’re going to spend the rest of this level talking about some other types of objects available in Objective-C, starting with numbers.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> Wondering where the word "objects" is coming from? Remember that "variable" just refers to the box. The "object" is the thing stored inside the box.  So <code>firstName</code> is a variable, while <code>@"Mr."</code> is an object. Sometimes we'll just use "object" as a shorthand when referring to a variable holding an object.
+</p>
+
+<p>Creating a number is very similar to creating strings:</p>
+
+<pre data-syntax="objc">NSNumber *ipodBirthdayYear = @2001;
+NSNumber *iphoneBirthdayYear = @2007;
+NSNumber *ipadBirthdayYear = @2010;
+</pre>
+
+<p>As you can see, instead of <code>NSString</code> we are using <code>NSNumber</code>. We also leave off the quotes and just have a <code>@</code> followed by a number.</p>
+
+<p class="exercise-objective-action">Go ahead and create a <code>NSNumber</code> to hold your age (don't worry, all ages are welcome to learn Objective-C)</p>
+
+                        
+                          <a name="exercise-8-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                <pre data-syntax="objc">NSNumber *age = /*//Enter your age as a number literal//*/;</pre>
+                              
+                              
+
+                              <a href="#exercise-8-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-9" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.9</strong> Log a number object
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>You can’t log an <code>NSNumber</code> object by passing it directly to <code>NSLog</code> like we did earlier with the <code>firstName</code> object. But you can use the <code>%@</code> placeholder object in a formatted string to log a representation of the number.</p>
+
+<p>So if you just wanted to log out the <code>age</code> object, you would have to do this:</p>
+
+<pre data-syntax="objc">NSLog(@"%@", age);
+</pre>
+
+<p class="exercise-objective-action">Complete the code to the right to log both the <code>firstName</code> and <code>age</code> objects</p>
+
+                        
+                          <a name="exercise-9-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                <pre data-syntax="objc">NSLog(@"%@ is %@ years old", firstName, /*//log age here//*/);</pre>
+                              
+                              
+
+                              <a href="#exercise-9-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-10" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.10</strong> Creating an array variable
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Creating one object at a time is great, but we don’t really have to store <em>every single</em> object in its own variable, like this:</p>
+
+<pre data-syntax="objc">NSString *angryFoul = @"AngryFoul";
+NSString *lettertouch = @"Lettertouch";
+NSString *tweetrobot = @"Tweetrobot";
+</pre>
+
+<div class="higgie--exercise">
+  <p>It looks like you're trying to make a list, would you like me to create an array for you?</p>
+</div>
+
+<p>Arrays are very useful for when we don’t want to have a bunch of variables that just hold a single value, but when we want a single variable to hold multiple values.  Create an array to hold our list of apps by submitting this code:</p>
+
+<pre data-syntax="objc" class="exercise-objective-actionCode CodeMirror cm-s-ios">NSArray *apps = @[@"AngryFoul", @"Lettertouch", @"Tweetrobot"];</pre>
+
+                        
+                          <a name="exercise-10-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc"></pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-10-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-11" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.11</strong> Accessing values in an array
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>You can access values in a <code>NSArray</code> by referencing a number inside of brackets after the array variable name.</p>
+
+<p><code>apps[0]</code> results in the first object in the array, <code>apps[1]</code> results in the second object, and so on.</p>
+
+<p>Try printing the second <code>NSString</code> in the array like this:</p>
+
+<pre data-syntax="objc" class="exercise-objective-actionCode CodeMirror cm-s-ios">NSLog(@"%@", apps[1]);</pre>
+
+                        
+                          <a name="exercise-11-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                <pre data-syntax="objc">NSLog(@"%@", /*//access second apps element//*/);</pre>
+                              
+                              
+
+                              <a href="#exercise-11-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-12" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.12</strong> Changing an array
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <div class="higgie--exercise">
+  <p>I just got a great new app called Instacanvas. Can you add it to the array please?</p>
+</div>
+
+<p>Oh, I’m afraid it’s not that simple Mr. Higgie. Most objects in Objective-C can’t be changed.  You’d think it could be as simple as just assigning a value to the 4th slot of the array, like this:</p>
+
+<pre data-syntax="objc">apps[3] = @"Instacanvas";
+</pre>
+
+<p class="exercise-objective-action">Try submitting the above code to see what happens</p>
+
+<p>Whoops!  You can’t just change a <code>NSArray</code> after it has been created, because it is an immutable object.</p>
+
+<p class="exercise-objective-note">
+  <span>Note:</span> Most types of objects have "mutable" counterparts like <code>NSMutableArray</code>, <code>NSMutableString</code>, etc., that allow you to change them after they've been created. We'll talk about these objects more later in the course.
+</p>
+
+<p>Instead of changing the existing <code>apps</code> object, we can assign an entirely new array to <code>apps</code>, just like how we could replace the contents of a box with new contents. </p>
+
+<p>Change the <code>apps</code> variable to include the <code>@"Instacanvas"</code> string by submitting this code (notice how we no longer need the <code>NSArray *</code> type specifier because we’ve already defined this variable earlier):</p>
+
+<pre data-syntax="objc" class="exercise-objective-actionCode CodeMirror cm-s-ios">apps = @[@"AngryFoul", @"Lettertouch", @"Tweetrobot", @"Instacanvas"];</pre>
+
+                        
+                          <a name="exercise-12-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc"></pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-12-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-13" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.13</strong> Creating a dictionary
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Let’s say that you wanted to keep track of your 5-star rating of each app in the <code>apps</code> array.  One way you could do it is to create another array with corresponding ratings:</p>
+
+<pre data-syntax="objc">NSArray *ratings = @[@3, @5];
+</pre>
+
+<p>Unfortunately, it’s not immediately obvious which rating belongs to which app.</p>
+
+<div class="higgie--exercise">
+  <p>★☆☆☆☆ unfocused and heartbreaking</p>
+</div>
+
+<p>Objective-C has an object that’s perfect for this type of data: <code>NSDictionary</code>. With an <code>NSDictionary</code>, we can associate a key (the app name), with a value (the app rating).  For example, we can create a <code>NSDictionary</code> with a single key and value like this:</p>
+
+<pre data-syntax="objc">NSDictionary *person = @{@"First Name": @"Eric"};        
+</pre>
+
+<p>Here we’ve defined a dictionary with 1 key (<code>@"First Name"</code>) associated with the value <code>@"Eric"</code>.  </p>
+
+<p>Dictionaries can contain multiple key/value pairs, separated by a comma. Define an <code>appRatings</code> dictionary by submitting the code below:</p>
+
+<pre data-syntax="objc" class="exercise-objective-actionCode CodeMirror cm-s-ios">NSDictionary *appRatings = @{@"AngryFoul": @3, @"Lettertouch": @5};</pre>
+
+                        
+                          <a name="exercise-13-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                
+                                  <span class="exercise-objective-fileHeader">File:</span>
+                                  <pre data-syntax="objc"></pre>
+                                
+                              
+                              
+
+                              <a href="#exercise-13-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+              <li id="exercise-14" class="exercise exercise--text">
+                  <div class="exercise-content">
+                      <div class="exercise-header">
+                          <h1>
+                              <strong>1.14</strong> Accessing values in a dictionary
+                          </h1>
+                      </div>
+                      <div class="exercise-objective">
+                        <p>Accessing the values in a dictionary works exactly like it does with an array, except instead of using a number, you use the key.  So if you wanted to log the rating of the <code>@"AngryFoul"</code> app, you could do this:</p>
+
+<pre data-syntax="objc">NSLog(@"%@", appRatings[@"AngryFoul"]);
+</pre>
+
+<p class="exercise-objective-action">Go ahead and log the rating of the <code>@"Lettertouch"</code> app</p>
+
+                        
+                          <a name="exercise-14-challenge" ></a>
+                          <p>
+                              <h4><strong>Starting Code:</strong></h4>
+                              <hr />
+                              
+                                <pre data-syntax="objc">NSLog(@"Lettertouch has a rating of %@.", /*//access the Lettertouch element//*/);</pre>
+                              
+                              
+
+                              <a href="#exercise-14-answer" class="exercise-links-answer">See Answer</a>
+                          </p>
+                        
+                      </div>
+                  </div>
+              </li>
+            
+        </ol>
+
+
+
+        <ol class="exercises">
+          <li class="exercise exercise--text">
+              <div class="exercise-content">
+                  <div class="exercise-objective">
+                    <h2>Answers for Level 1</h2>
+                  </div>
+              </div>
+          </li>
+        </ol>
+        
+
+        <ol id="answers" class="exercises">
+            
+              
+                
+                  <li id="answer-1" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-1-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.1</strong> Creating output <a href="#exercise-1-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p>Use NSLog and pass in a string. Be sure to prefix the string with an <code>@</code> sign.</p>
+
+<pre data-syntax="objc">NSLog(@"Mr. Higgie");
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-2" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-2-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.2</strong> Creating a variable <a href="#exercise-2-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p>Create an <code>NSString</code> called <code>firstName</code> which is set to your first name.</p>
+
+<pre data-syntax="objc">NSString *firstName = @"Mr.";
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-3" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-3-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.3</strong> Logging a variable <a href="#exercise-3-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p>You can log the <code>firstName</code> variable the same we logged your name earlier on.</p>
+
+<pre data-syntax="objc">NSLog(firstName);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-4" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-4-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.4</strong> Logging placeholders <a href="#exercise-4-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p>The <code>%@</code> placeholder in the first string will be replaced by the value of the <code>firstName</code> variable. Try running this and checking out the output.</p>
+
+<pre data-syntax="objc">NSLog(@"Hello there, %@.", firstName);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-5" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-5-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.5</strong> NSLog() placeholders <a href="#exercise-5-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p>Just like before, the <code>%@</code> placeholder is replaced. In this case we’re passing two placeholders, meaning we need to pass in two values as well.</p>
+
+<pre data-syntax="objc">NSLog(@"%@ %@",firstName, firstName);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-6" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-6-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.6</strong> Creating another variable <a href="#exercise-6-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p>Create an <code>NSString</code> called <code>lastName</code> which is set to your last name.</p>
+
+<pre data-syntax="objc">NSString *lastName = @"Higgie";
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-7" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-7-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.7</strong> Logging two variables <a href="#exercise-7-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p>Again we can try using two placeholders, but this time we can pass in our two variables.</p>
+
+<pre data-syntax="objc">NSLog(@"%@ %@",firstName, lastName);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-8" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-8-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.8</strong> Creating a number object <a href="#exercise-8-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p>Make sure you prefix your age with an <code>@</code> sign.</p>
+
+<pre data-syntax="objc">NSNumber *age = @25;
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-9" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-9-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.9</strong> Log a number object <a href="#exercise-9-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p>Since there are two placeholders, we know what to do! In this case the two filler values are our <code>firstName</code> variable and our <code>age</code> variable.</p>
+
+<pre data-syntax="objc">NSLog(@"%@ is %@ years old", firstName, age);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-10" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-10-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.10</strong> Creating an array variable <a href="#exercise-10-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSArray *apps = @[@"AngryFoul", @"Lettertouch", @"Tweetrobot"];
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-11" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-11-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.11</strong> Accessing values in an array <a href="#exercise-11-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSLog(@"%@", apps[1]);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-12" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-12-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.12</strong> Changing an array <a href="#exercise-12-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">apps = @[@"AngryFoul", @"Lettertouch", @"Tweetrobot", @"Instacanvas"];
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-13" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-13-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.13</strong> Creating a dictionary <a href="#exercise-13-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <pre data-syntax="objc">NSDictionary *appRatings = @{@"AngryFoul": @3, @"Lettertouch": @5};
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+              
+                
+                  <li id="answer-14" class="exercise exercise--text">
+                      <div class="exercise-content">
+                          <a name="exercise-14-answer"></a>
+                          <div class="exercise-header">
+                              <h1>
+                                  <strong>1.14</strong> Accessing values in a dictionary <a href="#exercise-14-challenge">↩</a>
+                              </h1>
+                          </div>
+                          <div class="exercise-objective">
+                            <p>We want to use the <code>appRatings</code> dictionary and get at the <code>@"Lettertouch"</code> key.</p>
+
+<pre data-syntax="objc">NSLog(@"Lettertouch has a rating of %@.", appRatings[@"Lettertouch"]);
+</pre>
+                          </div>
+                      </div>
+                  </li>
+                
+              
+            
+        </ol>
+    </section>
+  </div>
+  </body>
+</html>
