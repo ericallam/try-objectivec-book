@@ -29,6 +29,10 @@ b {
   font-weight: normal;
 }
 
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
 @font-face {
   font-family: "Course";
   src: url(fonts/cs-course.eot);
