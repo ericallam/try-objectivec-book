@@ -33,6 +33,11 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+.back-home {
+  margin-bottom: 27px;
+  display: block;
+}
+
 @font-face {
   font-family: "Course";
   src: url(fonts/cs-course.eot);
